@@ -6,7 +6,7 @@ import com.googlecode.objectify.annotation.*;
 
 @Entity
 @Cache
-public class Account {
+public class Account implements IDataCenterObject {
 
 	private String name;
 	private @Id String mail;
