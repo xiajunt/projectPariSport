@@ -1,0 +1,18 @@
+Deja fait:
+
+_Recuperation de la liste des matchs et transformation en objet
+_Maitrise de le data store
+_Maitrise du systeme de login via les comptes googles
+
+A faire par ordre de priorite:
+
+_Planification pour enregistrer la liste des matchs dans le data store
+_Recuperation de cette liste dans le data store pour l'afficher a la demande du client (trie de la liste selon si le match a deja eux lieu ou non)
+_Creation d'un element Account dans le data store chaque fois qu'un nouveau utilisateur se connecte sur l'application.
+_Pouvoir parier sur les matchs a venir pour chaque utilisateur.
+
+*Bonus:
+
+_Même chose pour la liste des joueurs, des equipes, des coatchs et des blessés avec les liens qui vont avec.
+
+Et en parallele on developpera l'interface graphique et le lier avec les differents fonctionnalités.
