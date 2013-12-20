@@ -12,25 +12,22 @@ import projetPariSport.structObject.Schedule;
 public class ScheduleHandler extends DefaultHandler {
 	private List<Schedule> seasonSchedule;
 	private Schedule schedule;
-	private boolean inSeasonSchedule, inLeague, inGame, inVenue, inBroadcast;
 	private StringBuffer buffer;
 	private String leagueId, leagueName, leagueAlias, id, type;
 	private Integer year;
 	
 	public ScheduleHandler() {
 		super();
+		seasonSchedule = new LinkedList<Schedule>();
 	}
 	
 	public void startElement(String uri, String localName,
 			String qName, Attributes attributes) throws SAXException{
 		if(qName.equals("league")){
-			inLeague = true;
 			leagueId = attributes.getValue("id");
 			leagueName = attributes.getValue("name");
 			leagueAlias = attributes.getValue("alias");
 		}else if(qName.equals("season-schedule")){
-			seasonSchedule = new LinkedList<Schedule>();
-			inSeasonSchedule = true;
 			id = attributes.getValue("id");
 			year = Integer.parseInt(attributes.getValue("year"));
 			type = attributes.getValue("type");
@@ -50,13 +47,10 @@ public class ScheduleHandler extends DefaultHandler {
 				schedule.setGameHomeTeamId(attributes.getValue("home_team"));
 				schedule.setGameAwayTeamId(attributes.getValue("away_team"));
 				schedule.setGameScheduled(attributes.getValue("scheduled"));
-				inGame = true;
 			}else if(qName.equals("venue")){
-				inVenue = true;
 				schedule.setVenueId(attributes.getValue("id"));
 			}
 			else if(qName.equals("broadcast")){
-				inBroadcast = true;
 				schedule.setBroadcastNetwork(attributes.getValue("network"));
 				schedule.setBroadcastSatellite(attributes.getValue("satellite"));
 			}
@@ -68,19 +62,14 @@ public class ScheduleHandler extends DefaultHandler {
 	
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("league")){
-			inLeague = false;
 		}else if(qName.equals("season-schedule")){
-			inSeasonSchedule = false;
 		}else if(qName.equals("game")){
 			seasonSchedule.add(schedule);
-			inGame = false;
 			buffer = null;
 			schedule = null;
 		}else if(qName.equals("venue")){
-			inVenue = false;
 			buffer = null;
 		}else if(qName.equals("broadcast")){
-			inBroadcast = false;
 			buffer = null;
 		}else{
 			/*DO NOTHIN*/

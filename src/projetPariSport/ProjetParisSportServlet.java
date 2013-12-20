@@ -22,7 +22,7 @@ public class ProjetParisSportServlet extends HttpServlet {
 		ObjectifyService.ofy();
 		
 		/*Creer notre instance Account et le sauvegarder dans le data store*/
-		Account myAccount = new Account("Junius", "Junius@gmail.com");
+		Account myAccount = new Account("Junt", "xiajunt@gmail.com");
 		ofy().save().entity(myAccount).now();
 		
 		/*Charger l'objet a partir du data store*/

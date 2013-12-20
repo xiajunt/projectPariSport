@@ -16,10 +16,10 @@ public class Schedule implements IDataCenterObject {
 	private String leagueId;
 	private String leagueName;
 	private String leagueAlias;
-	private @Id String id;
+	private String id;
 	private Integer year;
 	private String type;
-	private String gameId;
+	private @Id String gameId;
 	private String gameStatus;
 	private String gameCoverage;
 	private String gameHomeTeamId;

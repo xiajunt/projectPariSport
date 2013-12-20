@@ -24,7 +24,6 @@ public class DataCenterTool {
 	}
 	
 	public static <T extends IDataCenterObject> void addDataCenter(List<T> list) {
-		
 		ObjectifyService.ofy();
 		ofy().save().entities(list).now();
 	}
