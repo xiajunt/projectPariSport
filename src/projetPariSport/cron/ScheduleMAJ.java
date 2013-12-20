@@ -1,6 +1,7 @@
 package projetPariSport.cron;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -16,6 +17,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.xml.sax.helpers.DefaultHandler;
 
+import projetPariSport.dataCenterTool.DataCenterTool;
 import projetPariSport.parameter.Parameter;
 import projetPariSport.saxHandler.ScheduleHandler;
 
@@ -41,15 +43,24 @@ public class ScheduleMAJ extends HttpServlet {
         
         SAXParserFactory f = SAXParserFactory.newInstance();
 		SAXParser p;
+		
+		resp.setContentType("text/plain");
+		
 		try {
 			p = f.newSAXParser();
 			DefaultHandler g = new ScheduleHandler();
-			p.parse(textView.toString(), g);
+			
+			resp.getWriter().println(textView.toString());
+			
+			p.parse(new ByteArrayInputStream(textView.toString().getBytes()), g);
+			DataCenterTool.addDataCenter(((ScheduleHandler)g).getSeasonSchedule());
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+		
+		resp.getWriter().println("Ok");
 	}
 
 }

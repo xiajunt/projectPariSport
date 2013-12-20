@@ -1,6 +1,6 @@
 package projetPariSport.saxHandler;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.xml.sax.Attributes;
@@ -29,7 +29,7 @@ public class ScheduleHandler extends DefaultHandler {
 			leagueName = attributes.getValue("name");
 			leagueAlias = attributes.getValue("alias");
 		}else if(qName.equals("season-schedule")){
-			seasonSchedule = new ArrayList<Schedule>();
+			seasonSchedule = new LinkedList<Schedule>();
 			inSeasonSchedule = true;
 			id = attributes.getValue("id");
 			year = Integer.parseInt(attributes.getValue("year"));

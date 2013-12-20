@@ -1,6 +1,10 @@
 package projetPariSport.dataCenterTool;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
+
+import java.util.List;
+
+import projetPariSport.parameter.Parameter;
 import projetPariSport.structObject.Account;
 import projetPariSport.structObject.IDataCenterObject;
 import projetPariSport.structObject.Schedule;
@@ -19,9 +23,22 @@ public class DataCenterTool {
 		ofy().save().entity(obj).now();
 	}
 	
-	public static <V> IDataCenterObject getDataCenter(Class<V> a, String id) {
+	public static <T extends IDataCenterObject> void addDataCenter(List<T> list) {
+		
 		ObjectifyService.ofy();
-		return ofy().load().type(a).id(id).now();
+		ofy().save().entities(list).now();
+	}
+	
+	public static IDataCenterObject getDataCenter(int type, String id) {
+		ObjectifyService.ofy();
+		switch (type)
+		{
+			case Parameter.SCHEDULE:
+				return ofy().load().type(Schedule.class).id(id).now();
+			default:
+				return null;
+				
+		}
 	}
 
 }

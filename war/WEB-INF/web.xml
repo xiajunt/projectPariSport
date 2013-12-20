@@ -19,7 +19,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-class>projetPariSport.cron.ScheduleMAJ</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ProjetParisSport</servlet-name>
+		<servlet-name>ScheduleMAJ</servlet-name>
 		<url-pattern>/projetparissport/cron/scheduleMAJ</url-pattern>
 	</servlet-mapping>
 	
@@ -38,7 +38,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<security-constraint>
 		<web-resource-collection>
-		    <url-pattern>/cron/*</url-pattern>
 			<url-pattern>/admin/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
