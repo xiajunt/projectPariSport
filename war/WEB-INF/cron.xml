@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
 	<cron>
-		<url>/cron/scheduleMAJ</url>
+		<url>/projetparissport/cron/scheduleMAJ</url>
 		<description>Mettre a jour la liste des matchs</description>
-		<schedule>every sunday 06:00</schedule>
+		<schedule>every saturday 06:00</schedule>
 		<timezone>Europe/Paris</timezone>
 	</cron>
 </cronentries>
