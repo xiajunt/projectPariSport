@@ -1,11 +1,20 @@
 package projetPariSport.structObject;
 
+import java.beans.Introspector;
+import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.xml.sax.Attributes;
+
+import projetPariSport.utils.Utils;
+
 import com.googlecode.objectify.annotation.*;
+
+
 
 /* JavaBean Schedule
  * 
@@ -17,22 +26,22 @@ public class Schedule implements IDataCenterObject {
 	private String leagueName;
 	private String leagueAlias;
 	private String id;
-	private Integer year;
+	private String year;
 	private String type;
 	private @Id String gameId;
-	private String gameStatus;
-	private String gameCoverage;
-	private String gameHomeTeamId;
-	private String gameAwayTeamId;
-	private @Index Date gameScheduled;
+	private String status;
+	private String coverage;
+	private String homeTeam;
+	private String awayTeam;
+	private @Index Date scheduled;
 	private String venueId;
-	private String broadcastNetwork;
-	private String broadcastSatellite;
+	private String network;
+	private String satellite;
 	
 	public Schedule(){
-		
+		super();
 	}
-	
+
 	public String getLeagueId() {
 		return leagueId;
 	}
@@ -65,11 +74,11 @@ public class Schedule implements IDataCenterObject {
 		this.id = id;
 	}
 
-	public Integer getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(Integer year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -88,47 +97,47 @@ public class Schedule implements IDataCenterObject {
 	public void setGameId(String gameId) {
 		this.gameId = gameId;
 	}
-	
-	public String getGameStatus() {
-		return this.gameStatus;
+
+	public String getStatus() {
+		return status;
 	}
 
-	public void setGameStatus(String gameStatus) {
-		this.gameStatus = gameStatus;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getGameCoverage() {
-		return gameCoverage;
+	public String getCoverage() {
+		return coverage;
 	}
 
-	public void setGameCoverage(String gameCoverage) {
-		this.gameCoverage = gameCoverage;
+	public void setCoverage(String coverage) {
+		this.coverage = coverage;
 	}
 
-	public String getGameHomeTeamId() {
-		return gameHomeTeamId;
+	public String getHomeTeam() {
+		return homeTeam;
 	}
 
-	public void setGameHomeTeamId(String gameHomeTeamId) {
-		this.gameHomeTeamId = gameHomeTeamId;
+	public void setHomeTeam(String homeTeam) {
+		this.homeTeam = homeTeam;
 	}
 
-	public String getGameAwayTeamId() {
-		return this.gameAwayTeamId;
+	public String getAwayTeam() {
+		return awayTeam;
 	}
 
-	public void setGameAwayTeamId(String gameAwayTeamId) {
-		this.gameAwayTeamId = gameAwayTeamId;
+	public void setAwayTeam(String awayTeam) {
+		this.awayTeam = awayTeam;
 	}
 
-	public Date getGameScheduled() {
-		return gameScheduled;
+	public Date getScheduled() {
+		return scheduled;
 	}
 
-	public void setGameScheduled(String gameScheduled) {
-		String t = gameScheduled.replace('T', ':');
+	public void setScheduled(String scheduled) {
+		String t = scheduled.replace('T', ':');
 		try {
-			this.gameScheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
+			this.scheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,32 +152,58 @@ public class Schedule implements IDataCenterObject {
 		this.venueId = venueId;
 	}
 
-	public String getBroadcastNetwork() {
-		return broadcastNetwork;
+	public String getNetwork() {
+		return network;
 	}
 
-	public void setBroadcastNetwork(String broadcastNetwork) {
-		this.broadcastNetwork = broadcastNetwork;
+	public void setNetwork(String network) {
+		this.network = network;
 	}
 
-	public String getBroadcastSatellite() {
-		return broadcastSatellite;
+	public String getSatellite() {
+		return satellite;
 	}
 
-	public void setBroadcastSatellite(String broadcastSatellite) {
-		this.broadcastSatellite = broadcastSatellite;
+	public void setSatellite(String satellite) {
+		this.satellite = satellite;
 	}
 	
-	public String toString(){
-		return new StringBuffer("LeagueId : ").append(leagueId).append(",\n").append("LeagueName : ").append(leagueName)
-				.append(",\n").append("LeagueAlias : ").append(leagueAlias).append(",\n").append("Id : ").append(id)
-				.append(",\n").append("Year : ").append(year).append(",\n").append("Type : ").append(type)
-				.append(",\n").append("GameId : ").append(gameId).append(",\n").append("Status : ").append(gameStatus)
-				.append(",\n").append("Coverage : ").append(gameCoverage).append(",\n").append("GameHomeTeamId : ")
-				.append(gameHomeTeamId).append(",\n").append("GameAwayTeamId : ").append(gameAwayTeamId)
-				.append(",\n").append("GameScheduled : ").append(gameScheduled).append(",\n")
-				.append("VenueId : ").append(venueId).append(",\n").append("BroadCastNetwork : ").append(broadcastNetwork)
-				.append(",\n").append("BroadCastSatellite : ").append(broadcastSatellite).toString();
+	/**
+	 * Set values matching all Sax attributes to the Intances variables
+	 * @param attributes
+	 */
+	public void setAttributesValues(Attributes attributes){
+		
+		int len = attributes.getLength();
+		for(int i = 0; i < len; i++)
+		{
+			String sAttrName = Introspector.decapitalize(Utils.toCamelCase(attributes.getLocalName(i)));
+			String sVal = attributes.getValue(i);
+			
+			try {
+				BeanUtils.setProperty(this,sAttrName,sVal);
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Schedule [leagueId=" + leagueId + ", leagueName=" + leagueName
+				+ ", leagueAlias=" + leagueAlias + ", id=" + id + ", year="
+				+ year + ", type=" + type + ", gameId=" + gameId + ", status="
+				+ status + ", coverage=" + coverage + ", homeTeam=" + homeTeam
+				+ ", awayTeam=" + awayTeam + ", scheduled=" + scheduled
+				+ ", venueId=" + venueId + ", network=" + network
+				+ ", satellite=" + satellite + "]";
 	}
 }
 

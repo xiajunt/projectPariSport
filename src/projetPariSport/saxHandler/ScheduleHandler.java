@@ -13,8 +13,7 @@ public class ScheduleHandler extends DefaultHandler {
 	private List<Schedule> seasonSchedule;
 	private Schedule schedule;
 	private StringBuffer buffer;
-	private String leagueId, leagueName, leagueAlias, id, type;
-	private Integer year;
+	private String leagueId, leagueName, leagueAlias, id, type, year;
 	
 	public ScheduleHandler() {
 		super();
@@ -29,7 +28,7 @@ public class ScheduleHandler extends DefaultHandler {
 			leagueAlias = attributes.getValue("alias");
 		}else if(qName.equals("season-schedule")){
 			id = attributes.getValue("id");
-			year = Integer.parseInt(attributes.getValue("year"));
+			year = attributes.getValue("year");
 			type = attributes.getValue("type");
 		}
 		else{
@@ -42,17 +41,13 @@ public class ScheduleHandler extends DefaultHandler {
 				schedule.setYear(year);
 				schedule.setType(type);
 				schedule.setGameId(attributes.getValue("id"));
-				schedule.setGameStatus(attributes.getValue("status"));
-				schedule.setGameCoverage(attributes.getValue("coverage"));
-				schedule.setGameHomeTeamId(attributes.getValue("home_team"));
-				schedule.setGameAwayTeamId(attributes.getValue("away_team"));
-				schedule.setGameScheduled(attributes.getValue("scheduled"));
+				schedule.setScheduled(attributes.getValue("scheduled"));
+				schedule.setAttributesValues(attributes);
 			}else if(qName.equals("venue")){
 				schedule.setVenueId(attributes.getValue("id"));
 			}
 			else if(qName.equals("broadcast")){
-				schedule.setBroadcastNetwork(attributes.getValue("network"));
-				schedule.setBroadcastSatellite(attributes.getValue("satellite"));
+				schedule.setAttributesValues(attributes);
 			}
 			else{
 				/*DO NOTHIN*/
@@ -61,18 +56,13 @@ public class ScheduleHandler extends DefaultHandler {
 	}	
 	
 	public void endElement(String uri, String localName, String qName){
-		if(qName.equals("league")){
-		}else if(qName.equals("season-schedule")){
-		}else if(qName.equals("game")){
+		if(qName.equals("game")){
 			seasonSchedule.add(schedule);
 			buffer = null;
 			schedule = null;
-		}else if(qName.equals("venue")){
-			buffer = null;
-		}else if(qName.equals("broadcast")){
-			buffer = null;
 		}else{
 			/*DO NOTHIN*/
+			buffer = null;
 		}
 	}
 	
@@ -86,12 +76,9 @@ public class ScheduleHandler extends DefaultHandler {
 	}
 	
 	public void endDocument() throws SAXException{
-		System.out.println("End of parsing:");
-		System.out.println("results:");
-		for(Schedule s : seasonSchedule){
-			System.out.println("/*");
-			System.out.println(s);
-			System.out.println("*/ \n");
+
+		for(Schedule b : seasonSchedule){
+			System.out.println(b.toString());
 		}
 	}
 	

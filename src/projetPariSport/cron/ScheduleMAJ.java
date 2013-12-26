@@ -26,6 +26,7 @@ public class ScheduleMAJ extends HttpServlet {
 
 	private HttpClient client;
 
+	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		client = new DefaultHttpClient();

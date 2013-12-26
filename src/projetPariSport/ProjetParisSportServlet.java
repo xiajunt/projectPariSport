@@ -16,6 +16,7 @@ public class ProjetParisSportServlet extends HttpServlet {
 		ObjectifyService.register(Account.class);
 	}
 	
+	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		/*initialisation Objectify*/
