@@ -42,12 +42,12 @@ public class ScheduleHandler extends DefaultHandler {
 				schedule.setType(type);
 				schedule.setGameId(attributes.getValue("id"));
 				schedule.setScheduled(attributes.getValue("scheduled"));
-				schedule.setAttributesValues(attributes);
+				schedule.setAttributesValues(attributes,"");
 			}else if(qName.equals("venue")){
 				schedule.setVenueId(attributes.getValue("id"));
 			}
 			else if(qName.equals("broadcast")){
-				schedule.setAttributesValues(attributes);
+				schedule.setAttributesValues(attributes, "");
 			}
 			else{
 				/*DO NOTHIN*/

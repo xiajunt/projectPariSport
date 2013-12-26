@@ -1,27 +1,18 @@
 package projetPariSport.structObject;
 
-import java.beans.Introspector;
-import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.xml.sax.Attributes;
-
-import projetPariSport.utils.Utils;
-
 import com.googlecode.objectify.annotation.*;
-
-
 
 /* JavaBean Schedule
  * 
  */
 @Entity
 @Cache
-public class Schedule implements IDataCenterObject {
+public class Schedule extends StructObject implements IDataCenterObject {
 	private String leagueId;
 	private String leagueName;
 	private String leagueAlias;
@@ -168,33 +159,6 @@ public class Schedule implements IDataCenterObject {
 		this.satellite = satellite;
 	}
 	
-	/**
-	 * Set values matching all Sax attributes to the Intances variables
-	 * @param attributes
-	 */
-	public void setAttributesValues(Attributes attributes){
-		
-		int len = attributes.getLength();
-		for(int i = 0; i < len; i++)
-		{
-			String sAttrName = Introspector.decapitalize(Utils.toCamelCase(attributes.getLocalName(i)));
-			String sVal = attributes.getValue(i);
-			
-			try {
-				BeanUtils.setProperty(this,sAttrName,sVal);
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-
 	@Override
 	public String toString() {
 		return "Schedule [leagueId=" + leagueId + ", leagueName=" + leagueName
