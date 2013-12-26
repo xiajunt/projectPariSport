@@ -27,8 +27,9 @@ public class StructObject {
 		int len = attributes.getLength();
 		for(int i = 0; i < len; i++)
 		{
-			String sAttrName = ("".equals(base))?Introspector.decapitalize(Utils.toCamelCase(attributes.getLocalName(i))):base+Utils.toCamelCase(attributes.getLocalName(i));
+			String sAttrName = ("".equals(base))?Introspector.decapitalize(Utils.toCamelCase(attributes.getLocalName(i))):Introspector.decapitalize(Utils.toCamelCase(base))+Utils.toCamelCase(attributes.getLocalName(i));
 			String sVal = attributes.getValue(i);
+
 			try {
 				BeanUtils.setProperty(this,sAttrName,sVal);
 			} catch (NumberFormatException e) {
