@@ -7,30 +7,42 @@ import java.util.Locale;
 
 import com.googlecode.objectify.annotation.*;
 
-/* JavaBean Schedule
+/**
+ * Schedule - Definition of the object schedule
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get full season schedules for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 20/12/2013
+ *
+ * @revision 
+ * 				date 21/12/2013
+ * 				author Juntie Xia
+ * 				Integration of the object in the GAE's datastore
  */
 @Entity
 @Cache
-public class Schedule implements IDataCenterObject {
+public class Schedule extends StructObject implements IDataCenterObject {
 	private String leagueId;
 	private String leagueName;
 	private String leagueAlias;
-	private String id;
-	private Integer year;
-	private String type;
-	private @Id String gameId;
+	private String seasonScheduleId;
+	private String seasonScheduleYear;
+	private String seasonScheduleType;
+	private String gameId;
 	private String gameStatus;
 	private String gameCoverage;
-	private String gameHomeTeamId;
-	private String gameAwayTeamId;
-	private @Index Date gameScheduled;
+	private String gameHomeTeam;
+	private String gameAwayTeam;
+	private Date gameScheduled;
 	private String venueId;
 	private String broadcastNetwork;
 	private String broadcastSatellite;
 	
 	public Schedule(){
-		
+		super();
 	}
 	
 	public String getLeagueId() {
@@ -57,28 +69,28 @@ public class Schedule implements IDataCenterObject {
 		this.leagueAlias = leagueAlias;
 	}
 
-	public String getId() {
-		return id;
+	public String getSeasonScheduleId() {
+		return seasonScheduleId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setSeasonScheduleId(String seasonScheduleId) {
+		this.seasonScheduleId = seasonScheduleId;
 	}
 
-	public Integer getYear() {
-		return year;
+	public String getSeasonScheduleYear() {
+		return seasonScheduleYear;
 	}
 
-	public void setYear(Integer year) {
-		this.year = year;
+	public void setSeasonScheduleYear(String seasonScheduleYear) {
+		this.seasonScheduleYear = seasonScheduleYear;
 	}
 
-	public String getType() {
-		return type;
+	public String getSeasonScheduleType() {
+		return seasonScheduleType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setSeasonScheduleType(String seasonScheduleType) {
+		this.seasonScheduleType = seasonScheduleType;
 	}
 
 	public String getGameId() {
@@ -88,9 +100,9 @@ public class Schedule implements IDataCenterObject {
 	public void setGameId(String gameId) {
 		this.gameId = gameId;
 	}
-	
+
 	public String getGameStatus() {
-		return this.gameStatus;
+		return gameStatus;
 	}
 
 	public void setGameStatus(String gameStatus) {
@@ -105,26 +117,26 @@ public class Schedule implements IDataCenterObject {
 		this.gameCoverage = gameCoverage;
 	}
 
-	public String getGameHomeTeamId() {
-		return gameHomeTeamId;
+	public String getGameHomeTeam() {
+		return gameHomeTeam;
 	}
 
-	public void setGameHomeTeamId(String gameHomeTeamId) {
-		this.gameHomeTeamId = gameHomeTeamId;
+	public void setGameHomeTeam(String gameHomeTeam) {
+		this.gameHomeTeam = gameHomeTeam;
 	}
 
-	public String getGameAwayTeamId() {
-		return this.gameAwayTeamId;
+	public String getGameAwayTeam() {
+		return gameAwayTeam;
 	}
 
-	public void setGameAwayTeamId(String gameAwayTeamId) {
-		this.gameAwayTeamId = gameAwayTeamId;
+	public void setGameAwayTeam(String gameAwayTeam) {
+		this.gameAwayTeam = gameAwayTeam;
 	}
 
 	public Date getGameScheduled() {
 		return gameScheduled;
 	}
-
+	
 	public void setGameScheduled(String gameScheduled) {
 		String t = gameScheduled.replace('T', ':');
 		try {
@@ -155,20 +167,24 @@ public class Schedule implements IDataCenterObject {
 		return broadcastSatellite;
 	}
 
+
 	public void setBroadcastSatellite(String broadcastSatellite) {
 		this.broadcastSatellite = broadcastSatellite;
 	}
-	
-	public String toString(){
-		return new StringBuffer("LeagueId : ").append(leagueId).append(",\n").append("LeagueName : ").append(leagueName)
-				.append(",\n").append("LeagueAlias : ").append(leagueAlias).append(",\n").append("Id : ").append(id)
-				.append(",\n").append("Year : ").append(year).append(",\n").append("Type : ").append(type)
-				.append(",\n").append("GameId : ").append(gameId).append(",\n").append("Status : ").append(gameStatus)
-				.append(",\n").append("Coverage : ").append(gameCoverage).append(",\n").append("GameHomeTeamId : ")
-				.append(gameHomeTeamId).append(",\n").append("GameAwayTeamId : ").append(gameAwayTeamId)
-				.append(",\n").append("GameScheduled : ").append(gameScheduled).append(",\n")
-				.append("VenueId : ").append(venueId).append(",\n").append("BroadCastNetwork : ").append(broadcastNetwork)
-				.append(",\n").append("BroadCastSatellite : ").append(broadcastSatellite).toString();
-	}
+
+	@Override
+	public String toString() {
+		return "Schedule [leagueId=" + leagueId + ", leagueName=" + leagueName
+				+ ", leagueAlias=" + leagueAlias + ", seasonScheduleId="
+				+ seasonScheduleId + ", seasonScheduleYear="
+				+ seasonScheduleYear + ", seasonScheduleType="
+				+ seasonScheduleType + ", gameId=" + gameId + ", gameStatus="
+				+ gameStatus + ", gameCoverage=" + gameCoverage
+				+ ", gameHomeTeam=" + gameHomeTeam + ", gameAwayTeam="
+				+ gameAwayTeam + ", gameScheduled=" + gameScheduled
+				+ ", venueId=" + venueId + ", broadcastNetwork="
+				+ broadcastNetwork + ", broadcastSatellite="
+				+ broadcastSatellite + "]";
+	}	
 }
 
