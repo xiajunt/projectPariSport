@@ -7,8 +7,20 @@ import java.util.Locale;
 
 import com.googlecode.objectify.annotation.*;
 
-/* JavaBean Schedule
+/**
+ * Schedule - Definition of the object schedule
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get full season schedules for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 20/12/2013
+ *
+ * @revision 
+ * 				date 21/12/2013
+ * 				author Juntie Xia
+ * 				Integration of the object in the GAE's datastore
  */
 @Entity
 @Cache
@@ -16,23 +28,23 @@ public class Schedule extends StructObject implements IDataCenterObject {
 	private String leagueId;
 	private String leagueName;
 	private String leagueAlias;
-	private String id;
-	private String year;
-	private String type;
-	private @Id String gameId;
-	private String status;
-	private String coverage;
-	private String homeTeam;
-	private String awayTeam;
-	private @Index Date scheduled;
+	private String seasonScheduleId;
+	private String seasonScheduleYear;
+	private String seasonScheduleType;
+	private String gameId;
+	private String gameStatus;
+	private String gameCoverage;
+	private String gameHomeTeam;
+	private String gameAwayTeam;
+	private Date gameScheduled;
 	private String venueId;
-	private String network;
-	private String satellite;
+	private String broadcastNetwork;
+	private String broadcastSatellite;
 	
 	public Schedule(){
 		super();
 	}
-
+	
 	public String getLeagueId() {
 		return leagueId;
 	}
@@ -57,28 +69,28 @@ public class Schedule extends StructObject implements IDataCenterObject {
 		this.leagueAlias = leagueAlias;
 	}
 
-	public String getId() {
-		return id;
+	public String getSeasonScheduleId() {
+		return seasonScheduleId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setSeasonScheduleId(String seasonScheduleId) {
+		this.seasonScheduleId = seasonScheduleId;
 	}
 
-	public String getYear() {
-		return year;
+	public String getSeasonScheduleYear() {
+		return seasonScheduleYear;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public void setSeasonScheduleYear(String seasonScheduleYear) {
+		this.seasonScheduleYear = seasonScheduleYear;
 	}
 
-	public String getType() {
-		return type;
+	public String getSeasonScheduleType() {
+		return seasonScheduleType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setSeasonScheduleType(String seasonScheduleType) {
+		this.seasonScheduleType = seasonScheduleType;
 	}
 
 	public String getGameId() {
@@ -89,46 +101,46 @@ public class Schedule extends StructObject implements IDataCenterObject {
 		this.gameId = gameId;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getGameStatus() {
+		return gameStatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setGameStatus(String gameStatus) {
+		this.gameStatus = gameStatus;
 	}
 
-	public String getCoverage() {
-		return coverage;
+	public String getGameCoverage() {
+		return gameCoverage;
 	}
 
-	public void setCoverage(String coverage) {
-		this.coverage = coverage;
+	public void setGameCoverage(String gameCoverage) {
+		this.gameCoverage = gameCoverage;
 	}
 
-	public String getHomeTeam() {
-		return homeTeam;
+	public String getGameHomeTeam() {
+		return gameHomeTeam;
 	}
 
-	public void setHomeTeam(String homeTeam) {
-		this.homeTeam = homeTeam;
+	public void setGameHomeTeam(String gameHomeTeam) {
+		this.gameHomeTeam = gameHomeTeam;
 	}
 
-	public String getAwayTeam() {
-		return awayTeam;
+	public String getGameAwayTeam() {
+		return gameAwayTeam;
 	}
 
-	public void setAwayTeam(String awayTeam) {
-		this.awayTeam = awayTeam;
+	public void setGameAwayTeam(String gameAwayTeam) {
+		this.gameAwayTeam = gameAwayTeam;
 	}
 
-	public Date getScheduled() {
-		return scheduled;
+	public Date getGameScheduled() {
+		return gameScheduled;
 	}
-
-	public void setScheduled(String scheduled) {
-		String t = scheduled.replace('T', ':');
+	
+	public void setGameScheduled(String gameScheduled) {
+		String t = gameScheduled.replace('T', ':');
 		try {
-			this.scheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
+			this.gameScheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,31 +155,36 @@ public class Schedule extends StructObject implements IDataCenterObject {
 		this.venueId = venueId;
 	}
 
-	public String getNetwork() {
-		return network;
+	public String getBroadcastNetwork() {
+		return broadcastNetwork;
 	}
 
-	public void setNetwork(String network) {
-		this.network = network;
+	public void setBroadcastNetwork(String broadcastNetwork) {
+		this.broadcastNetwork = broadcastNetwork;
 	}
 
-	public String getSatellite() {
-		return satellite;
+	public String getBroadcastSatellite() {
+		return broadcastSatellite;
 	}
 
-	public void setSatellite(String satellite) {
-		this.satellite = satellite;
+
+	public void setBroadcastSatellite(String broadcastSatellite) {
+		this.broadcastSatellite = broadcastSatellite;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Schedule [leagueId=" + leagueId + ", leagueName=" + leagueName
-				+ ", leagueAlias=" + leagueAlias + ", id=" + id + ", year="
-				+ year + ", type=" + type + ", gameId=" + gameId + ", status="
-				+ status + ", coverage=" + coverage + ", homeTeam=" + homeTeam
-				+ ", awayTeam=" + awayTeam + ", scheduled=" + scheduled
-				+ ", venueId=" + venueId + ", network=" + network
-				+ ", satellite=" + satellite + "]";
-	}
+				+ ", leagueAlias=" + leagueAlias + ", seasonScheduleId="
+				+ seasonScheduleId + ", seasonScheduleYear="
+				+ seasonScheduleYear + ", seasonScheduleType="
+				+ seasonScheduleType + ", gameId=" + gameId + ", gameStatus="
+				+ gameStatus + ", gameCoverage=" + gameCoverage
+				+ ", gameHomeTeam=" + gameHomeTeam + ", gameAwayTeam="
+				+ gameAwayTeam + ", gameScheduled=" + gameScheduled
+				+ ", venueId=" + venueId + ", broadcastNetwork="
+				+ broadcastNetwork + ", broadcastSatellite="
+				+ broadcastSatellite + "]";
+	}	
 }
 

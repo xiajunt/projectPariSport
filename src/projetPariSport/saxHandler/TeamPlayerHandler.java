@@ -12,12 +12,10 @@ import projetPariSport.structObject.TeamPlayer;
 public class TeamPlayerHandler extends DefaultHandler {
 	private List<TeamPlayer> teamsPlayers;
 	private TeamPlayer teamPlayer;
-	private StringBuffer buffer;
 	private String teamId;
 	private boolean inPlayer;
 	
 	public TeamPlayerHandler() {
-		// TODO Auto-generated constructor stub
 		teamsPlayers = new LinkedList<TeamPlayer>();
 		inPlayer = false;
 	}
@@ -43,21 +41,14 @@ public class TeamPlayerHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("player")){
 			teamsPlayers.add(teamPlayer);
-			buffer = null;
 			teamPlayer = null;
 			inPlayer = false;
 		}
 		else{
 			/*DO NOTHIN*/
-			buffer = null;
 		}
 	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
-	}
-	
+		
 	public void startDocument() throws SAXException{
 		System.out.println("Beginning of parsing:");
 	}

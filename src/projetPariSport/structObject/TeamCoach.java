@@ -1,7 +1,15 @@
 package projetPariSport.structObject;
 
-/* JavaBean TeamCoach
+/**
+ * TeamCoach - Definition of the object TeamCoach
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get team rosters for the NBA.(coaches)
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 26/12/2013
+ *
  */
 public class TeamCoach extends StructObject implements IDataCenterObject {
 	private String teamId;
@@ -12,7 +20,6 @@ public class TeamCoach extends StructObject implements IDataCenterObject {
 	private String coachExperience;
 	
 	public TeamCoach() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 

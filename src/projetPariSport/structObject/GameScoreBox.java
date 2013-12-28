@@ -5,102 +5,109 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/* JavaBean GameScoreBox
+/**
+ * GameScoreBox - Definition of the object GameScoreBox
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get boxscore data for NBA games.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
 public class GameScoreBox extends StructObject implements IDataCenterObject  {
-	private String id;
-	private String status;
-	private Date scheduled;
-	private String duration;
-	private String attendance;
-	private String clock;
-	private String quarter;
-	private String homeTeam;
+	private String gameId;
+	private String gameStatus;
+	private Date gameScheduled;
+	private String gameDuration;
+	private String gameAttendance;
+	private String gameClock;
+	private String gameQuarter;
+	private String gameHomeTeam;
 	private String homeTeamPoints;
-	private String homeTeamQuarter1;
-	private String homeTeamQuarter2;
-	private String homeTeamQuarter3;
-	private String homeTeamQuarter4;
-	private String awayTeam;
+	private String homeTeamQuarter1Points;
+	private String homeTeamQuarter2Points;
+	private String homeTeamQuarter3Points;
+	private String homeTeamQuarter4Points;
+	private String gameAwayTeam;
 	private String awayTeamPoints;
-	private String awayTeamQuarter1;
-	private String awayTeamQuarter2;
-	private String awayTeamQuarter3;
-	private String awayTeamQuarter4;
+	private String awayTeamQuarter1Points;
+	private String awayTeamQuarter2Points;
+	private String awayTeamQuarter3Points;
+	private String awayTeamQuarter4Points;
 		
 	public GameScoreBox() {
 		super();
 	}
-	
-	public String getId() {
-		return id;
+
+	public String getGameId() {
+		return gameId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setGameId(String gameId) {
+		this.gameId = gameId;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getGameStatus() {
+		return gameStatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setGameStatus(String gameStatus) {
+		this.gameStatus = gameStatus;
 	}
 
-	public Date getScheduled() {
-		return scheduled;
+	public Date getGameScheduled() {
+		return gameScheduled;
 	}
 
-	public void setScheduled(String scheduled) {
-		String t = scheduled.replace('T', ':');
+	public void setGameScheduled(String gameScheduled) {
+		String t = gameScheduled.replace('T', ':');
 		try {
-			this.scheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
+			this.gameScheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public String getDuration() {
-		return duration;
+	public String getGameDuration() {
+		return gameDuration;
 	}
 
-	public void setDuration(String duration) {
-		this.duration = duration;
+	public void setGameDuration(String gameDuration) {
+		this.gameDuration = gameDuration;
 	}
 
-	public String getAttendance() {
-		return attendance;
+	public String getGameAttendance() {
+		return gameAttendance;
 	}
 
-	public void setAttendance(String attendance) {
-		this.attendance = attendance;
+	public void setGameAttendance(String gameAttendance) {
+		this.gameAttendance = gameAttendance;
 	}
 
-	public String getClock() {
-		return clock;
+	public String getGameClock() {
+		return gameClock;
 	}
 
-	public void setClock(String clock) {
-		this.clock = clock;
+	public void setGameClock(String gameClock) {
+		this.gameClock = gameClock;
 	}
 
-	public String getQuarter() {
-		return quarter;
+	public String getGameQuarter() {
+		return gameQuarter;
 	}
 
-	public void setQuarter(String quarter) {
-		this.quarter = quarter;
+	public void setGameQuarter(String gameQuarter) {
+		this.gameQuarter = gameQuarter;
 	}
 
-	public String getHomeTeam() {
-		return homeTeam;
+	public String getGameHomeTeam() {
+		return gameHomeTeam;
 	}
 
-	public void setHomeTeam(String homeTeam) {
-		this.homeTeam = homeTeam;
+	public void setGameHomeTeam(String gameHomeTeam) {
+		this.gameHomeTeam = gameHomeTeam;
 	}
 
 	public String getHomeTeamPoints() {
@@ -111,44 +118,44 @@ public class GameScoreBox extends StructObject implements IDataCenterObject  {
 		this.homeTeamPoints = homeTeamPoints;
 	}
 
-	public String getHomeTeamQuarter1() {
-		return homeTeamQuarter1;
+	public String getHomeTeamQuarter1Points() {
+		return homeTeamQuarter1Points;
 	}
 
-	public void setHomeTeamQuarter1(String homeTeamQuarter1) {
-		this.homeTeamQuarter1 = homeTeamQuarter1;
+	public void setHomeTeamQuarter1Points(String homeTeamQuarter1Points) {
+		this.homeTeamQuarter1Points = homeTeamQuarter1Points;
 	}
 
-	public String getHomeTeamQuarter2() {
-		return homeTeamQuarter2;
+	public String getHomeTeamQuarter2Points() {
+		return homeTeamQuarter2Points;
 	}
 
-	public void setHomeTeamQuarter2(String homeTeamQuarter2) {
-		this.homeTeamQuarter2 = homeTeamQuarter2;
+	public void setHomeTeamQuarter2Points(String homeTeamQuarter2Points) {
+		this.homeTeamQuarter2Points = homeTeamQuarter2Points;
 	}
 
-	public String getHomeTeamQuarter3() {
-		return homeTeamQuarter3;
+	public String getHomeTeamQuarter3Points() {
+		return homeTeamQuarter3Points;
 	}
 
-	public void setHomeTeamQuarter3(String homeTeamQuarter3) {
-		this.homeTeamQuarter3 = homeTeamQuarter3;
+	public void setHomeTeamQuarter3Points(String homeTeamQuarter3Points) {
+		this.homeTeamQuarter3Points = homeTeamQuarter3Points;
 	}
 
-	public String getHomeTeamQuarter4() {
-		return homeTeamQuarter4;
+	public String getHomeTeamQuarter4Points() {
+		return homeTeamQuarter4Points;
 	}
 
-	public void setHomeTeamQuarter4(String homeTeamQuarter4) {
-		this.homeTeamQuarter4 = homeTeamQuarter4;
+	public void setHomeTeamQuarter4Points(String homeTeamQuarter4Points) {
+		this.homeTeamQuarter4Points = homeTeamQuarter4Points;
 	}
 
-	public String getAwayTeam() {
-		return awayTeam;
+	public String getGameAwayTeam() {
+		return gameAwayTeam;
 	}
 
-	public void setAwayTeam(String awayTeam) {
-		this.awayTeam = awayTeam;
+	public void setGameAwayTeam(String gameAwayTeam) {
+		this.gameAwayTeam = gameAwayTeam;
 	}
 
 	public String getAwayTeamPoints() {
@@ -159,52 +166,54 @@ public class GameScoreBox extends StructObject implements IDataCenterObject  {
 		this.awayTeamPoints = awayTeamPoints;
 	}
 
-	public String getAwayTeamQuarter1() {
-		return awayTeamQuarter1;
+	public String getAwayTeamQuarter1Points() {
+		return awayTeamQuarter1Points;
 	}
 
-	public void setAwayTeamQuarter1(String awayTeamQuarter1) {
-		this.awayTeamQuarter1 = awayTeamQuarter1;
+	public void setAwayTeamQuarter1Points(String awayTeamQuarter1Points) {
+		this.awayTeamQuarter1Points = awayTeamQuarter1Points;
 	}
 
-	public String getAwayTeamQuarter2() {
-		return awayTeamQuarter2;
+	public String getAwayTeamQuarter2Points() {
+		return awayTeamQuarter2Points;
 	}
 
-	public void setAwayTeamQuarter2(String awayTeamQuarter2) {
-		this.awayTeamQuarter2 = awayTeamQuarter2;
+	public void setAwayTeamQuarter2Points(String awayTeamQuarter2Points) {
+		this.awayTeamQuarter2Points = awayTeamQuarter2Points;
 	}
 
-	public String getAwayTeamQuarter3() {
-		return awayTeamQuarter3;
+	public String getAwayTeamQuarter3Points() {
+		return awayTeamQuarter3Points;
 	}
 
-	public void setAwayTeamQuarter3(String awayTeamQuarter3) {
-		this.awayTeamQuarter3 = awayTeamQuarter3;
+	public void setAwayTeamQuarter3Points(String awayTeamQuarter3Points) {
+		this.awayTeamQuarter3Points = awayTeamQuarter3Points;
 	}
 
-	public String getAwayTeamQuarter4() {
-		return awayTeamQuarter4;
+	public String getAwayTeamQuarter4Points() {
+		return awayTeamQuarter4Points;
 	}
 
-	public void setAwayTeamQuarter4(String awayTeamQuarter4) {
-		this.awayTeamQuarter4 = awayTeamQuarter4;
+	public void setAwayTeamQuarter4Points(String awayTeamQuarter4Points) {
+		this.awayTeamQuarter4Points = awayTeamQuarter4Points;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "GameScoreBox [id=" + id + ", status=" + status + ", scheduled="
-				+ scheduled + ", duration=" + duration + ", attendance="
-				+ attendance + ", clock=" + clock + ", quarter=" + quarter
-				+ ", homeTeam=" + homeTeam + ", homeTeamPoints="
-				+ homeTeamPoints + ", homeTeamQuarter1=" + homeTeamQuarter1
-				+ ", homeTeamQuarter2=" + homeTeamQuarter2
-				+ ", homeTeamQuarter3=" + homeTeamQuarter3
-				+ ", homeTeamQuarter4=" + homeTeamQuarter4 + ", awayTeam="
-				+ awayTeam + ", awayTeamPoints=" + awayTeamPoints
-				+ ", awayTeamQuarter1=" + awayTeamQuarter1
-				+ ", awayTeamQuarter2=" + awayTeamQuarter2
-				+ ", awayTeamQuarter3=" + awayTeamQuarter3
-				+ ", awayTeamQuarter4=" + awayTeamQuarter4 + "]";
+		return "GameScoreBox [gameId=" + gameId + ", gameStatus=" + gameStatus
+				+ ", gameScheduled=" + gameScheduled + ", gameDuration="
+				+ gameDuration + ", gameAttendance=" + gameAttendance
+				+ ", gameClock=" + gameClock + ", gameQuarter=" + gameQuarter
+				+ ", gameHomeTeam=" + gameHomeTeam + ", homeTeamPoints="
+				+ homeTeamPoints + ", homeTeamQuarter1Points="
+				+ homeTeamQuarter1Points + ", homeTeamQuarter2Points="
+				+ homeTeamQuarter2Points + ", homeTeamQuarter3Points="
+				+ homeTeamQuarter3Points + ", homeTeamQuarter4Points="
+				+ homeTeamQuarter4Points + ", gameAwayTeam=" + gameAwayTeam
+				+ ", awayTeamPoints=" + awayTeamPoints
+				+ ", awayTeamQuarter1Points=" + awayTeamQuarter1Points
+				+ ", awayTeamQuarter2Points=" + awayTeamQuarter2Points
+				+ ", awayTeamQuarter3Points=" + awayTeamQuarter3Points
+				+ ", awayTeamQuarter4Points=" + awayTeamQuarter4Points + "]";
 	}
 }

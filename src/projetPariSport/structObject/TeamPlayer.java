@@ -5,8 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/* JavaBean TeamPlayer
+/**
+ * TeamPlayer - Definition of the object TeamPlayer
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get team rosters for the NBA.(players)
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 26/12/2013
+ *
  */
 public class TeamPlayer extends StructObject implements IDataCenterObject {
 	private String teamId;
@@ -29,7 +37,6 @@ public class TeamPlayer extends StructObject implements IDataCenterObject {
 	private String draftPick;
 	
 	public TeamPlayer() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 
@@ -146,7 +153,6 @@ public class TeamPlayer extends StructObject implements IDataCenterObject {
 		try {
 			this.playerUpdated = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -12,7 +12,6 @@ import projetPariSport.structObject.GameScoreBoxPlayer;
 public class GameScoreBoxPlayerHandler extends DefaultHandler {
 	private  List<GameScoreBoxPlayer> gameScoreBoxPlayers;
 	private String gameId, teamId;
-	private StringBuffer buffer;
 	private GameScoreBoxPlayer gameScoreBoxPlayer;
 	
 	public GameScoreBoxPlayerHandler() {
@@ -32,7 +31,7 @@ public class GameScoreBoxPlayerHandler extends DefaultHandler {
 			gameScoreBoxPlayer.setTeamId(teamId);
 			gameScoreBoxPlayer.setPlayerId(attributes.getValue("id"));
 		}else if(qName.equals("statistics")){
-			gameScoreBoxPlayer.setAttributesValues(attributes,"");
+			gameScoreBoxPlayer.setAttributesValues(attributes, qName);
 		}else{
 			/*DO NOTHIN*/
 		}
@@ -43,12 +42,6 @@ public class GameScoreBoxPlayerHandler extends DefaultHandler {
 			gameScoreBoxPlayers.add(gameScoreBoxPlayer);
 			gameScoreBoxPlayer = null;
 		}
-		buffer = null;
-	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
 	}
 	
 	public void startDocument() throws SAXException{

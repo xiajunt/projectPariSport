@@ -14,11 +14,9 @@ public class StandingsHandler extends DefaultHandler {
 	private Standings standings;
 	private String leagueId, leagueName, leagueAlias, seasonId, seasonYear, seasonType,
 	conferenceId, conferenceName, conferenceAlias, divisionId, divisionName, divisionAlias;
-	private StringBuffer buffer;
 	private boolean inRecords;
 	
 	public StandingsHandler() {
-		// TODO Auto-generated constructor stub
 		standingsList = new  LinkedList<Standings>();
 		inRecords = false;
 	}
@@ -76,20 +74,13 @@ public class StandingsHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("team")){
 			standingsList.add(standings);
-			buffer = null;
 			standings = null;
 		}else if(qName.equals("records")){
 			inRecords = false;
 		}
 		else{
 			/*DO NOTHIN*/
-			buffer = null;
 		}
-	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
 	}
 	
 	public void startDocument() throws SAXException{

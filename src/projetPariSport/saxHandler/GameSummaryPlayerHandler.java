@@ -12,12 +12,10 @@ import projetPariSport.structObject.GameSummaryPlayer;
 public class GameSummaryPlayerHandler extends DefaultHandler {
 	private List<GameSummaryPlayer> gameSummaryPlayers;
 	private GameSummaryPlayer gameSummaryPlayer;
-	private StringBuffer buffer;
 	private String gameId, teamId;
 	private boolean inPlayer;
 	
 	public GameSummaryPlayerHandler() {
-		// TODO Auto-generated constructor stub
 		super();
 		gameSummaryPlayers = new LinkedList<GameSummaryPlayer>();
 		inPlayer = false;
@@ -33,30 +31,22 @@ public class GameSummaryPlayerHandler extends DefaultHandler {
 			gameSummaryPlayer = new GameSummaryPlayer();
 			gameSummaryPlayer.setGameId(gameId);
 			gameSummaryPlayer.setTeamId(teamId);
-			gameSummaryPlayer.setPlayerId(attributes.getValue("id"));
-			gameSummaryPlayer.setAttributesValues(attributes, "");
+			gameSummaryPlayer.setAttributesValues(attributes, qName);
 			inPlayer = true;
 		}else if(qName.equals("statistics") && inPlayer){
-			gameSummaryPlayer.setAttributesValues(attributes, "");
+			gameSummaryPlayer.setAttributesValues(attributes, qName);
 		}
 	}
 	
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("player")){
 			gameSummaryPlayers.add(gameSummaryPlayer);
-			buffer = null;
 			inPlayer = false;
 		}else{
 			/*DO NOTHIN*/
-			buffer = null;
 		}
 	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
-	}
-	
+		
 	public void startDocument() throws SAXException{
 		System.out.println("Beginning of parsing:");
 	}

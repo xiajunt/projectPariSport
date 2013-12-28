@@ -1,7 +1,15 @@
 package projetPariSport.structObject;
 
-/* JavaBean LeagueHierarchy
+/**
+ * LeagueHierarchy - Definition of the object LeagueHierarchy
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get the league hierarchy information for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
 public class LeagueHierarchy extends StructObject implements IDataCenterObject {
 	private String leagueId;
@@ -26,7 +34,6 @@ public class LeagueHierarchy extends StructObject implements IDataCenterObject {
 	private String venueCountry;
 	
 	public LeagueHierarchy() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 
@@ -188,5 +195,21 @@ public class LeagueHierarchy extends StructObject implements IDataCenterObject {
 
 	public void setVenueCountry(String venueCountry) {
 		this.venueCountry = venueCountry;
+	}
+
+	@Override
+	public String toString() {
+		return "LeagueHierarchy [leagueId=" + leagueId + ", leagueName="
+				+ leagueName + ", leagueAlias=" + leagueAlias
+				+ ", conferenceId=" + conferenceId + ", conferenceName="
+				+ conferenceName + ", conferenceAlias=" + conferenceAlias
+				+ ", divisionId=" + divisionId + ", divisionName="
+				+ divisionName + ", divisionAlias=" + divisionAlias
+				+ ", teamId=" + teamId + ", teamName=" + teamName
+				+ ", teamMarket=" + teamMarket + ", teamAlias=" + teamAlias
+				+ ", venueId=" + venueId + ", venueCapacity=" + venueCapacity
+				+ ", venueAddress=" + venueAddress + ", venueCity=" + venueCity
+				+ ", venueState=" + venueState + ", venueZip=" + venueZip
+				+ ", venueCountry=" + venueCountry + "]";
 	}
 }

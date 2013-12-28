@@ -1,18 +1,25 @@
 package projetPariSport.structObject;
 
-/* JavaBean Injury
+/**
+ * Injury - Definition of the object Injury
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get injury feeds for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
 public class Injury extends StructObject implements IDataCenterObject {
 	private String teamId;
 	private String playerId;
-	private String id;
-	private String desc;
-	private String status;
-	private String startDate;
+	private String injuryId;
+	private String injuryDesc;
+	private String injuryStatus;
+	private String injuryStartDate;
 	
 	public Injury() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 
@@ -32,42 +39,43 @@ public class Injury extends StructObject implements IDataCenterObject {
 		this.playerId = playerId;
 	}
 
-	public String getId() {
-		return id;
+	public String getInjuryId() {
+		return injuryId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setInjuryId(String injuryId) {
+		this.injuryId = injuryId;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getInjuryDesc() {
+		return injuryDesc;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setInjuryDesc(String injuryDesc) {
+		this.injuryDesc = injuryDesc;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getInjuryStatus() {
+		return injuryStatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setInjuryStatus(String injuryStatus) {
+		this.injuryStatus = injuryStatus;
 	}
 
-	public String getStartDate() {
-		return startDate;
+	public String getInjuryStartDate() {
+		return injuryStartDate;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setInjuryStartDate(String injuryStartDate) {
+		this.injuryStartDate = injuryStartDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Injury [teamId=" + teamId + ", playerId=" + playerId + ", id="
-				+ id + ", desc=" + desc + ", status=" + status + ", startDate="
-				+ startDate + "]";
+		return "Injury [teamId=" + teamId + ", playerId=" + playerId
+				+ ", injuryId=" + injuryId + ", injuryDesc=" + injuryDesc
+				+ ", injuryStatus=" + injuryStatus + ", injuryStartDate="
+				+ injuryStartDate + "]";
 	}
 }

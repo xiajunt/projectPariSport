@@ -1,7 +1,15 @@
 package projetPariSport.structObject;
 
-/* JavaBean Standings
+/**
+ * Standings - Definition of the object Standings
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get standings information for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
 public class Standings extends StructObject implements IDataCenterObject {
 	private String leagueId;

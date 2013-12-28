@@ -5,93 +5,101 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/* JavaBean GameSummary
+/**
+ * GameSummary - Definition of the object GameSummary
+ * This class maps all datas from the SportsDataLLC 's API
+ * Obtain game summaries for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
-public class GameSummary extends StructObject implements IDataCenterObject {
+public class GameSummary extends StructObject{
 	private String gameId;
-	private String coverage;
-	private String homeTeam;
-	private String awayTeam;
-	private Date scheduled;
-	private String attendance;
-	private String clock;
-	private String quarter;
-	private String homeTeamQuarting1;
-	private String homeTeamQuarting2;
-	private String homeTeamQuarting3;
-	private String homeTeamQuarting4;
-	private String homeMinutes;
-	private String homeFieldGoalsMade;
-	private String homeFieldGoalsAtt;
-	private String homeFieldGoalsPct;
-	private String homeThreePointsMade;
-	private String homeThreePointsAtt;
-	private String homeThreePointsPct;
-	private String homeTwoPointsMade;
-	private String homeTwoPointsAtt;
-	private String homeTwoPointsPct;
-	private String homeBlockedAtt;
-	private String homeFreeThrowsMade;
-	private String homeFreeThrowsAtt;
-	private String homeFreeThrowsPct;
-	private String homeOffensiveRebounds;
-	private String homeDefensiveRebounds;
-	private String homeRebounds;
-	private String homeAssists;
-	private String homeTurnovers;
-	private String homeSteals;
-	private String homeBlocks;
-	private String homeAssistsTurnoverRatio;
-	private String homePersonalFouls;
-	private String homePoints;
-	private String homeFastBreakPts;
-	private String homePaintPts;
-	private String homeTeamTurnovers;
-	private String homeTeamRebounds;
-	private String homeFlagrantFouls;
-	private String homePlayerTechFouls;
-	private String homeTeamTechFouls;
-	private String homeCoachTechFouls;
-	private String awayTeamQuarting1;
-	private String awayTeamQuarting2;
-	private String awayTeamQuarting3;
-	private String awayTeamQuarting4;
-	private String awayMinutes;
-	private String awayFieldGoalsMade;
-	private String awayFieldGoalsAtt;
-	private String awayFieldGoalsPct;
-	private String awayThreePointsMade;
-	private String awayThreePointsAtt;
-	private String awayThreePointsPct;
-	private String awayTwoPointsMade;
-	private String awayTwoPointsAtt;
-	private String awayTwoPointsPct;
-	private String awayBlockedAtt;
-	private String awayFreeThrowsMade;
-	private String awayFreeThrowsAtt;
-	private String awayFreeThrowsPct;
-	private String awayOffensiveRebounds;
-	private String awayDefensiveRebounds;
-	private String awayRebounds;
-	private String awayAssists;
-	private String awayTurnovers;
-	private String awaySteals;
-	private String awayBlocks;
-	private String awayAssistsTurnoverRatio;
-	private String awayPersonalFouls;
-	private String awayPoints;
-	private String awayFastBreakPts;
-	private String awayPaintPts;
-	private String awayTeamTurnovers;
-	private String awayTeamRebounds;
-	private String awayFlagrantFouls;
-	private String awayPlayerTechFouls;
-	private String awayTeamTechFouls;
-	private String awayCoachTechFouls;
+	private String gameCoverage;
+	private String gameHomeTeam;
+	private String gameAwayTeam;
+	private Date gameScheduled;
+	private String gameStatus;
+	private String gameAttendance;
+	private String gameClock;
+	private String gameQuarter;
+	private String homeTeamQuarter1Points;
+	private String homeTeamQuarter2Points;
+	private String homeTeamQuarter3Points;
+	private String homeTeamQuarter4Points;
+	private String homeStatisticsMinutes;
+	private String homeStatisticsFieldGoalsMade;
+	private String homeStatisticsFieldGoalsAtt;
+	private String homeStatisticsFieldGoalsPct;
+	private String homeStatisticsThreePointsMade;
+	private String homeStatisticsThreePointsAtt;
+	private String homeStatisticsThreePointsPct;
+	private String homeStatisticsTwoPointsMade;
+	private String homeStatisticsTwoPointsAtt;
+	private String homeStatisticsTwoPointsPct;
+	private String homeStatisticsBlockedAtt;
+	private String homeStatisticsFreeThrowsMade;
+	private String homeStatisticsFreeThrowsAtt;
+	private String homeStatisticsFreeThrowsPct;
+	private String homeStatisticsOffensiveRebounds;
+	private String homeStatisticsDefensiveRebounds;
+	private String homeStatisticsRebounds;
+	private String homeStatisticsAssists;
+	private String homeStatisticsTurnovers;
+	private String homeStatisticsSteals;
+	private String homeStatisticsBlocks;
+	private String homeStatisticsAssistsTurnoverRatio;
+	private String homeStatisticsPersonalFouls;
+	private String homeStatisticsPoints;
+	private String homeStatisticsFastBreakPts;
+	private String homeStatisticsPaintPts;
+	private String homeStatisticsTeamTurnovers;
+	private String homeStatisticsTeamRebounds;
+	private String homeStatisticsFlagrantFouls;
+	private String homeStatisticsPlayerTechFouls;
+	private String homeStatisticsTeamTechFouls;
+	private String homeStatisticsCoachTechFouls;
+	private String awayTeamQuarter1Points;
+	private String awayTeamQuarter2Points;
+	private String awayTeamQuarter3Points;
+	private String awayTeamQuarter4Points;
+	private String awayStatisticsMinutes;
+	private String awayStatisticsFieldGoalsMade;
+	private String awayStatisticsFieldGoalsAtt;
+	private String awayStatisticsFieldGoalsPct;
+	private String awayStatisticsThreePointsMade;
+	private String awayStatisticsThreePointsAtt;
+	private String awayStatisticsThreePointsPct;
+	private String awayStatisticsTwoPointsMade;
+	private String awayStatisticsTwoPointsAtt;
+	private String awayStatisticsTwoPointsPct;
+	private String awayStatisticsBlockedAtt;
+	private String awayStatisticsFreeThrowsMade;
+	private String awayStatisticsFreeThrowsAtt;
+	private String awayStatisticsFreeThrowsPct;
+	private String awayStatisticsOffensiveRebounds;
+	private String awayStatisticsDefensiveRebounds;
+	private String awayStatisticsRebounds;
+	private String awayStatisticsAssists;
+	private String awayStatisticsTurnovers;
+	private String awayStatisticsSteals;
+	private String awayStatisticsBlocks;
+	private String awayStatisticsAssistsTurnoverRatio;
+	private String awayStatisticsPersonalFouls;
+	private String awayStatisticsPoints;
+	private String awayStatisticsFastBreakPts;
+	private String awayStatisticsPaintPts;
+	private String awayStatisticsTeamTurnovers;
+	private String awayStatisticsTeamRebounds;
+	private String awayStatisticsFlagrantFouls;
+	private String awayStatisticsPlayerTechFouls;
+	private String awayStatisticsTeamTechFouls;
+	private String awayStatisticsCoachTechFouls;
 	
 	public GameSummary() {
-		// TODO Auto-generated constructor stub
 		super();
 	}
 
@@ -103,711 +111,791 @@ public class GameSummary extends StructObject implements IDataCenterObject {
 		this.gameId = gameId;
 	}
 
-	public String getCoverage() {
-		return coverage;
+	public String getGameCoverage() {
+		return gameCoverage;
 	}
 
-	public void setCoverage(String coverage) {
-		this.coverage = coverage;
+	public void setGameCoverage(String gameCoverage) {
+		this.gameCoverage = gameCoverage;
 	}
 
-	public String getHomeTeam() {
-		return homeTeam;
+	public String getGameHomeTeam() {
+		return gameHomeTeam;
 	}
 
-	public void setHomeTeam(String homeTeam) {
-		this.homeTeam = homeTeam;
+	public void setGameHomeTeam(String gameHomeTeam) {
+		this.gameHomeTeam = gameHomeTeam;
 	}
 
-	public String getAwayTeam() {
-		return awayTeam;
+	public String getGameAwayTeam() {
+		return gameAwayTeam;
 	}
 
-	public void setAwayTeam(String awayTeam) {
-		this.awayTeam = awayTeam;
+	public void setGameAwayTeam(String gameAwayTeam) {
+		this.gameAwayTeam = gameAwayTeam;
 	}
 
-	public Date getScheduled() {
-		return scheduled;
+	public Date getGameScheduled() {
+		return gameScheduled;
 	}
 
-	public void setScheduled(String scheduled) {
-		String t = scheduled.replace('T', ':');
+	public void setGameScheduled(String gameScheduled) {
+		String t = gameScheduled.replace('T', ':');
 		try {
-			this.scheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
+			this.gameScheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public String getAttendance() {
-		return attendance;
+	public String getGameStatus() {
+		return gameStatus;
 	}
 
-	public void setAttendance(String attendance) {
-		this.attendance = attendance;
+	public void setGameStatus(String gameStatus) {
+		this.gameStatus = gameStatus;
 	}
 
-	public String getClock() {
-		return clock;
+	public String getGameAttendance() {
+		return gameAttendance;
 	}
 
-	public void setClock(String clock) {
-		this.clock = clock;
+	public void setGameAttendance(String gameAttendance) {
+		this.gameAttendance = gameAttendance;
 	}
 
-	public String getQuarter() {
-		return quarter;
+	public String getGameClock() {
+		return gameClock;
 	}
 
-	public void setQuarter(String quarter) {
-		this.quarter = quarter;
+	public void setGameClock(String gameClock) {
+		this.gameClock = gameClock;
 	}
 
-	public String getHomeTeamQuarting1() {
-		return homeTeamQuarting1;
+	public String getGameQuarter() {
+		return gameQuarter;
 	}
 
-	public void setHomeTeamQuarting1(String homeTeamQuarting1) {
-		this.homeTeamQuarting1 = homeTeamQuarting1;
+	public void setGameQuarter(String gameQuarter) {
+		this.gameQuarter = gameQuarter;
 	}
 
-	public String getHomeTeamQuarting2() {
-		return homeTeamQuarting2;
+	public String getHomeTeamQuarter1Points() {
+		return homeTeamQuarter1Points;
 	}
 
-	public void setHomeTeamQuarting2(String homeTeamQuarting2) {
-		this.homeTeamQuarting2 = homeTeamQuarting2;
+	public void setHomeTeamQuarter1Points(String homeTeamQuarter1Points) {
+		this.homeTeamQuarter1Points = homeTeamQuarter1Points;
 	}
 
-	public String getHomeTeamQuarting3() {
-		return homeTeamQuarting3;
+	public String getHomeTeamQuarter2Points() {
+		return homeTeamQuarter2Points;
 	}
 
-	public void setHomeTeamQuarting3(String homeTeamQuarting3) {
-		this.homeTeamQuarting3 = homeTeamQuarting3;
+	public void setHomeTeamQuarter2Points(String homeTeamQuarter2Points) {
+		this.homeTeamQuarter2Points = homeTeamQuarter2Points;
 	}
 
-	public String getHomeTeamQuarting4() {
-		return homeTeamQuarting4;
+	public String getHomeTeamQuarter3Points() {
+		return homeTeamQuarter3Points;
 	}
 
-	public void setHomeTeamQuarting4(String homeTeamQuarting4) {
-		this.homeTeamQuarting4 = homeTeamQuarting4;
+	public void setHomeTeamQuarter3Points(String homeTeamQuarter3Points) {
+		this.homeTeamQuarter3Points = homeTeamQuarter3Points;
 	}
 
-	public String getHomeMinutes() {
-		return homeMinutes;
+	public String getHomeTeamQuarter4Points() {
+		return homeTeamQuarter4Points;
 	}
 
-	public void setHomeMinutes(String homeMinutes) {
-		this.homeMinutes = homeMinutes;
+	public void setHomeTeamQuarter4Points(String homeTeamQuarter4Points) {
+		this.homeTeamQuarter4Points = homeTeamQuarter4Points;
 	}
 
-	public String getHomeFieldGoalsMade() {
-		return homeFieldGoalsMade;
+	public String getHomeStatisticsMinutes() {
+		return homeStatisticsMinutes;
 	}
 
-	public void setHomeFieldGoalsMade(String homeFieldGoalsMade) {
-		this.homeFieldGoalsMade = homeFieldGoalsMade;
+	public void setHomeStatisticsMinutes(String homeStatisticsMinutes) {
+		this.homeStatisticsMinutes = homeStatisticsMinutes;
 	}
 
-	public String getHomeFieldGoalsAtt() {
-		return homeFieldGoalsAtt;
+	public String getHomeStatisticsFieldGoalsMade() {
+		return homeStatisticsFieldGoalsMade;
 	}
 
-	public void setHomeFieldGoalsAtt(String homeFieldGoalsAtt) {
-		this.homeFieldGoalsAtt = homeFieldGoalsAtt;
+	public void setHomeStatisticsFieldGoalsMade(
+			String homeStatisticsFieldGoalsMade) {
+		this.homeStatisticsFieldGoalsMade = homeStatisticsFieldGoalsMade;
 	}
 
-	public String getHomeFieldGoalsPct() {
-		return homeFieldGoalsPct;
+	public String getHomeStatisticsFieldGoalsAtt() {
+		return homeStatisticsFieldGoalsAtt;
 	}
 
-	public void setHomeFieldGoalsPct(String homeFieldGoalsPct) {
-		this.homeFieldGoalsPct = homeFieldGoalsPct;
+	public void setHomeStatisticsFieldGoalsAtt(String homeStatisticsFieldGoalsAtt) {
+		this.homeStatisticsFieldGoalsAtt = homeStatisticsFieldGoalsAtt;
 	}
 
-	public String getHomeThreePointsMade() {
-		return homeThreePointsMade;
+	public String getHomeStatisticsFieldGoalsPct() {
+		return homeStatisticsFieldGoalsPct;
 	}
 
-	public void setHomeThreePointsMade(String homeThreePointsMade) {
-		this.homeThreePointsMade = homeThreePointsMade;
+	public void setHomeStatisticsFieldGoalsPct(String homeStatisticsFieldGoalsPct) {
+		this.homeStatisticsFieldGoalsPct = homeStatisticsFieldGoalsPct;
 	}
 
-	public String getHomeThreePointsAtt() {
-		return homeThreePointsAtt;
+	public String getHomeStatisticsThreePointsMade() {
+		return homeStatisticsThreePointsMade;
 	}
 
-	public void setHomeThreePointsAtt(String homeThreePointsAtt) {
-		this.homeThreePointsAtt = homeThreePointsAtt;
+	public void setHomeStatisticsThreePointsMade(
+			String homeStatisticsThreePointsMade) {
+		this.homeStatisticsThreePointsMade = homeStatisticsThreePointsMade;
 	}
 
-	public String getHomeThreePointsPct() {
-		return homeThreePointsPct;
+	public String getHomeStatisticsThreePointsAtt() {
+		return homeStatisticsThreePointsAtt;
 	}
 
-	public void setHomeThreePointsPct(String homeThreePointsPct) {
-		this.homeThreePointsPct = homeThreePointsPct;
+	public void setHomeStatisticsThreePointsAtt(
+			String homeStatisticsThreePointsAtt) {
+		this.homeStatisticsThreePointsAtt = homeStatisticsThreePointsAtt;
 	}
 
-	public String getHomeTwoPointsMade() {
-		return homeTwoPointsMade;
+	public String getHomeStatisticsThreePointsPct() {
+		return homeStatisticsThreePointsPct;
 	}
 
-	public void setHomeTwoPointsMade(String homeTwoPointsMade) {
-		this.homeTwoPointsMade = homeTwoPointsMade;
+	public void setHomeStatisticsThreePointsPct(
+			String homeStatisticsThreePointsPct) {
+		this.homeStatisticsThreePointsPct = homeStatisticsThreePointsPct;
 	}
 
-	public String getHomeTwoPointsAtt() {
-		return homeTwoPointsAtt;
+	public String getHomeStatisticsTwoPointsMade() {
+		return homeStatisticsTwoPointsMade;
 	}
 
-	public void setHomeTwoPointsAtt(String homeTwoPointsAtt) {
-		this.homeTwoPointsAtt = homeTwoPointsAtt;
+	public void setHomeStatisticsTwoPointsMade(String homeStatisticsTwoPointsMade) {
+		this.homeStatisticsTwoPointsMade = homeStatisticsTwoPointsMade;
 	}
 
-	public String getHomeTwoPointsPct() {
-		return homeTwoPointsPct;
+	public String getHomeStatisticsTwoPointsAtt() {
+		return homeStatisticsTwoPointsAtt;
 	}
 
-	public void setHomeTwoPointsPct(String homeTwoPointsPct) {
-		this.homeTwoPointsPct = homeTwoPointsPct;
+	public void setHomeStatisticsTwoPointsAtt(String homeStatisticsTwoPointsAtt) {
+		this.homeStatisticsTwoPointsAtt = homeStatisticsTwoPointsAtt;
 	}
 
-	public String getHomeBlockedAtt() {
-		return homeBlockedAtt;
+	public String getHomeStatisticsTwoPointsPct() {
+		return homeStatisticsTwoPointsPct;
 	}
 
-	public void setHomeBlockedAtt(String homeBlockedAtt) {
-		this.homeBlockedAtt = homeBlockedAtt;
+	public void setHomeStatisticsTwoPointsPct(String homeStatisticsTwoPointsPct) {
+		this.homeStatisticsTwoPointsPct = homeStatisticsTwoPointsPct;
 	}
 
-	public String getHomeFreeThrowsMade() {
-		return homeFreeThrowsMade;
+	public String getHomeStatisticsBlockedAtt() {
+		return homeStatisticsBlockedAtt;
 	}
 
-	public void setHomeFreeThrowsMade(String homeFreeThrowsMade) {
-		this.homeFreeThrowsMade = homeFreeThrowsMade;
+	public void setHomeStatisticsBlockedAtt(String homeStatisticsBlockedAtt) {
+		this.homeStatisticsBlockedAtt = homeStatisticsBlockedAtt;
 	}
 
-	public String getHomeFreeThrowsAtt() {
-		return homeFreeThrowsAtt;
+	public String getHomeStatisticsFreeThrowsMade() {
+		return homeStatisticsFreeThrowsMade;
 	}
 
-	public void setHomeFreeThrowsAtt(String homeFreeThrowsAtt) {
-		this.homeFreeThrowsAtt = homeFreeThrowsAtt;
+	public void setHomeStatisticsFreeThrowsMade(
+			String homeStatisticsFreeThrowsMade) {
+		this.homeStatisticsFreeThrowsMade = homeStatisticsFreeThrowsMade;
 	}
 
-	public String getHomeFreeThrowsPct() {
-		return homeFreeThrowsPct;
+	public String getHomeStatisticsFreeThrowsAtt() {
+		return homeStatisticsFreeThrowsAtt;
 	}
 
-	public void setHomeFreeThrowsPct(String homeFreeThrowsPct) {
-		this.homeFreeThrowsPct = homeFreeThrowsPct;
+	public void setHomeStatisticsFreeThrowsAtt(String homeStatisticsFreeThrowsAtt) {
+		this.homeStatisticsFreeThrowsAtt = homeStatisticsFreeThrowsAtt;
 	}
 
-	public String getHomeOffensiveRebounds() {
-		return homeOffensiveRebounds;
+	public String getHomeStatisticsFreeThrowsPct() {
+		return homeStatisticsFreeThrowsPct;
 	}
 
-	public void setHomeOffensiveRebounds(String homeOffensiveRebounds) {
-		this.homeOffensiveRebounds = homeOffensiveRebounds;
+	public void setHomeStatisticsFreeThrowsPct(String homeStatisticsFreeThrowsPct) {
+		this.homeStatisticsFreeThrowsPct = homeStatisticsFreeThrowsPct;
 	}
 
-	public String getHomeDefensiveRebounds() {
-		return homeDefensiveRebounds;
+	public String getHomeStatisticsOffensiveRebounds() {
+		return homeStatisticsOffensiveRebounds;
 	}
 
-	public void setHomeDefensiveRebounds(String homeDefensiveRebounds) {
-		this.homeDefensiveRebounds = homeDefensiveRebounds;
+	public void setHomeStatisticsOffensiveRebounds(
+			String homeStatisticsOffensiveRebounds) {
+		this.homeStatisticsOffensiveRebounds = homeStatisticsOffensiveRebounds;
 	}
 
-	public String getHomeRebounds() {
-		return homeRebounds;
+	public String getHomeStatisticsDefensiveRebounds() {
+		return homeStatisticsDefensiveRebounds;
 	}
 
-	public void setHomeRebounds(String homeRebounds) {
-		this.homeRebounds = homeRebounds;
+	public void setHomeStatisticsDefensiveRebounds(
+			String homeStatisticsDefensiveRebounds) {
+		this.homeStatisticsDefensiveRebounds = homeStatisticsDefensiveRebounds;
 	}
 
-	public String getHomeAssists() {
-		return homeAssists;
+	public String getHomeStatisticsRebounds() {
+		return homeStatisticsRebounds;
 	}
 
-	public void setHomeAssists(String homeAssists) {
-		this.homeAssists = homeAssists;
+	public void setHomeStatisticsRebounds(String homeStatisticsRebounds) {
+		this.homeStatisticsRebounds = homeStatisticsRebounds;
 	}
 
-	public String getHomeTurnovers() {
-		return homeTurnovers;
+	public String getHomeStatisticsAssists() {
+		return homeStatisticsAssists;
 	}
 
-	public void setHomeTurnovers(String homeTurnovers) {
-		this.homeTurnovers = homeTurnovers;
+	public void setHomeStatisticsAssists(String homeStatisticsAssists) {
+		this.homeStatisticsAssists = homeStatisticsAssists;
 	}
 
-	public String getHomeSteals() {
-		return homeSteals;
+	public String getHomeStatisticsTurnovers() {
+		return homeStatisticsTurnovers;
 	}
 
-	public void setHomeSteals(String homeSteals) {
-		this.homeSteals = homeSteals;
+	public void setHomeStatisticsTurnovers(String homeStatisticsTurnovers) {
+		this.homeStatisticsTurnovers = homeStatisticsTurnovers;
 	}
 
-	public String getHomeBlocks() {
-		return homeBlocks;
+	public String getHomeStatisticsSteals() {
+		return homeStatisticsSteals;
 	}
 
-	public void setHomeBlocks(String homeBlocks) {
-		this.homeBlocks = homeBlocks;
+	public void setHomeStatisticsSteals(String homeStatisticsSteals) {
+		this.homeStatisticsSteals = homeStatisticsSteals;
 	}
 
-	public String getHomeAssistsTurnoverRatio() {
-		return homeAssistsTurnoverRatio;
+	public String getHomeStatisticsBlocks() {
+		return homeStatisticsBlocks;
 	}
 
-	public void setHomeAssistsTurnoverRatio(String homeAssistsTurnoverRatio) {
-		this.homeAssistsTurnoverRatio = homeAssistsTurnoverRatio;
+	public void setHomeStatisticsBlocks(String homeStatisticsBlocks) {
+		this.homeStatisticsBlocks = homeStatisticsBlocks;
 	}
 
-	public String getHomePersonalFouls() {
-		return homePersonalFouls;
+	public String getHomeStatisticsAssistsTurnoverRatio() {
+		return homeStatisticsAssistsTurnoverRatio;
 	}
 
-	public void setHomePersonalFouls(String homePersonalFouls) {
-		this.homePersonalFouls = homePersonalFouls;
+	public void setHomeStatisticsAssistsTurnoverRatio(
+			String homeStatisticsAssistsTurnoverRatio) {
+		this.homeStatisticsAssistsTurnoverRatio = homeStatisticsAssistsTurnoverRatio;
 	}
 
-	public String getHomePoints() {
-		return homePoints;
+	public String getHomeStatisticsPersonalFouls() {
+		return homeStatisticsPersonalFouls;
 	}
 
-	public void setHomePoints(String homePoints) {
-		this.homePoints = homePoints;
+	public void setHomeStatisticsPersonalFouls(String homeStatisticsPersonalFouls) {
+		this.homeStatisticsPersonalFouls = homeStatisticsPersonalFouls;
 	}
 
-	public String getHomeFastBreakPts() {
-		return homeFastBreakPts;
+	public String getHomeStatisticsPoints() {
+		return homeStatisticsPoints;
 	}
 
-	public void setHomeFastBreakPts(String homeFastBreakPts) {
-		this.homeFastBreakPts = homeFastBreakPts;
+	public void setHomeStatisticsPoints(String homeStatisticsPoints) {
+		this.homeStatisticsPoints = homeStatisticsPoints;
 	}
 
-	public String getHomePaintPts() {
-		return homePaintPts;
+	public String getHomeStatisticsFastBreakPts() {
+		return homeStatisticsFastBreakPts;
 	}
 
-	public void setHomePaintPts(String homePaintPts) {
-		this.homePaintPts = homePaintPts;
+	public void setHomeStatisticsFastBreakPts(String homeStatisticsFastBreakPts) {
+		this.homeStatisticsFastBreakPts = homeStatisticsFastBreakPts;
 	}
 
-	public String getHomeTeamTurnovers() {
-		return homeTeamTurnovers;
+	public String getHomeStatisticsPaintPts() {
+		return homeStatisticsPaintPts;
 	}
 
-	public void setHomeTeamTurnovers(String homeTeamTurnovers) {
-		this.homeTeamTurnovers = homeTeamTurnovers;
+	public void setHomeStatisticsPaintPts(String homeStatisticsPaintPts) {
+		this.homeStatisticsPaintPts = homeStatisticsPaintPts;
 	}
 
-	public String getHomeTeamRebounds() {
-		return homeTeamRebounds;
+	public String getHomeStatisticsTeamTurnovers() {
+		return homeStatisticsTeamTurnovers;
 	}
 
-	public void setHomeTeamRebounds(String homeTeamRebounds) {
-		this.homeTeamRebounds = homeTeamRebounds;
+	public void setHomeStatisticsTeamTurnovers(String homeStatisticsTeamTurnovers) {
+		this.homeStatisticsTeamTurnovers = homeStatisticsTeamTurnovers;
 	}
 
-	public String getHomeFlagrantFouls() {
-		return homeFlagrantFouls;
+	public String getHomeStatisticsTeamRebounds() {
+		return homeStatisticsTeamRebounds;
 	}
 
-	public void setHomeFlagrantFouls(String homeFlagrantFouls) {
-		this.homeFlagrantFouls = homeFlagrantFouls;
+	public void setHomeStatisticsTeamRebounds(String homeStatisticsTeamRebounds) {
+		this.homeStatisticsTeamRebounds = homeStatisticsTeamRebounds;
 	}
 
-	public String getHomePlayerTechFouls() {
-		return homePlayerTechFouls;
+	public String getHomeStatisticsFlagrantFouls() {
+		return homeStatisticsFlagrantFouls;
 	}
 
-	public void setHomePlayerTechFouls(String homePlayerTechFouls) {
-		this.homePlayerTechFouls = homePlayerTechFouls;
+	public void setHomeStatisticsFlagrantFouls(String homeStatisticsFlagrantFouls) {
+		this.homeStatisticsFlagrantFouls = homeStatisticsFlagrantFouls;
 	}
 
-	public String getHomeTeamTechFouls() {
-		return homeTeamTechFouls;
+	public String getHomeStatisticsPlayerTechFouls() {
+		return homeStatisticsPlayerTechFouls;
 	}
 
-	public void setHomeTeamTechFouls(String homeTeamTechFouls) {
-		this.homeTeamTechFouls = homeTeamTechFouls;
+	public void setHomeStatisticsPlayerTechFouls(
+			String homeStatisticsPlayerTechFouls) {
+		this.homeStatisticsPlayerTechFouls = homeStatisticsPlayerTechFouls;
 	}
 
-	public String getHomeCoachTechFouls() {
-		return homeCoachTechFouls;
+	public String getHomeStatisticsTeamTechFouls() {
+		return homeStatisticsTeamTechFouls;
 	}
 
-	public void setHomeCoachTechFouls(String homeCoachTechFouls) {
-		this.homeCoachTechFouls = homeCoachTechFouls;
+	public void setHomeStatisticsTeamTechFouls(String homeStatisticsTeamTechFouls) {
+		this.homeStatisticsTeamTechFouls = homeStatisticsTeamTechFouls;
 	}
 
-	public String getAwayTeamQuarting1() {
-		return awayTeamQuarting1;
+	public String getHomeStatisticsCoachTechFouls() {
+		return homeStatisticsCoachTechFouls;
 	}
 
-	public void setAwayTeamQuarting1(String awayTeamQuarting1) {
-		this.awayTeamQuarting1 = awayTeamQuarting1;
+	public void setHomeStatisticsCoachTechFouls(
+			String homeStatisticsCoachTechFouls) {
+		this.homeStatisticsCoachTechFouls = homeStatisticsCoachTechFouls;
 	}
 
-	public String getAwayTeamQuarting2() {
-		return awayTeamQuarting2;
+	public String getAwayTeamQuarter1Points() {
+		return awayTeamQuarter1Points;
 	}
 
-	public void setAwayTeamQuarting2(String awayTeamQuarting2) {
-		this.awayTeamQuarting2 = awayTeamQuarting2;
+	public void setAwayTeamQuarter1Points(String awayTeamQuarter1Points) {
+		this.awayTeamQuarter1Points = awayTeamQuarter1Points;
 	}
 
-	public String getAwayTeamQuarting3() {
-		return awayTeamQuarting3;
+	public String getAwayTeamQuarter2Points() {
+		return awayTeamQuarter2Points;
 	}
 
-	public void setAwayTeamQuarting3(String awayTeamQuarting3) {
-		this.awayTeamQuarting3 = awayTeamQuarting3;
+	public void setAwayTeamQuarter2Points(String awayTeamQuarter2Points) {
+		this.awayTeamQuarter2Points = awayTeamQuarter2Points;
 	}
 
-	public String getAwayTeamQuarting4() {
-		return awayTeamQuarting4;
+	public String getAwayTeamQuarter3Points() {
+		return awayTeamQuarter3Points;
 	}
 
-	public void setAwayTeamQuarting4(String awayTeamQuarting4) {
-		this.awayTeamQuarting4 = awayTeamQuarting4;
+	public void setAwayTeamQuarter3Points(String awayTeamQuarter3Points) {
+		this.awayTeamQuarter3Points = awayTeamQuarter3Points;
 	}
 
-	public String getAwayMinutes() {
-		return awayMinutes;
+	public String getAwayTeamQuarter4Points() {
+		return awayTeamQuarter4Points;
 	}
 
-	public void setAwayMinutes(String awayMinutes) {
-		this.awayMinutes = awayMinutes;
+	public void setAwayTeamQuarter4Points(String awayTeamQuarter4Points) {
+		this.awayTeamQuarter4Points = awayTeamQuarter4Points;
 	}
 
-	public String getAwayFieldGoalsMade() {
-		return awayFieldGoalsMade;
+	public String getAwayStatisticsMinutes() {
+		return awayStatisticsMinutes;
 	}
 
-	public void setAwayFieldGoalsMade(String awayFieldGoalsMade) {
-		this.awayFieldGoalsMade = awayFieldGoalsMade;
+	public void setAwayStatisticsMinutes(String awayStatisticsMinutes) {
+		this.awayStatisticsMinutes = awayStatisticsMinutes;
 	}
 
-	public String getAwayFieldGoalsAtt() {
-		return awayFieldGoalsAtt;
+	public String getAwayStatisticsFieldGoalsMade() {
+		return awayStatisticsFieldGoalsMade;
 	}
 
-	public void setAwayFieldGoalsAtt(String awayFieldGoalsAtt) {
-		this.awayFieldGoalsAtt = awayFieldGoalsAtt;
+	public void setAwayStatisticsFieldGoalsMade(
+			String awayStatisticsFieldGoalsMade) {
+		this.awayStatisticsFieldGoalsMade = awayStatisticsFieldGoalsMade;
 	}
 
-	public String getAwayFieldGoalsPct() {
-		return awayFieldGoalsPct;
+	public String getAwayStatisticsFieldGoalsAtt() {
+		return awayStatisticsFieldGoalsAtt;
 	}
 
-	public void setAwayFieldGoalsPct(String awayFieldGoalsPct) {
-		this.awayFieldGoalsPct = awayFieldGoalsPct;
+	public void setAwayStatisticsFieldGoalsAtt(String awayStatisticsFieldGoalsAtt) {
+		this.awayStatisticsFieldGoalsAtt = awayStatisticsFieldGoalsAtt;
 	}
 
-	public String getAwayThreePointsMade() {
-		return awayThreePointsMade;
+	public String getAwayStatisticsFieldGoalsPct() {
+		return awayStatisticsFieldGoalsPct;
 	}
 
-	public void setAwayThreePointsMade(String awayThreePointsMade) {
-		this.awayThreePointsMade = awayThreePointsMade;
+	public void setAwayStatisticsFieldGoalsPct(String awayStatisticsFieldGoalsPct) {
+		this.awayStatisticsFieldGoalsPct = awayStatisticsFieldGoalsPct;
 	}
 
-	public String getAwayThreePointsAtt() {
-		return awayThreePointsAtt;
+	public String getAwayStatisticsThreePointsMade() {
+		return awayStatisticsThreePointsMade;
 	}
 
-	public void setAwayThreePointsAtt(String awayThreePointsAtt) {
-		this.awayThreePointsAtt = awayThreePointsAtt;
+	public void setAwayStatisticsThreePointsMade(
+			String awayStatisticsThreePointsMade) {
+		this.awayStatisticsThreePointsMade = awayStatisticsThreePointsMade;
 	}
 
-	public String getAwayThreePointsPct() {
-		return awayThreePointsPct;
+	public String getAwayStatisticsThreePointsAtt() {
+		return awayStatisticsThreePointsAtt;
 	}
 
-	public void setAwayThreePointsPct(String awayThreePointsPct) {
-		this.awayThreePointsPct = awayThreePointsPct;
+	public void setAwayStatisticsThreePointsAtt(
+			String awayStatisticsThreePointsAtt) {
+		this.awayStatisticsThreePointsAtt = awayStatisticsThreePointsAtt;
 	}
 
-	public String getAwayTwoPointsMade() {
-		return awayTwoPointsMade;
+	public String getAwayStatisticsThreePointsPct() {
+		return awayStatisticsThreePointsPct;
 	}
 
-	public void setAwayTwoPointsMade(String awayTwoPointsMade) {
-		this.awayTwoPointsMade = awayTwoPointsMade;
+	public void setAwayStatisticsThreePointsPct(
+			String awayStatisticsThreePointsPct) {
+		this.awayStatisticsThreePointsPct = awayStatisticsThreePointsPct;
 	}
 
-	public String getAwayTwoPointsAtt() {
-		return awayTwoPointsAtt;
+	public String getAwayStatisticsTwoPointsMade() {
+		return awayStatisticsTwoPointsMade;
 	}
 
-	public void setAwayTwoPointsAtt(String awayTwoPointsAtt) {
-		this.awayTwoPointsAtt = awayTwoPointsAtt;
+	public void setAwayStatisticsTwoPointsMade(String awayStatisticsTwoPointsMade) {
+		this.awayStatisticsTwoPointsMade = awayStatisticsTwoPointsMade;
 	}
 
-	public String getAwayTwoPointsPct() {
-		return awayTwoPointsPct;
+	public String getAwayStatisticsTwoPointsAtt() {
+		return awayStatisticsTwoPointsAtt;
 	}
 
-	public void setAwayTwoPointsPct(String awayTwoPointsPct) {
-		this.awayTwoPointsPct = awayTwoPointsPct;
+	public void setAwayStatisticsTwoPointsAtt(String awayStatisticsTwoPointsAtt) {
+		this.awayStatisticsTwoPointsAtt = awayStatisticsTwoPointsAtt;
 	}
 
-	public String getAwayBlockedAtt() {
-		return awayBlockedAtt;
+	public String getAwayStatisticsTwoPointsPct() {
+		return awayStatisticsTwoPointsPct;
 	}
 
-	public void setAwayBlockedAtt(String awayBlockedAtt) {
-		this.awayBlockedAtt = awayBlockedAtt;
+	public void setAwayStatisticsTwoPointsPct(String awayStatisticsTwoPointsPct) {
+		this.awayStatisticsTwoPointsPct = awayStatisticsTwoPointsPct;
 	}
-	
-	public String getAwayFreeThrowsMade() {
-		return awayFreeThrowsMade;
+
+	public String getAwayStatisticsBlockedAtt() {
+		return awayStatisticsBlockedAtt;
+	}
+
+	public void setAwayStatisticsBlockedAtt(String awayStatisticsBlockedAtt) {
+		this.awayStatisticsBlockedAtt = awayStatisticsBlockedAtt;
+	}
+
+	public String getAwayStatisticsFreeThrowsMade() {
+		return awayStatisticsFreeThrowsMade;
 	}
 
-	public void setAwayFreeThrowsMade(String awayFreeThrowsMade) {
-		this.awayFreeThrowsMade = awayFreeThrowsMade;
+	public void setAwayStatisticsFreeThrowsMade(
+			String awayStatisticsFreeThrowsMade) {
+		this.awayStatisticsFreeThrowsMade = awayStatisticsFreeThrowsMade;
 	}
 
-	public String getAwayFreeThrowsAtt() {
-		return awayFreeThrowsAtt;
+	public String getAwayStatisticsFreeThrowsAtt() {
+		return awayStatisticsFreeThrowsAtt;
 	}
 
-	public void setAwayFreeThrowsAtt(String awayFreeThrowsAtt) {
-		this.awayFreeThrowsAtt = awayFreeThrowsAtt;
+	public void setAwayStatisticsFreeThrowsAtt(String awayStatisticsFreeThrowsAtt) {
+		this.awayStatisticsFreeThrowsAtt = awayStatisticsFreeThrowsAtt;
 	}
 
-	public String getAwayFreeThrowsPct() {
-		return awayFreeThrowsPct;
+	public String getAwayStatisticsFreeThrowsPct() {
+		return awayStatisticsFreeThrowsPct;
 	}
 
-	public void setAwayFreeThrowsPct(String awayFreeThrowsPct) {
-		this.awayFreeThrowsPct = awayFreeThrowsPct;
+	public void setAwayStatisticsFreeThrowsPct(String awayStatisticsFreeThrowsPct) {
+		this.awayStatisticsFreeThrowsPct = awayStatisticsFreeThrowsPct;
 	}
 
-	public String getAwayOffensiveRebounds() {
-		return awayOffensiveRebounds;
+	public String getAwayStatisticsOffensiveRebounds() {
+		return awayStatisticsOffensiveRebounds;
 	}
 
-	public void setAwayOffensiveRebounds(String awayOffensiveRebounds) {
-		this.awayOffensiveRebounds = awayOffensiveRebounds;
+	public void setAwayStatisticsOffensiveRebounds(
+			String awayStatisticsOffensiveRebounds) {
+		this.awayStatisticsOffensiveRebounds = awayStatisticsOffensiveRebounds;
 	}
 
-	public String getAwayDefensiveRebounds() {
-		return awayDefensiveRebounds;
+	public String getAwayStatisticsDefensiveRebounds() {
+		return awayStatisticsDefensiveRebounds;
 	}
 
-	public void setAwayDefensiveRebounds(String awayDefensiveRebounds) {
-		this.awayDefensiveRebounds = awayDefensiveRebounds;
+	public void setAwayStatisticsDefensiveRebounds(
+			String awayStatisticsDefensiveRebounds) {
+		this.awayStatisticsDefensiveRebounds = awayStatisticsDefensiveRebounds;
 	}
 
-	public String getAwayRebounds() {
-		return awayRebounds;
+	public String getAwayStatisticsRebounds() {
+		return awayStatisticsRebounds;
 	}
 
-	public void setAwayRebounds(String awayRebounds) {
-		this.awayRebounds = awayRebounds;
+	public void setAwayStatisticsRebounds(String awayStatisticsRebounds) {
+		this.awayStatisticsRebounds = awayStatisticsRebounds;
 	}
 
-	public String getAwayAssists() {
-		return awayAssists;
+	public String getAwayStatisticsAssists() {
+		return awayStatisticsAssists;
 	}
 
-	public void setAwayAssists(String awayAssists) {
-		this.awayAssists = awayAssists;
+	public void setAwayStatisticsAssists(String awayStatisticsAssists) {
+		this.awayStatisticsAssists = awayStatisticsAssists;
 	}
 
-	public String getAwayTurnovers() {
-		return awayTurnovers;
+	public String getAwayStatisticsTurnovers() {
+		return awayStatisticsTurnovers;
 	}
 
-	public void setAwayTurnovers(String awayTurnovers) {
-		this.awayTurnovers = awayTurnovers;
+	public void setAwayStatisticsTurnovers(String awayStatisticsTurnovers) {
+		this.awayStatisticsTurnovers = awayStatisticsTurnovers;
 	}
 
-	public String getAwaySteals() {
-		return awaySteals;
+	public String getAwayStatisticsSteals() {
+		return awayStatisticsSteals;
 	}
 
-	public void setAwaySteals(String awaySteals) {
-		this.awaySteals = awaySteals;
+	public void setAwayStatisticsSteals(String awayStatisticsSteals) {
+		this.awayStatisticsSteals = awayStatisticsSteals;
 	}
 
-	public String getAwayBlocks() {
-		return awayBlocks;
+	public String getAwayStatisticsBlocks() {
+		return awayStatisticsBlocks;
 	}
 
-	public void setAwayBlocks(String awayBlocks) {
-		this.awayBlocks = awayBlocks;
+	public void setAwayStatisticsBlocks(String awayStatisticsBlocks) {
+		this.awayStatisticsBlocks = awayStatisticsBlocks;
 	}
 
-	public String getAwayAssistsTurnoverRatio() {
-		return awayAssistsTurnoverRatio;
+	public String getAwayStatisticsAssistsTurnoverRatio() {
+		return awayStatisticsAssistsTurnoverRatio;
 	}
 
-	public void setAwayAssistsTurnoverRatio(String awayAssistsTurnoverRatio) {
-		this.awayAssistsTurnoverRatio = awayAssistsTurnoverRatio;
+	public void setAwayStatisticsAssistsTurnoverRatio(
+			String awayStatisticsAssistsTurnoverRatio) {
+		this.awayStatisticsAssistsTurnoverRatio = awayStatisticsAssistsTurnoverRatio;
 	}
 
-	public String getAwayPersonalFouls() {
-		return awayPersonalFouls;
+	public String getAwayStatisticsPersonalFouls() {
+		return awayStatisticsPersonalFouls;
 	}
 
-	public void setAwayPersonalFouls(String awayPersonalFouls) {
-		this.awayPersonalFouls = awayPersonalFouls;
+	public void setAwayStatisticsPersonalFouls(String awayStatisticsPersonalFouls) {
+		this.awayStatisticsPersonalFouls = awayStatisticsPersonalFouls;
 	}
 
-	public String getAwayPoints() {
-		return awayPoints;
+	public String getAwayStatisticsPoints() {
+		return awayStatisticsPoints;
 	}
 
-	public void setAwayPoints(String awayPoints) {
-		this.awayPoints = awayPoints;
+	public void setAwayStatisticsPoints(String awayStatisticsPoints) {
+		this.awayStatisticsPoints = awayStatisticsPoints;
 	}
 
-	public String getAwayFastBreakPts() {
-		return awayFastBreakPts;
+	public String getAwayStatisticsFastBreakPts() {
+		return awayStatisticsFastBreakPts;
 	}
 
-	public void setAwayFastBreakPts(String awayFastBreakPts) {
-		this.awayFastBreakPts = awayFastBreakPts;
+	public void setAwayStatisticsFastBreakPts(String awayStatisticsFastBreakPts) {
+		this.awayStatisticsFastBreakPts = awayStatisticsFastBreakPts;
 	}
 
-	public String getAwayPaintPts() {
-		return awayPaintPts;
+	public String getAwayStatisticsPaintPts() {
+		return awayStatisticsPaintPts;
 	}
 
-	public void setAwayPaintPts(String awayPaintPts) {
-		this.awayPaintPts = awayPaintPts;
+	public void setAwayStatisticsPaintPts(String awayStatisticsPaintPts) {
+		this.awayStatisticsPaintPts = awayStatisticsPaintPts;
 	}
 
-	public String getAwayTeamTurnovers() {
-		return awayTeamTurnovers;
+	public String getAwayStatisticsTeamTurnovers() {
+		return awayStatisticsTeamTurnovers;
 	}
 
-	public void setAwayTeamTurnovers(String awayTeamTurnovers) {
-		this.awayTeamTurnovers = awayTeamTurnovers;
+	public void setAwayStatisticsTeamTurnovers(String awayStatisticsTeamTurnovers) {
+		this.awayStatisticsTeamTurnovers = awayStatisticsTeamTurnovers;
 	}
 
-	public String getAwayTeamRebounds() {
-		return awayTeamRebounds;
+	public String getAwayStatisticsTeamRebounds() {
+		return awayStatisticsTeamRebounds;
 	}
 
-	public void setAwayTeamRebounds(String awayTeamRebounds) {
-		this.awayTeamRebounds = awayTeamRebounds;
+	public void setAwayStatisticsTeamRebounds(String awayStatisticsTeamRebounds) {
+		this.awayStatisticsTeamRebounds = awayStatisticsTeamRebounds;
 	}
 
-	public String getAwayFlagrantFouls() {
-		return awayFlagrantFouls;
+	public String getAwayStatisticsFlagrantFouls() {
+		return awayStatisticsFlagrantFouls;
 	}
 
-	public void setAwayFlagrantFouls(String awayFlagrantFouls) {
-		this.awayFlagrantFouls = awayFlagrantFouls;
+	public void setAwayStatisticsFlagrantFouls(String awayStatisticsFlagrantFouls) {
+		this.awayStatisticsFlagrantFouls = awayStatisticsFlagrantFouls;
 	}
 
-	public String getAwayPlayerTechFouls() {
-		return awayPlayerTechFouls;
+	public String getAwayStatisticsPlayerTechFouls() {
+		return awayStatisticsPlayerTechFouls;
 	}
 
-	public void setAwayPlayerTechFouls(String awayPlayerTechFouls) {
-		this.awayPlayerTechFouls = awayPlayerTechFouls;
+	public void setAwayStatisticsPlayerTechFouls(
+			String awayStatisticsPlayerTechFouls) {
+		this.awayStatisticsPlayerTechFouls = awayStatisticsPlayerTechFouls;
 	}
 
-	public String getAwayTeamTechFouls() {
-		return awayTeamTechFouls;
+	public String getAwayStatisticsTeamTechFouls() {
+		return awayStatisticsTeamTechFouls;
 	}
 
-	public void setAwayTeamTechFouls(String awayTeamTechFouls) {
-		this.awayTeamTechFouls = awayTeamTechFouls;
+	public void setAwayStatisticsTeamTechFouls(String awayStatisticsTeamTechFouls) {
+		this.awayStatisticsTeamTechFouls = awayStatisticsTeamTechFouls;
 	}
 
-	public String getAwayCoachTechFouls() {
-		return awayCoachTechFouls;
+	public String getAwayStatisticsCoachTechFouls() {
+		return awayStatisticsCoachTechFouls;
 	}
 
-	public void setAwayCoachTechFouls(String awayCoachTechFouls) {
-		this.awayCoachTechFouls = awayCoachTechFouls;
+	public void setAwayStatisticsCoachTechFouls(
+			String awayStatisticsCoachTechFouls) {
+		this.awayStatisticsCoachTechFouls = awayStatisticsCoachTechFouls;
 	}
 
 	@Override
 	public String toString() {
-		return "GameSummary [gameId=" + gameId + ", coverage=" + coverage
-				+ ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam
-				+ ", scheduled=" + scheduled + ", attendance=" + attendance
-				+ ", clock=" + clock + ", quarter=" + quarter
-				+ ", homeTeamQuarting1=" + homeTeamQuarting1
-				+ ", homeTeamQuarting2=" + homeTeamQuarting2
-				+ ", homeTeamQuarting3=" + homeTeamQuarting3
-				+ ", homeTeamQuarting4=" + homeTeamQuarting4 + ", homeMinutes="
-				+ homeMinutes + ", homeFieldGoalsMade=" + homeFieldGoalsMade
-				+ ", homeFieldGoalsAtt=" + homeFieldGoalsAtt
-				+ ", homeFieldGoalsPct=" + homeFieldGoalsPct
-				+ ", homeThreePointsMade=" + homeThreePointsMade
-				+ ", homeThreePointsAtt=" + homeThreePointsAtt
-				+ ", homeThreePointsPct=" + homeThreePointsPct
-				+ ", homeTwoPointsMade=" + homeTwoPointsMade
-				+ ", homeTwoPointsAtt=" + homeTwoPointsAtt
-				+ ", homeTwoPointsPct=" + homeTwoPointsPct
-				+ ", homeBlockedAtt=" + homeBlockedAtt
-				+ ", homeFreeThrowsMade=" + homeFreeThrowsMade
-				+ ", homeFreeThrowsAtt=" + homeFreeThrowsAtt
-				+ ", homeFreeThrowsPct=" + homeFreeThrowsPct
-				+ ", homeOffensiveRebounds=" + homeOffensiveRebounds
-				+ ", homeDefensiveRebounds=" + homeDefensiveRebounds
-				+ ", homeRebounds=" + homeRebounds + ", homeAssists="
-				+ homeAssists + ", homeTurnovers=" + homeTurnovers
-				+ ", homeSteals=" + homeSteals + ", homeBlocks=" + homeBlocks
-				+ ", homeAssistsTurnoverRatio=" + homeAssistsTurnoverRatio
-				+ ", homePersonalFouls=" + homePersonalFouls + ", homePoints="
-				+ homePoints + ", homeFastBreakPts=" + homeFastBreakPts
-				+ ", homePaintPts=" + homePaintPts + ", homeTeamTurnovers="
-				+ homeTeamTurnovers + ", homeTeamRebounds=" + homeTeamRebounds
-				+ ", homeFlagrantFouls=" + homeFlagrantFouls
-				+ ", homePlayerTechFouls=" + homePlayerTechFouls
-				+ ", homeTeamTechFouls=" + homeTeamTechFouls
-				+ ", homeCoachTechFouls=" + homeCoachTechFouls
-				+ ", awayTeamQuarting1=" + awayTeamQuarting1
-				+ ", awayTeamQuarting2=" + awayTeamQuarting2
-				+ ", awayTeamQuarting3=" + awayTeamQuarting3
-				+ ", awayTeamQuarting4=" + awayTeamQuarting4 + ", awayMinutes="
-				+ awayMinutes + ", awayFieldGoalsMade=" + awayFieldGoalsMade
-				+ ", awayFieldGoalsAtt=" + awayFieldGoalsAtt
-				+ ", awayFieldGoalsPct=" + awayFieldGoalsPct
-				+ ", awayThreePointsMade=" + awayThreePointsMade
-				+ ", awayThreePointsAtt=" + awayThreePointsAtt
-				+ ", awayThreePointsPct=" + awayThreePointsPct
-				+ ", awayTwoPointsMade=" + awayTwoPointsMade
-				+ ", awayTwoPointsAtt=" + awayTwoPointsAtt
-				+ ", awayTwoPointsPct=" + awayTwoPointsPct
-				+ ", awayBlockedAtt=" + awayBlockedAtt
-				+ ", awayFreeThrowsMade=" + awayFreeThrowsMade
-				+ ", awayFreeThrowsAtt=" + awayFreeThrowsAtt
-				+ ", awayFreeThrowsPct=" + awayFreeThrowsPct
-				+ ", awayOffensiveRebounds=" + awayOffensiveRebounds
-				+ ", awayDefensiveRebounds=" + awayDefensiveRebounds
-				+ ", awayRebounds=" + awayRebounds + ", awayAssists="
-				+ awayAssists + ", awayTurnovers=" + awayTurnovers
-				+ ", awaySteals=" + awaySteals + ", awayBlocks=" + awayBlocks
-				+ ", awayAssistsTurnoverRatio=" + awayAssistsTurnoverRatio
-				+ ", awayPersonalFouls=" + awayPersonalFouls + ", awayPoints="
-				+ awayPoints + ", awayFastBreakPts=" + awayFastBreakPts
-				+ ", awayPaintPts=" + awayPaintPts + ", awayTeamTurnovers="
-				+ awayTeamTurnovers + ", awayTeamRebounds=" + awayTeamRebounds
-				+ ", awayFlagrantFouls=" + awayFlagrantFouls
-				+ ", awayPlayerTechFouls=" + awayPlayerTechFouls
-				+ ", awayTeamTechFouls=" + awayTeamTechFouls
-				+ ", awayCoachTechFouls=" + awayCoachTechFouls + "]";
+		return "GameSummary [gameId=" + gameId + ", gameCoverage="
+				+ gameCoverage + ", gameHomeTeam=" + gameHomeTeam
+				+ ", gameAwayTeam=" + gameAwayTeam + ", gameScheduled="
+				+ gameScheduled + ", gameStatus=" + gameStatus
+				+ ", gameAttendance=" + gameAttendance + ", gameClock="
+				+ gameClock + ", gameQuarter=" + gameQuarter
+				+ ", homeTeamQuarter1Points=" + homeTeamQuarter1Points
+				+ ", homeTeamQuarter2Points=" + homeTeamQuarter2Points
+				+ ", homeTeamQuarter3Points=" + homeTeamQuarter3Points
+				+ ", homeTeamQuarter4Points=" + homeTeamQuarter4Points
+				+ ", homeStatisticsMinutes=" + homeStatisticsMinutes
+				+ ", homeStatisticsFieldGoalsMade="
+				+ homeStatisticsFieldGoalsMade
+				+ ", homeStatisticsFieldGoalsAtt="
+				+ homeStatisticsFieldGoalsAtt
+				+ ", homeStatisticsFieldGoalsPct="
+				+ homeStatisticsFieldGoalsPct
+				+ ", homeStatisticsThreePointsMade="
+				+ homeStatisticsThreePointsMade
+				+ ", homeStatisticsThreePointsAtt="
+				+ homeStatisticsThreePointsAtt
+				+ ", homeStatisticsThreePointsPct="
+				+ homeStatisticsThreePointsPct
+				+ ", homeStatisticsTwoPointsMade="
+				+ homeStatisticsTwoPointsMade
+				+ ", homeStatisticsTwoPointsAtt="
+				+ homeStatisticsTwoPointsAtt
+				+ ", homeStatisticsTwoPointsPct="
+				+ homeStatisticsTwoPointsPct + ", homeStatisticsBlockedAtt="
+				+ homeStatisticsBlockedAtt
+				+ ", homeStatisticsFreeThrowsMade="
+				+ homeStatisticsFreeThrowsMade
+				+ ", homeStatisticsFreeThrowsAtt="
+				+ homeStatisticsFreeThrowsAtt
+				+ ", homeStatisticsFreeThrowsPct="
+				+ homeStatisticsFreeThrowsPct
+				+ ", homeStatisticsOffensiveRebounds="
+				+ homeStatisticsOffensiveRebounds
+				+ ", homeStatisticsDefensiveRebounds="
+				+ homeStatisticsDefensiveRebounds
+				+ ", homeStatisticsRebounds=" + homeStatisticsRebounds
+				+ ", homeStatisticsAssists=" + homeStatisticsAssists
+				+ ", homeStatisticsTurnovers=" + homeStatisticsTurnovers
+				+ ", homeStatisticsSteals=" + homeStatisticsSteals
+				+ ", homeStatisticsBlocks=" + homeStatisticsBlocks
+				+ ", homeStatisticsAssistsTurnoverRatio="
+				+ homeStatisticsAssistsTurnoverRatio
+				+ ", homeStatisticsPersonalFouls="
+				+ homeStatisticsPersonalFouls + ", homeStatisticsPoints="
+				+ homeStatisticsPoints + ", homeStatisticsFastBreakPts="
+				+ homeStatisticsFastBreakPts + ", homeStatisticsPaintPts="
+				+ homeStatisticsPaintPts + ", homeStatisticsTeamTurnovers="
+				+ homeStatisticsTeamTurnovers
+				+ ", homeStatisticsTeamRebounds="
+				+ homeStatisticsTeamRebounds
+				+ ", homeStatisticsFlagrantFouls="
+				+ homeStatisticsFlagrantFouls
+				+ ", homeStatisticsPlayerTechFouls="
+				+ homeStatisticsPlayerTechFouls
+				+ ", homeStatisticsTeamTechFouls="
+				+ homeStatisticsTeamTechFouls
+				+ ", homeStatisticsCoachTechFouls="
+				+ homeStatisticsCoachTechFouls + ", awayTeamQuarter1Points="
+				+ awayTeamQuarter1Points + ", awayTeamQuarter2Points="
+				+ awayTeamQuarter2Points + ", awayTeamQuarter3Points="
+				+ awayTeamQuarter3Points + ", awayTeamQuarter4Points="
+				+ awayTeamQuarter4Points + ", awayStatisticsMinutes="
+				+ awayStatisticsMinutes + ", awayStatisticsFieldGoalsMade="
+				+ awayStatisticsFieldGoalsMade
+				+ ", awayStatisticsFieldGoalsAtt="
+				+ awayStatisticsFieldGoalsAtt
+				+ ", awayStatisticsFieldGoalsPct="
+				+ awayStatisticsFieldGoalsPct
+				+ ", awayStatisticsThreePointsMade="
+				+ awayStatisticsThreePointsMade
+				+ ", awayStatisticsThreePointsAtt="
+				+ awayStatisticsThreePointsAtt
+				+ ", awayStatisticsThreePointsPct="
+				+ awayStatisticsThreePointsPct
+				+ ", awayStatisticsTwoPointsMade="
+				+ awayStatisticsTwoPointsMade
+				+ ", awayStatisticsTwoPointsAtt="
+				+ awayStatisticsTwoPointsAtt
+				+ ", awayStatisticsTwoPointsPct="
+				+ awayStatisticsTwoPointsPct + ", awayStatisticsBlockedAtt="
+				+ awayStatisticsBlockedAtt
+				+ ", awayStatisticsFreeThrowsMade="
+				+ awayStatisticsFreeThrowsMade
+				+ ", awayStatisticsFreeThrowsAtt="
+				+ awayStatisticsFreeThrowsAtt
+				+ ", awayStatisticsFreeThrowsPct="
+				+ awayStatisticsFreeThrowsPct
+				+ ", awayStatisticsOffensiveRebounds="
+				+ awayStatisticsOffensiveRebounds
+				+ ", awayStatisticsDefensiveRebounds="
+				+ awayStatisticsDefensiveRebounds
+				+ ", awayStatisticsRebounds=" + awayStatisticsRebounds
+				+ ", awayStatisticsAssists=" + awayStatisticsAssists
+				+ ", awayStatisticsTurnovers=" + awayStatisticsTurnovers
+				+ ", awayStatisticsSteals=" + awayStatisticsSteals
+				+ ", awayStatisticsBlocks=" + awayStatisticsBlocks
+				+ ", awayStatisticsAssistsTurnoverRatio="
+				+ awayStatisticsAssistsTurnoverRatio
+				+ ", awayStatisticsPersonalFouls="
+				+ awayStatisticsPersonalFouls + ", awayStatisticsPoints="
+				+ awayStatisticsPoints + ", awayStatisticsFastBreakPts="
+				+ awayStatisticsFastBreakPts + ", awayStatisticsPaintPts="
+				+ awayStatisticsPaintPts + ", awayStatisticsTeamTurnovers="
+				+ awayStatisticsTeamTurnovers
+				+ ", awayStatisticsTeamRebounds="
+				+ awayStatisticsTeamRebounds
+				+ ", awayStatisticsFlagrantFouls="
+				+ awayStatisticsFlagrantFouls
+				+ ", awayStatisticsPlayerTechFouls="
+				+ awayStatisticsPlayerTechFouls
+				+ ", awayStatisticsTeamTechFouls="
+				+ awayStatisticsTeamTechFouls
+				+ ", awayStatisticsCoachTechFouls="
+				+ awayStatisticsCoachTechFouls + "]";
 	}
 }

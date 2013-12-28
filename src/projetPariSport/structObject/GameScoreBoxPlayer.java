@@ -1,45 +1,53 @@
 package projetPariSport.structObject;
 
-/* JavaBean GameScoreBoxPlayer
+/**
+ * GameScoreBoxPlayer - Definition of the object GameScoreBoxPlayer
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get boxscore data's player for NBA games.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
  */
 public class GameScoreBoxPlayer extends StructObject implements
 		IDataCenterObject {
 	public String gameId;
 	public String teamId;
 	public String playerId;
-	public String minutes;
-	public String fieldGoalsMade;
-	public String fieldGoalsAtt;
-	public String fieldGoalsPct;
-	public String threePointsMade;
-	public String threePointsAtt;
-	public String threePointsPct;
-	public String twoPointsMade;
-	public String twoPointsAtt;
-	public String twoPointsPct;
-	public String blockedAtt;
-	public String freeThrowsMade;
-	public String freeThrowsAtt;
-	public String freeThrowsPct;
-	public String offensiveRebounds;
-	public String defensiveRebounds;
-	public String rebounds;
-	public String assists;
-	public String turnovers;
-	public String steals;
-	public String blocks;
-	public String assistsTurnoverRatio;
-	public String personalFouls;
-	public String techFouls;
-	public String flagrantFouls;
-	public String plsMin;
-	public String points;
+	public String statisticsMinutes;
+	public String statisticsFieldGoalsMade;
+	public String statisticsFieldGoalsAtt;
+	public String statisticsFieldGoalsPct;
+	public String statisticsThreePointsMade;
+	public String statisticsThreePointsAtt;
+	public String statisticsThreePointsPct;
+	public String statisticsTwoPointsMade;
+	public String statisticsTwoPointsAtt;
+	public String statisticsTwoPointsPct;
+	public String statisticsBlockedAtt;
+	public String statisticsFreeThrowsMade;
+	public String statisticsFreeThrowsAtt;
+	public String statisticsFreeThrowsPct;
+	public String statisticsOffensiveRebounds;
+	public String statisticsDefensiveRebounds;
+	public String statisticsRebounds;
+	public String statisticsAssists;
+	public String statisticsTurnovers;
+	public String statisticsTteals;
+	public String statisticsBlocks;
+	public String statisticsAssistsTurnoverRatio;
+	public String statisticsPersonalFouls;
+	public String statisticsTechFouls;
+	public String statisticsFlagrantFouls;
+	public String statisticsPlsMin;
+	public String statisticsPoints;
 	
 	public GameScoreBoxPlayer(){
 		super();
 	}
-	
+
 	public String getGameId() {
 		return gameId;
 	}
@@ -47,11 +55,11 @@ public class GameScoreBoxPlayer extends StructObject implements
 	public void setGameId(String gameId) {
 		this.gameId = gameId;
 	}
-	
+
 	public String getTeamId() {
 		return teamId;
 	}
-	
+
 	public void setTeamId(String teamId) {
 		this.teamId = teamId;
 	}
@@ -64,242 +72,254 @@ public class GameScoreBoxPlayer extends StructObject implements
 		this.playerId = playerId;
 	}
 
-	public String getMinutes() {
-		return minutes;
+	public String getStatisticsMinutes() {
+		return statisticsMinutes;
 	}
 
-	public void setMinutes(String minutes) {
-		this.minutes = minutes;
+	public void setStatisticsMinutes(String statisticsMinutes) {
+		this.statisticsMinutes = statisticsMinutes;
 	}
 
-	public String getFieldGoalsMade() {
-		return fieldGoalsMade;
-	}
-	
-	public void setFieldGoalsMade(String fieldGoalsMade) {
-		this.fieldGoalsMade = fieldGoalsMade;
+	public String getStatisticsFieldGoalsMade() {
+		return statisticsFieldGoalsMade;
 	}
 
-	public String getFieldGoalsAtt() {
-		return fieldGoalsAtt;
+	public void setStatisticsFieldGoalsMade(String statisticsFieldGoalsMade) {
+		this.statisticsFieldGoalsMade = statisticsFieldGoalsMade;
 	}
 
-	public void setFieldGoalsAtt(String fieldGoalsAtt) {
-		this.fieldGoalsAtt = fieldGoalsAtt;
+	public String getStatisticsFieldGoalsAtt() {
+		return statisticsFieldGoalsAtt;
 	}
 
-	public String getFieldGoalsPct() {
-		return fieldGoalsPct;
+	public void setStatisticsFieldGoalsAtt(String statisticsFieldGoalsAtt) {
+		this.statisticsFieldGoalsAtt = statisticsFieldGoalsAtt;
 	}
 
-	public void setFieldGoalsPct(String fieldGoalsPct) {
-		this.fieldGoalsPct = fieldGoalsPct;
+	public String getStatisticsFieldGoalsPct() {
+		return statisticsFieldGoalsPct;
 	}
 
-	public String getThreePointsMade() {
-		return threePointsMade;
-	}
-	
-	public void setThreePointsMade(String threePointsMade) {
-		this.threePointsMade = threePointsMade;
+	public void setStatisticsFieldGoalsPct(String statisticsFieldGoalsPct) {
+		this.statisticsFieldGoalsPct = statisticsFieldGoalsPct;
 	}
 
-	public String getThreePointsAtt() {
-		return threePointsAtt;
+	public String getStatisticsThreePointsMade() {
+		return statisticsThreePointsMade;
 	}
 
-	public void setThreePointsAtt(String threePointsAtt) {
-		this.threePointsAtt = threePointsAtt;
+	public void setStatisticsThreePointsMade(String statisticsThreePointsMade) {
+		this.statisticsThreePointsMade = statisticsThreePointsMade;
 	}
 
-	public String getThreePointsPct() {
-		return threePointsPct;
+	public String getStatisticsThreePointsAtt() {
+		return statisticsThreePointsAtt;
 	}
 
-	public void setThreePointsPct(String threePointsPct) {
-		this.threePointsPct = threePointsPct;
+	public void setStatisticsThreePointsAtt(String statisticsThreePointsAtt) {
+		this.statisticsThreePointsAtt = statisticsThreePointsAtt;
 	}
 
-	public String getTwoPointsMade() {
-		return twoPointsMade;
+	public String getStatisticsThreePointsPct() {
+		return statisticsThreePointsPct;
 	}
 
-	public void setTwoPointsMade(String twoPointsMade) {
-		this.twoPointsMade = twoPointsMade;
+	public void setStatisticsThreePointsPct(String statisticsThreePointsPct) {
+		this.statisticsThreePointsPct = statisticsThreePointsPct;
 	}
 
-	public String getTwoPointsAtt() {
-		return twoPointsAtt;
+	public String getStatisticsTwoPointsMade() {
+		return statisticsTwoPointsMade;
 	}
 
-	public void setTwoPointsAtt(String twoPointsAtt) {
-		this.twoPointsAtt = twoPointsAtt;
+	public void setStatisticsTwoPointsMade(String statisticsTwoPointsMade) {
+		this.statisticsTwoPointsMade = statisticsTwoPointsMade;
 	}
 
-	public String getTwoPointsPct() {
-		return twoPointsPct;
+	public String getStatisticsTwoPointsAtt() {
+		return statisticsTwoPointsAtt;
 	}
 
-	public void setTwoPointsPct(String twoPointsPct) {
-		this.twoPointsPct = twoPointsPct;
+	public void setStatisticsTwoPointsAtt(String statisticsTwoPointsAtt) {
+		this.statisticsTwoPointsAtt = statisticsTwoPointsAtt;
 	}
 
-	public String getBlockedAtt() {
-		return blockedAtt;
-	}
-	
-	public void setBlockedAtt(String blockedAtt) {
-		this.blockedAtt = blockedAtt;
+	public String getStatisticsTwoPointsPct() {
+		return statisticsTwoPointsPct;
 	}
 
-	public String getOffensiveRebounds() {
-		return offensiveRebounds;
+	public void setStatisticsTwoPointsPct(String statisticsTwoPointsPct) {
+		this.statisticsTwoPointsPct = statisticsTwoPointsPct;
 	}
 
-	public void setOffensiveRebounds(String offensiveRebounds) {
-		this.offensiveRebounds = offensiveRebounds;
+	public String getStatisticsBlockedAtt() {
+		return statisticsBlockedAtt;
 	}
 
-	public String getDefensiveRebounds() {
-		return defensiveRebounds;
+	public void setStatisticsBlockedAtt(String statisticsBlockedAtt) {
+		this.statisticsBlockedAtt = statisticsBlockedAtt;
 	}
 
-	public void setDefensiveRebounds(String defensiveRebounds) {
-		this.defensiveRebounds = defensiveRebounds;
+	public String getStatisticsFreeThrowsMade() {
+		return statisticsFreeThrowsMade;
 	}
 
-	public String getRebounds() {
-		return rebounds;
+	public void setStatisticsFreeThrowsMade(String statisticsFreeThrowsMade) {
+		this.statisticsFreeThrowsMade = statisticsFreeThrowsMade;
 	}
 
-	public void setRebounds(String rebounds) {
-		this.rebounds = rebounds;
+	public String getStatisticsFreeThrowsAtt() {
+		return statisticsFreeThrowsAtt;
 	}
 
-	public String getAssists() {
-		return assists;
+	public void setStatisticsFreeThrowsAtt(String statisticsFreeThrowsAtt) {
+		this.statisticsFreeThrowsAtt = statisticsFreeThrowsAtt;
 	}
 
-	public void setAssists(String assists) {
-		this.assists = assists;
+	public String getStatisticsFreeThrowsPct() {
+		return statisticsFreeThrowsPct;
 	}
 
-	public String getSteals() {
-		return steals;
+	public void setStatisticsFreeThrowsPct(String statisticsFreeThrowsPct) {
+		this.statisticsFreeThrowsPct = statisticsFreeThrowsPct;
 	}
 
-	public void setSteals(String steals) {
-		this.steals = steals;
+	public String getStatisticsOffensiveRebounds() {
+		return statisticsOffensiveRebounds;
 	}
 
-	public String getBlocks() {
-		return blocks;
+	public void setStatisticsOffensiveRebounds(String statisticsOffensiveRebounds) {
+		this.statisticsOffensiveRebounds = statisticsOffensiveRebounds;
 	}
 
-	public void setBlocks(String blocks) {
-		this.blocks = blocks;
+	public String getStatisticsDefensiveRebounds() {
+		return statisticsDefensiveRebounds;
 	}
 
-	public String getTechFouls() {
-		return techFouls;
+	public void setStatisticsDefensiveRebounds(String statisticsDefensiveRebounds) {
+		this.statisticsDefensiveRebounds = statisticsDefensiveRebounds;
 	}
 
-	public void setTechFouls(String techFouls) {
-		this.techFouls = techFouls;
-	}
-	
-	public String getFlagrantFouls() {
-		return flagrantFouls;
+	public String getStatisticsRebounds() {
+		return statisticsRebounds;
 	}
 
-	public void setFlagrantFouls(String flagrantFouls) {
-		this.flagrantFouls = flagrantFouls;
-	}
-	
-	public String getPlsMin() {
-		return plsMin;
+	public void setStatisticsRebounds(String statisticsRebounds) {
+		this.statisticsRebounds = statisticsRebounds;
 	}
 
-	public void setPlsMin(String plsMin) {
-		this.plsMin = plsMin;
+	public String getStatisticsAssists() {
+		return statisticsAssists;
 	}
 
-	public String getPoints() {
-		return points;
-	}
-	
-	public void setPoints(String points) {
-		this.points = points;
-	}
-	
-	public String getFreeThrowsMade() {
-		return freeThrowsMade;
+	public void setStatisticsAssists(String statisticsAssists) {
+		this.statisticsAssists = statisticsAssists;
 	}
 
-	public void setFreeThrowsMade(String freeThrowsMade) {
-		this.freeThrowsMade = freeThrowsMade;
+	public String getStatisticsTurnovers() {
+		return statisticsTurnovers;
 	}
 
-	public String getFreeThrowsAtt() {
-		return freeThrowsAtt;
+	public void setStatisticsTurnovers(String statisticsTurnovers) {
+		this.statisticsTurnovers = statisticsTurnovers;
 	}
 
-	public void setFreeThrowsAtt(String freeThrowsAtt) {
-		this.freeThrowsAtt = freeThrowsAtt;
+	public String getStatisticsTteals() {
+		return statisticsTteals;
 	}
 
-	public String getFreeThrowsPct() {
-		return freeThrowsPct;
+	public void setStatisticsTteals(String statisticsTteals) {
+		this.statisticsTteals = statisticsTteals;
 	}
 
-	public void setFreeThrowsPct(String freeThrowsPct) {
-		this.freeThrowsPct = freeThrowsPct;
+	public String getStatisticsBlocks() {
+		return statisticsBlocks;
 	}
 
-	public String getTurnovers() {
-		return turnovers;
+	public void setStatisticsBlocks(String statisticsBlocks) {
+		this.statisticsBlocks = statisticsBlocks;
 	}
 
-	public void setTurnovers(String turnovers) {
-		this.turnovers = turnovers;
+	public String getStatisticsAssistsTurnoverRatio() {
+		return statisticsAssistsTurnoverRatio;
 	}
 
-	public String getAssistsTurnoverRatio() {
-		return assistsTurnoverRatio;
+	public void setStatisticsAssistsTurnoverRatio(
+			String statisticsAssistsTurnoverRatio) {
+		this.statisticsAssistsTurnoverRatio = statisticsAssistsTurnoverRatio;
 	}
 
-	public void setAssistsTurnoverRatio(String assistsTurnoverRatio) {
-		this.assistsTurnoverRatio = assistsTurnoverRatio;
+	public String getStatisticsPersonalFouls() {
+		return statisticsPersonalFouls;
 	}
 
-	public String getPersonalFouls() {
-		return personalFouls;
+	public void setStatisticsPersonalFouls(String statisticsPersonalFouls) {
+		this.statisticsPersonalFouls = statisticsPersonalFouls;
 	}
 
-	public void setPersonalFouls(String personalFouls) {
-		this.personalFouls = personalFouls;
+	public String getStatisticsTechFouls() {
+		return statisticsTechFouls;
+	}
+
+	public void setStatisticsTechFouls(String statisticsTechFouls) {
+		this.statisticsTechFouls = statisticsTechFouls;
+	}
+
+	public String getStatisticsFlagrantFouls() {
+		return statisticsFlagrantFouls;
+	}
+
+	public void setStatisticsFlagrantFouls(String statisticsFlagrantFouls) {
+		this.statisticsFlagrantFouls = statisticsFlagrantFouls;
+	}
+
+	public String getStatisticsPlsMin() {
+		return statisticsPlsMin;
+	}
+
+	public void setStatisticsPlsMin(String statisticsPlsMin) {
+		this.statisticsPlsMin = statisticsPlsMin;
+	}
+
+	public String getStatisticsPoints() {
+		return statisticsPoints;
+	}
+
+	public void setStatisticsPoints(String statisticsPoints) {
+		this.statisticsPoints = statisticsPoints;
 	}
 
 	@Override
 	public String toString() {
 		return "GameScoreBoxPlayer [gameId=" + gameId + ", teamId=" + teamId
-				+ ", playerId=" + playerId + ", minutes=" + minutes
-				+ ", fieldGoalsMade=" + fieldGoalsMade + ", fieldGoalsAtt="
-				+ fieldGoalsAtt + ", fieldGoalsPct=" + fieldGoalsPct
-				+ ", threePointsMade=" + threePointsMade + ", threePointsAtt="
-				+ threePointsAtt + ", threePointsPct=" + threePointsPct
-				+ ", twoPointsMade=" + twoPointsMade + ", twoPointsAtt="
-				+ twoPointsAtt + ", twoPointsPct=" + twoPointsPct
-				+ ", blockedAtt=" + blockedAtt + ", freeThrowsMade="
-				+ freeThrowsMade + ", freeThrowsAtt=" + freeThrowsAtt
-				+ ", freeThrowsPct=" + freeThrowsPct + ", offensiveRebounds="
-				+ offensiveRebounds + ", defensiveRebounds="
-				+ defensiveRebounds + ", rebounds=" + rebounds + ", assists="
-				+ assists + ", turnovers=" + turnovers + ", steals=" + steals
-				+ ", blocks=" + blocks + ", assistsTurnoverRatio="
-				+ assistsTurnoverRatio + ", personalFouls=" + personalFouls
-				+ ", techFouls=" + techFouls + ", flagrantFouls="
-				+ flagrantFouls + ", plsMin=" + plsMin + ", points=" + points
+				+ ", playerId=" + playerId + ", statisticsMinutes="
+				+ statisticsMinutes + ", statisticsFieldGoalsMade="
+				+ statisticsFieldGoalsMade + ", statisticsFieldGoalsAtt="
+				+ statisticsFieldGoalsAtt + ", statisticsFieldGoalsPct="
+				+ statisticsFieldGoalsPct + ", statisticsThreePointsMade="
+				+ statisticsThreePointsMade + ", statisticsThreePointsAtt="
+				+ statisticsThreePointsAtt + ", statisticsThreePointsPct="
+				+ statisticsThreePointsPct + ", statisticsTwoPointsMade="
+				+ statisticsTwoPointsMade + ", statisticsTwoPointsAtt="
+				+ statisticsTwoPointsAtt + ", statisticsTwoPointsPct="
+				+ statisticsTwoPointsPct + ", statisticsBlockedAtt="
+				+ statisticsBlockedAtt + ", statisticsFreeThrowsMade="
+				+ statisticsFreeThrowsMade + ", statisticsFreeThrowsAtt="
+				+ statisticsFreeThrowsAtt + ", statisticsFreeThrowsPct="
+				+ statisticsFreeThrowsPct + ", statisticsOffensiveRebounds="
+				+ statisticsOffensiveRebounds
+				+ ", statisticsDefensiveRebounds="
+				+ statisticsDefensiveRebounds + ", statisticsRebounds="
+				+ statisticsRebounds + ", statisticsAssists="
+				+ statisticsAssists + ", statisticsTurnovers="
+				+ statisticsTurnovers + ", statisticsTteals="
+				+ statisticsTteals + ", statisticsBlocks=" + statisticsBlocks
+				+ ", statisticsAssistsTurnoverRatio="
+				+ statisticsAssistsTurnoverRatio + ", statisticsPersonalFouls="
+				+ statisticsPersonalFouls + ", statisticsTechFouls="
+				+ statisticsTechFouls + ", statisticsFlagrantFouls="
+				+ statisticsFlagrantFouls + ", statisticsPlsMin="
+				+ statisticsPlsMin + ", statisticsPoints=" + statisticsPoints
 				+ "]";
 	}
 }

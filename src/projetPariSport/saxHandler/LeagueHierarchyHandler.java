@@ -14,10 +14,8 @@ public class LeagueHierarchyHandler extends DefaultHandler {
 	private LeagueHierarchy leagueHierarchy;
 	private String leagueId, leagueName, leagueAlias,
 	conferenceId, conferenceName, conferenceAlias, divisionId, divisionName, divisionAlias;
-	private StringBuffer buffer;
 	
 	public LeagueHierarchyHandler() {
-		// TODO Auto-generated constructor stub
 		leagueHierarchies = new  LinkedList<LeagueHierarchy>();
 	}
 	
@@ -61,20 +59,13 @@ public class LeagueHierarchyHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("team")){
 			leagueHierarchies.add(leagueHierarchy);
-			buffer = null;
 			leagueHierarchy = null;
 		}
 		else{
 			/*DO NOTHIN*/
-			buffer = null;
 		}
 	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
-	}
-	
+		
 	public void startDocument() throws SAXException{
 		System.out.println("Beginning of parsing:");
 	}

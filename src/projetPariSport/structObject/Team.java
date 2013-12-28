@@ -1,7 +1,15 @@
 package projetPariSport.structObject;
 
-/* JavaBean Team
+/**
+ * Team - Definition of the object Team
+ * This class maps all datas from the SportsDataLLC 's API
+ * Get team rosters for the NBA.
  * 
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 26/12/2013
+ *
  */
 public class Team extends StructObject implements IDataCenterObject {
 	private String teamId;
@@ -15,7 +23,6 @@ public class Team extends StructObject implements IDataCenterObject {
 	
 	public Team() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTeamId() {

@@ -12,8 +12,7 @@ import projetPariSport.structObject.Schedule;
 public class ScheduleHandler extends DefaultHandler {
 	private List<Schedule> seasonSchedule;
 	private Schedule schedule;
-	private StringBuffer buffer;
-	private String leagueId, leagueName, leagueAlias, id, type, year;
+	private String leagueId, leagueName, leagueAlias, seasonScheduleId, seasonScheduleYear, seasonScheduleType;
 	
 	public ScheduleHandler() {
 		super();
@@ -27,9 +26,9 @@ public class ScheduleHandler extends DefaultHandler {
 			leagueName = attributes.getValue("name");
 			leagueAlias = attributes.getValue("alias");
 		}else if(qName.equals("season-schedule")){
-			id = attributes.getValue("id");
-			year = attributes.getValue("year");
-			type = attributes.getValue("type");
+			seasonScheduleId = attributes.getValue("id");
+			seasonScheduleYear = attributes.getValue("year");
+			seasonScheduleType = attributes.getValue("type");
 		}
 		else{
 			if(qName.equals("game")){
@@ -37,17 +36,17 @@ public class ScheduleHandler extends DefaultHandler {
 				schedule.setLeagueId(leagueId);
 				schedule.setLeagueName(leagueName);
 				schedule.setLeagueAlias(leagueAlias);
-				schedule.setId(id);
-				schedule.setYear(year);
-				schedule.setType(type);
+				schedule.setSeasonScheduleId(seasonScheduleId);
+				schedule.setSeasonScheduleYear(seasonScheduleYear);
+				schedule.setSeasonScheduleType(seasonScheduleType);
 				schedule.setGameId(attributes.getValue("id"));
-				schedule.setScheduled(attributes.getValue("scheduled"));
-				schedule.setAttributesValues(attributes,"");
+				schedule.setGameScheduled(attributes.getValue("scheduled"));
+				schedule.setAttributesValues(attributes,qName);
 			}else if(qName.equals("venue")){
 				schedule.setVenueId(attributes.getValue("id"));
 			}
 			else if(qName.equals("broadcast")){
-				schedule.setAttributesValues(attributes, "");
+				schedule.setAttributesValues(attributes,qName);
 			}
 			else{
 				/*DO NOTHIN*/
@@ -58,17 +57,10 @@ public class ScheduleHandler extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("game")){
 			seasonSchedule.add(schedule);
-			buffer = null;
 			schedule = null;
 		}else{
 			/*DO NOTHIN*/
-			buffer = null;
 		}
-	}
-	
-	public void characters(char[] ch, int start, int length) throws SAXException{
-		String lecture = new String(ch, start, length);
-		if(buffer != null) buffer.append(lecture);
 	}
 	
 	public void startDocument() throws SAXException{
