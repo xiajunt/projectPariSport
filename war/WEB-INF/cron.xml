@@ -3,7 +3,7 @@
 	<cron>
 		<url>/projetparissport/cron/scheduleMAJ</url>
 		<description>Mettre a jour la liste des matchs</description>
-		<schedule>every saturday 06:00</schedule>
+		<schedule>every wednesday 01:00</schedule>
 		<timezone>Europe/Paris</timezone>
 	</cron>
 </cronentries>

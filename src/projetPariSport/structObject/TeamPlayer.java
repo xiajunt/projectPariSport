@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * TeamPlayer - Definition of the object TeamPlayer
  * This class maps all datas from the SportsDataLLC 's API
@@ -16,21 +21,24 @@ import java.util.Locale;
  * @date 26/12/2013
  *
  */
+
+@Entity
+@Cache
 public class TeamPlayer extends StructObject implements IDataCenterObject {
-	private String teamId;
-	private String playerId;
+	private @Index String teamId;
+	private @Id String playerId;
 	private String playerFullName;
 	private String playerFirstName;
 	private String playerAbbrName;
-	private String playerHeight;
-	private String playerWeight;
-	private String playerPosition;
-	private String playerPrimaryPosition;
-	private String playerJerseyNumber;
-	private String playerExperience;
+	private @Index String playerHeight;
+	private @Index String playerWeight;
+	private @Index String playerPosition;
+	private @Index String playerPrimaryPosition;
+	private @Index String playerJerseyNumber;
+	private @Index String playerExperience;
 	private String playerCollege;
 	private String playerBirthPlace;
-	private Date playerUpdated;
+	private @Index Date playerUpdated;
 	private String draftTeamId;
 	private String draftYear;
 	private String draftRound;

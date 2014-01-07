@@ -1,13 +1,16 @@
 package projetPariSport;
 
+import static com.googlecode.objectify.ObjectifyService.ofy;
+
 import java.io.IOException;
-import javax.servlet.http.*;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import projetPariSport.structObject.Account;
 
 import com.googlecode.objectify.ObjectifyService;
-
-import static com.googlecode.objectify.ObjectifyService.ofy;
 
 @SuppressWarnings("serial")
 public class ProjetParisSportServlet extends HttpServlet {

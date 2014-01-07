@@ -1,5 +1,10 @@
 package projetPariSport.structObject;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * Standings - Definition of the object Standings
  * This class maps all datas from the SportsDataLLC 's API
@@ -11,9 +16,12 @@ package projetPariSport.structObject;
  * @date 25/12/2013
  *
  */
+
+@Entity
+@Cache
 public class Standings extends StructObject implements IDataCenterObject {
-	private String leagueId;
-	private String leagueName;
+	private @Index String leagueId;
+	private @Index String leagueName;
 	private String leagueAlias;
 	private String seasonId;
 	private String seasonYear;
@@ -21,10 +29,10 @@ public class Standings extends StructObject implements IDataCenterObject {
 	private String conferenceId;
 	private String conferenceName;
 	private String conferenceAlias;
-	private String divisionId;
-	private String divisionName;
+	private @Index String divisionId;
+	private @Index String divisionName;
 	private String divisionAlias;
-	private String teamId;
+	private @Id String teamId;
 	private String teamWins;
 	private String teamLosses;
 	private String teamWinPct;

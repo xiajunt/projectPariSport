@@ -1,5 +1,10 @@
 package projetPariSport.structObject;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * LeagueHierarchy - Definition of the object LeagueHierarchy
  * This class maps all datas from the SportsDataLLC 's API
@@ -11,27 +16,30 @@ package projetPariSport.structObject;
  * @date 25/12/2013
  *
  */
+
+@Entity
+@Cache
 public class LeagueHierarchy extends StructObject implements IDataCenterObject {
-	private String leagueId;
-	private String leagueName;
+	private @Index String leagueId;
+	private @Index String leagueName;
 	private String leagueAlias;
 	private String conferenceId;
 	private String conferenceName;
 	private String conferenceAlias;
-	private String divisionId;
-	private String divisionName;
+	private @Index String divisionId;
+	private @Index String divisionName;
 	private String divisionAlias;
-	private String teamId;
-	private String teamName;
+	private @Id String teamId;
+	private @Index String teamName;
 	private String teamMarket;
 	private String teamAlias;
 	private String venueId;
 	private String venueCapacity;
 	private String venueAddress;
-	private String venueCity;
-	private String venueState;
+	private @Index String venueCity;
+	private @Index String venueState;
 	private String venueZip;
-	private String venueCountry;
+	private @Index String venueCountry;
 	
 	public LeagueHierarchy() {
 		super();

@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * GameSummary - Definition of the object GameSummary
  * This class maps all datas from the SportsDataLLC 's API
@@ -16,12 +21,15 @@ import java.util.Locale;
  * @date 25/12/2013
  *
  */
-public class GameSummary extends StructObject{
-	private String gameId;
-	private String gameCoverage;
-	private String gameHomeTeam;
-	private String gameAwayTeam;
-	private Date gameScheduled;
+
+@Entity
+@Cache
+public class GameSummary extends StructObject implements IDataCenterObject{
+	private @Id String gameId;
+	private  String gameCoverage;
+	private @Index String gameHomeTeam;
+	private @Index String gameAwayTeam;
+	private @Index Date gameScheduled;
 	private String gameStatus;
 	private String gameAttendance;
 	private String gameClock;

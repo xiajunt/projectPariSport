@@ -1,5 +1,10 @@
 package projetPariSport.structObject;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * GameSummaryPlayer - Definition of the object GameSummaryPlayer
  * This class maps all datas from the SportsDataLLC 's API
@@ -11,11 +16,15 @@ package projetPariSport.structObject;
  * @date 25/12/2013
  *
  */
+
+@Entity
+@Cache
 public class GameSummaryPlayer extends StructObject implements
 		IDataCenterObject {
-	private String gameId;
-	private String teamId;
-	private String playerId;
+	private @Id String id; /*Need it, because don t have unique info in this obj*/
+	private @Index String gameId;
+	private @Index String teamId;
+	private @Index String playerId;
 	private String playerPlayed;
 	private String playerActive;
 	private String playerStarter;
@@ -47,6 +56,7 @@ public class GameSummaryPlayer extends StructObject implements
 		
 	public GameSummaryPlayer() {
 		super();
+		this.id = this.gameId + this.playerId;
 	}
 
 	public String getGameId() {

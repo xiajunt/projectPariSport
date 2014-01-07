@@ -2,10 +2,14 @@ package projetPariSport.structObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import com.googlecode.objectify.annotation.*;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 /**
  * Schedule - Definition of the object schedule
@@ -31,12 +35,13 @@ public class Schedule extends StructObject implements IDataCenterObject {
 	private String seasonScheduleId;
 	private String seasonScheduleYear;
 	private String seasonScheduleType;
-	private String gameId;
+	private @Id String gameId;
 	private String gameStatus;
 	private String gameCoverage;
 	private String gameHomeTeam;
 	private String gameAwayTeam;
-	private Date gameScheduled;
+	private @Index Date gameScheduled;
+	private @Index int time;
 	private String venueId;
 	private String broadcastNetwork;
 	private String broadcastSatellite;
@@ -141,6 +146,12 @@ public class Schedule extends StructObject implements IDataCenterObject {
 		String t = gameScheduled.replace('T', ':');
 		try {
 			this.gameScheduled = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss", Locale.FRANCE).parse(t.substring(0, t.length() - 6));
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(this.gameScheduled);
+			this.time = cal.get(Calendar.YEAR) * 10000 +
+					cal.get(Calendar.MONTH) * 100 +
+					cal.get(Calendar.DAY_OF_MONTH);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -168,7 +179,7 @@ public class Schedule extends StructObject implements IDataCenterObject {
 	}
 
 
-	public void setBroadcastSatellite(String broadcastSatellite) {
+	public void setBroadcastSatellite(String broadcastSatellite) { 
 		this.broadcastSatellite = broadcastSatellite;
 	}
 

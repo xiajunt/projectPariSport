@@ -1,5 +1,10 @@
 package projetPariSport.structObject;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * TeamCoach - Definition of the object TeamCoach
  * This class maps all datas from the SportsDataLLC 's API
@@ -11,13 +16,16 @@ package projetPariSport.structObject;
  * @date 26/12/2013
  *
  */
+
+@Entity
+@Cache
 public class TeamCoach extends StructObject implements IDataCenterObject {
-	private String teamId;
-	private String coachId;
+	private @Index String teamId;
+	private @Id String coachId;
 	private String coachFullName;
 	private String coachLastName;
-	private String coachPosition;
-	private String coachExperience;
+	private @Index String coachPosition;
+	private @Index String coachExperience;
 	
 	public TeamCoach() {
 		super();

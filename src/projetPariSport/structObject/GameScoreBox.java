@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * GameScoreBox - Definition of the object GameScoreBox
  * This class maps all datas from the SportsDataLLC 's API
@@ -16,21 +21,24 @@ import java.util.Locale;
  * @date 25/12/2013
  *
  */
+
+@Entity
+@Cache
 public class GameScoreBox extends StructObject implements IDataCenterObject  {
-	private String gameId;
+	private @Id String gameId;
 	private String gameStatus;
-	private Date gameScheduled;
+	private @Index Date gameScheduled;
 	private String gameDuration;
 	private String gameAttendance;
 	private String gameClock;
 	private String gameQuarter;
-	private String gameHomeTeam;
+	private @Index String gameHomeTeam;
 	private String homeTeamPoints;
 	private String homeTeamQuarter1Points;
 	private String homeTeamQuarter2Points;
 	private String homeTeamQuarter3Points;
 	private String homeTeamQuarter4Points;
-	private String gameAwayTeam;
+	private @Index String gameAwayTeam;
 	private String awayTeamPoints;
 	private String awayTeamQuarter1Points;
 	private String awayTeamQuarter2Points;

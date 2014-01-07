@@ -1,5 +1,10 @@
 package projetPariSport.structObject;
 
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 /**
  * Injury - Definition of the object Injury
  * This class maps all datas from the SportsDataLLC 's API
@@ -11,10 +16,13 @@ package projetPariSport.structObject;
  * @date 25/12/2013
  *
  */
+
+@Entity
+@Cache
 public class Injury extends StructObject implements IDataCenterObject {
-	private String teamId;
-	private String playerId;
-	private String injuryId;
+	private @Index String teamId;
+	private @Index String playerId;
+	private @Id String injuryId;
 	private String injuryDesc;
 	private String injuryStatus;
 	private String injuryStartDate;
