@@ -22,6 +22,12 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style>
+    #menu {
+    	   background-color:#ccc;
+    	   height: 600px;
+    	}
+    </style>
 </head>
 
 <body>
@@ -29,8 +35,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
@@ -40,13 +45,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="navbar-collapse collapse">
-						<form action="#" method="get" class="navbar-form navbar-right"
-							role="form">
+						<form action="#" method="get" class="navbar-form navbar-right"	role="form">
 							<div class="input-group">
 								<!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-								<input class="form-control" id="system-search" name="q"
-									placeholder="Search for" required> <span
-									class="input-group-btn">
+								<input class="form-control" id="system-search" name="q"	placeholder="Search for" required>
+								 <span	class="input-group-btn">
 									<button type="submit" class="btn btn-default">
 										<i class="glyphicon glyphicon-search"></i>
 									</button>
@@ -67,34 +70,34 @@
 		<div class="container">
 			<!-- Example row of columns -->
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-3" id="menu">
 					<h2>Menu</h2>
 					<table>
 						<tbody>
-						<tr>
-							<td><a href="pages/confEst.jsp">conférence Est</a></td>
-						</tr>
-						<tr>
-							<td><a href="#">conférence Ouest</a></td>
-						</tr>
-						<tr>
-							<td><a href="#">toute les divisions</a></td>
-						</tr>
+							<tr>
+								<td><a href="pages/confEst.jsp"><small>conference Est</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="#"><small>conference Ouest</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="#"><small>toute les divisions</small></a></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 				<aside>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
+					<div class="col-md-5">
+						<h2>liste des matchs</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce
+							dapibus, tellus ac cursus commodo, tortor mauris condimentum
+							nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+							malesuada magna mollis euismod. Donec sed odio dui.</p>
+						<p>
+							<a class="btn btn-default" href="#" role="button">View
+								details &raquo;</a>
+						</p>
+					</div>
 				</aside>
 				<div class="col-md-4">
 					<h2>Heading</h2>
