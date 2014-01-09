@@ -34,7 +34,9 @@ public class Parameter {
 	public final static int TEAMPLAYER = 11;
 	
 	/*api information*/
-	private final static String apiKey = "zbujgdbc3q6gebpruem8sjyn";
+	/*zbujgdbc3q6gebpruem8sjyn*/
+	/*42dtxj4tmnz2mbhnteszwmcg*/
+	private final static String apiKey = "42dtxj4tmnz2mbhnteszwmcg";
 	private final static String apiSeason = "2013";
 	private final static String apiNBASeason = "reg";
 	private final static String apiVersion = "t3";

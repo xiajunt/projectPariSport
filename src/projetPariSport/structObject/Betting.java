@@ -21,7 +21,7 @@ import com.googlecode.objectify.annotation.Parent;
 @Entity
 @Cache
 public class Betting implements IDataCenterObject {
-	private @Id long id;
+	private @Id Long id;
 	private int nbrBetToken;
 	private String playerMail;
 	private @Index boolean end;

@@ -133,9 +133,17 @@ public class DataCenterTool {
 	public static List<Schedule> getFuturMatch()
 	{
 		ObjectifyService.ofy();
-		List<Schedule> past =
+		List<Schedule> futur =
 				ofy().load().type(Schedule.class).filter("gameScheduled >", new Date()).order("gameScheduled").list();
-		return past;
+		return futur;
+	}
+	
+	public static List<Schedule> getDateMatch(int date)
+	{
+		ObjectifyService.ofy();
+		List<Schedule> dateMatch =
+				ofy().load().type(Schedule.class).filter("time", date).order("gameScheduled").list();
+		return dateMatch;
 	}
 	
 	public static List<Standings> getStanding()

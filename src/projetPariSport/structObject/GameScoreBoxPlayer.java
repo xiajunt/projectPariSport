@@ -21,7 +21,7 @@ import com.googlecode.objectify.annotation.Index;
 @Cache
 public class GameScoreBoxPlayer extends StructObject implements
 		IDataCenterObject {
-	public @Id String id; /*Need it, because don t have unique info in this obj*/
+	public @Id Long id;
 	public @Index String gameId;
 	public @Index String teamId;
 	public @Index String playerId;
@@ -55,7 +55,6 @@ public class GameScoreBoxPlayer extends StructObject implements
 	
 	public GameScoreBoxPlayer(){
 		super();
-		this.id = this.gameId + this.playerId;
 	}
 
 	public String getGameId() {

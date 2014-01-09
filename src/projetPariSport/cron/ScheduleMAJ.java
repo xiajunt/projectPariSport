@@ -1,14 +1,12 @@
 package projetPariSport.cron;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import projetPariSport.structObject.Schedule;
-import projetPariSport.tools.DataCenterTool;
+import projetPariSport.tools.NbaDataCenterTool;
 
 /**
  * ScheduleMAJ - Servlet for update the schedule about NBA match on datastore
@@ -26,7 +24,17 @@ public class ScheduleMAJ extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		List<Schedule> l = DataCenterTool.getPastMatch();
-		System.out.println(l.size());
+    	try
+    	{
+    		NbaDataCenterTool.fillSchedule();
+    	}
+    	catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+	}
+
+	public static void main(String[] args) {
+		NbaDataCenterTool.fillStanding();
 	}
 }
