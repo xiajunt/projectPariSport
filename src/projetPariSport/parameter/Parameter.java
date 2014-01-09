@@ -4,6 +4,16 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Parameter - Object with static informations needed for the good being of the web site
+ * 
+ * @version 1.0
+ *
+ * @author XIA Juntie
+ * @date 09/12/2013
+ *
+ */
+
 public class Parameter {
 	
 	/*Token given when first time connect to application*/
@@ -28,6 +38,9 @@ public class Parameter {
 	private final static String apiSeason = "2013";
 	private final static String apiNBASeason = "reg";
 	private final static String apiVersion = "t3";
+	
+	/*Utils*/
+	public final static int GETALL = 42;
 	
 	/*methode for getting url of xml about information needed*/
 	public static String getScheduleUrl()

@@ -7,6 +7,8 @@ import java.util.List;
 
 import projetPariSport.parameter.Parameter;
 import projetPariSport.structObject.Account;
+import projetPariSport.structObject.Betting;
+import projetPariSport.structObject.Game;
 import projetPariSport.structObject.GameScoreBox;
 import projetPariSport.structObject.GameScoreBoxPlayer;
 import projetPariSport.structObject.GameSummary;
@@ -37,6 +39,8 @@ public class DataCenterTool {
 	
 	static {
 		ObjectifyService.register(Account.class);
+		ObjectifyService.register(Betting.class);
+		ObjectifyService.register(Game.class);
 		ObjectifyService.register(GameScoreBox.class);
 		ObjectifyService.register(GameScoreBoxPlayer.class);
 		ObjectifyService.register(GameSummary.class);
@@ -93,17 +97,49 @@ public class DataCenterTool {
 		}
 	}
 	
+	public static List<Betting> getDataCenterBetting(Account ancest)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Betting.class).ancestor(ancest).list();
+	}
+	
+	public static List<Betting> getOldBetting(Account ancest)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true).order("id").list();
+	}
+	
+	public static List<Betting> getNewBetting(Account ancest)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).order("id").list();
+	}
+	
+	public static List<Game> getDataCenterBetting(Betting ancest)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Game.class).ancestor(ancest).list();
+	}
+	
 	public static List<Schedule> getPastMatch()
 	{
+		ObjectifyService.ofy();
 		List<Schedule> past =
-				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).list();
+				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).order("gameScheduled").list();
 		return past;
 	}
 	
 	public static List<Schedule> getFuturMatch()
 	{
+		ObjectifyService.ofy();
 		List<Schedule> past =
-				ofy().load().type(Schedule.class).filter("gameScheduled >", new Date()).list();
+				ofy().load().type(Schedule.class).filter("gameScheduled >", new Date()).order("gameScheduled").list();
 		return past;
+	}
+	
+	public static List<Standings> getStanding()
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Standings.class).filter("getAll ==", Parameter.GETALL).list();
 	}
 }

@@ -54,4 +54,9 @@ public class GameScoreBoxPlayerHandler extends DefaultHandler {
 			System.out.println(b.toString());
 		}
 	}
+	
+	public List<GameScoreBoxPlayer> getGameScoreBoxPlayer()
+	{
+		return gameScoreBoxPlayers;
+	}
 }

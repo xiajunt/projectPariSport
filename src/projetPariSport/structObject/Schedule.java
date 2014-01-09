@@ -38,8 +38,8 @@ public class Schedule extends StructObject implements IDataCenterObject {
 	private @Id String gameId;
 	private String gameStatus;
 	private String gameCoverage;
-	private String gameHomeTeam;
-	private String gameAwayTeam;
+	private @Index String gameHomeTeam;
+	private @Index String gameAwayTeam;
 	private @Index Date gameScheduled;
 	private @Index int time;
 	private String venueId;

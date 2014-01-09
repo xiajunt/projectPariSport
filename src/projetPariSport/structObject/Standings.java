@@ -20,8 +20,9 @@ import com.googlecode.objectify.annotation.Index;
 @Entity
 @Cache
 public class Standings extends StructObject implements IDataCenterObject {
-	private @Index String leagueId;
-	private @Index String leagueName;
+	private @Index int getAll; /*use for getting all Standings on datastore*/
+	private String leagueId;
+	private String leagueName;
 	private String leagueAlias;
 	private String seasonId;
 	private String seasonYear;
@@ -29,8 +30,8 @@ public class Standings extends StructObject implements IDataCenterObject {
 	private String conferenceId;
 	private String conferenceName;
 	private String conferenceAlias;
-	private @Index String divisionId;
-	private @Index String divisionName;
+	private String divisionId;
+	private String divisionName;
 	private String divisionAlias;
 	private @Id String teamId;
 	private String teamWins;
@@ -96,6 +97,13 @@ public class Standings extends StructObject implements IDataCenterObject {
 	private String threePointsWins;
 	private String threePointsLosses;
 	private String threePointsWinPct;
+	
+	public Standings()
+	{
+		super();
+		this.getAll = 42;
+	}
+	
 	public String getLeagueId() {
 		return leagueId;
 	}

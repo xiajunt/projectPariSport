@@ -14,6 +14,7 @@ import projetPariSport.parameter.Parameter;
 import projetPariSport.saxHandler.GameScoreBoxHandler;
 import projetPariSport.saxHandler.GameScoreBoxPlayerHandler;
 import projetPariSport.saxHandler.GameSummaryHandler;
+import projetPariSport.saxHandler.GameSummaryPlayerHandler;
 import projetPariSport.saxHandler.InjuryHandler;
 import projetPariSport.saxHandler.LeagueHierarchyHandler;
 import projetPariSport.saxHandler.ScheduleHandler;
@@ -22,9 +23,20 @@ import projetPariSport.saxHandler.TeamCoachHandler;
 import projetPariSport.saxHandler.TeamHandler;
 import projetPariSport.saxHandler.TeamPlayerHandler;
 
+/**
+ * SaxTool - A class with static method for handling the xml from SportsDataLLC's api
+ * with url fetch
+ * 
+ * @version 1.0
+ *
+ * @author XIA Juntie
+ * @date 05/01/2014
+ *
+ */
+
 public class SaxTool
 {
-	public static DefaultHandler getHandler(int type, String apiUrl) throws Exception
+	public static StringBuffer getXML(String apiUrl) throws Exception
 	{
 		StringBuffer textView = new StringBuffer();
         
@@ -36,6 +48,12 @@ public class SaxTool
         	textView.append(line);
         }
         reader.close();
+        return textView;
+	}
+	
+	public static DefaultHandler getHandler(int type, StringBuffer textView) throws Exception
+	{
+		
         
         SAXParserFactory f = SAXParserFactory.newInstance();
         SAXParser p;
@@ -54,7 +72,7 @@ public class SaxTool
 				g = new GameSummaryHandler();
 				break;
 			case Parameter.GAMESUMMARYPLAYER:
-				g = new GameScoreBoxPlayerHandler();
+				g = new GameSummaryPlayerHandler();
 				break;
 			case Parameter.INJURY:
 				g = new InjuryHandler();
