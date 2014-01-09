@@ -88,13 +88,13 @@
 						<table class="table">
 							<tbody>
 								<tr>
+									<td><a href="confEst.jsp"><small>conference Est</small></a></td>
+								</tr>
+								<tr>
 									<td><a href="confOuest.jsp"><small>conference Ouest</small></a></td>
 								</tr>
 								<tr>
-									<td><a href="confAtlantic.jsp"><small>conference Atlantique</small></a></td>
-								</tr>
-								<tr>
-									<td><a href="confPacific.jsp"><small>conference Pacific</small></a></td>
+									<td><a href="confAtlantic.jsp"><small>conference Atlantic</small></a></td>
 								</tr>
 								<tr>
 									<td><a href="#"><small>toute les divisions</small></a></td>
@@ -123,7 +123,7 @@
 				</div>
 				<div class="col-md-3">
 					<h2>Liste des equipes</h2>
-					<p>Liste des equipes de la conference Est.</p>
+					<p>Liste des equipes de la conference Pacifique.</p>
 				</div>
 			</div>
 		</div>

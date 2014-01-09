@@ -7,7 +7,29 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+<style>
+#menu {
+	background-color: #ccc;
+	height: 600px;
+}
 
+.index {
+	color: #000;
+}
+
+#menu small {
+	color: #e00;
+}
+
+#live small {
+	color: #000;
+}
+
+.container {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+</style>
 <title>Jumbotron Template for Bootstrap</title>
 
 <!-- Bootstrap core CSS -->
@@ -27,7 +49,7 @@
 <body>
 
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
+		<div class="container2">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target=".navbar-collapse">
@@ -35,9 +57,9 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Project name</a>
+				<a class="navbar-brand" href="http://fr.wikipedia.org/wiki/Pari_sportif">Paris Sport</a>
 			</div>
-			<div class="container">
+			<div class="container2">
 				<div class="row">
 					<div class="navbar-collapse collapse">
 						<form action="#" method="get" class="navbar-form navbar-right"
@@ -64,56 +86,57 @@
 	<div class="jumbotron">
 
 
-		<div class="container">
+		<div class="container2">
 			<!-- Example row of columns -->
 			<div class="row">
-				<div class="col-md-4">
-					<h2>Menu</h2>
-					<table>
+				<div class="col-md-2" id="menu">
+					<a href="index.html"><h2 class="index">Menu</h2></a>
+					<table class="table">
 						<tbody>
-						<tr>
-							<td><a href="pages/confEst.jsp">conférence Est</a></td>
-						</tr>
-						<tr>
-							<td><a href="#">conférence Ouest</a></td>
-						</tr>
-						<tr>
-							<td><a href="#">toute les divisions</a></td>
-						</tr>
+							<tr>
+								<td><a href="pages/confEst.jsp"><small>conférence Est</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="pages/confOuest.jsp"><small>conférence Ouest</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="pages/confAtlantic.jsp"><small>conference Atlantic</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="pages/confPacific.jsp"><small>conference Pacific</small></a></td>
+							</tr>
+							<tr>
+								<td><a href="#"><small>toute les divisions</small></a></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 				<aside>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
+					<div class="col-md-7" id="live">
+						<h2>Match en cours</h2>
+						<table class=" table-list-search">
+							<tbody>
+								<tr>
+									<td><div>
+											<a href="#"><small>Match 1</small></a>
+										</div></td>
+								</tr>
+								<tr>
+									<td><a href="#"><small>Match 2</small></a></td>
+								</tr>
+								<tr>
+									<td><a href="#"><small>Match 3</small></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</aside>
-				<div class="col-md-4">
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-						in, egestas eget quam. Vestibulum id ligula porta felis euismod
-						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
+				<div class="col-md-3">
+					<h2>Calendrier des rencontres</h2>
+
 				</div>
 			</div>
 		</div>
-		<hr>
-
-		<footer>
-			<p>&copy; Company 2013</p>
-		</footer>
 	</div>
 	<!-- /container -->
 
@@ -122,7 +145,8 @@
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="../../dist/js/bootstrap.min.js"></script>
+	<script src="../../dist/js/bootstrap.js"></script>
 	<script src="../../dist/js/bootsnipp.js"></script>
 </body>
+<footer> &copy; Company 2013 </footer>
 </html>
