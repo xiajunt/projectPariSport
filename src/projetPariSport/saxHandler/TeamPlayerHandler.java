@@ -59,7 +59,7 @@ public class TeamPlayerHandler extends DefaultHandler {
 		}
 	}
 	
-	public List<TeamPlayer> getTeamsCoaches()
+	public List<TeamPlayer> getTeamsPlayers()
 	{
 		return teamsPlayers;
 	}

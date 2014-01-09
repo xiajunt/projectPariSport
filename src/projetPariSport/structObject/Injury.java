@@ -1,5 +1,7 @@
 package projetPariSport.structObject;
 
+import projetPariSport.parameter.Parameter;
+
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -20,6 +22,7 @@ import com.googlecode.objectify.annotation.Index;
 @Entity
 @Cache
 public class Injury extends StructObject implements IDataCenterObject {
+	private @Index int getAll; /*for getting all Injury list*/
 	private @Index String teamId;
 	private @Index String playerId;
 	private @Id String injuryId;
@@ -29,6 +32,7 @@ public class Injury extends StructObject implements IDataCenterObject {
 	
 	public Injury() {
 		super();
+		this.getAll = Parameter.GETALL;
 	}
 
 	public String getTeamId() {

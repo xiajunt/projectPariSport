@@ -25,7 +25,6 @@ public class Account implements IDataCenterObject {
 	private @Index String name;
 	private @Id String mail;
 	private @Index int token;
-	private int nbrBet;
 	
 	public Account()
 	{
@@ -36,7 +35,6 @@ public class Account implements IDataCenterObject {
 		this.name = name;
 		this.mail = mail;
 		this.token = Parameter.begToken;
-		this.nbrBet = -1;
 	}
 	
 	/*negative parameter for sub*/
@@ -61,11 +59,5 @@ public class Account implements IDataCenterObject {
 	public int getToken()
 	{
 		return token;
-	}
-	
-	public int getNbrBet()
-	{
-		nbrBet++;
-		return nbrBet;
 	}
 }

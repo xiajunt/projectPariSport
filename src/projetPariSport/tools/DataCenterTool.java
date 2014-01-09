@@ -22,6 +22,7 @@ import projetPariSport.structObject.Team;
 import projetPariSport.structObject.TeamCoach;
 import projetPariSport.structObject.TeamPlayer;
 
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
 
 /**
@@ -140,6 +141,14 @@ public class DataCenterTool {
 	public static List<Standings> getStanding()
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Standings.class).filter("getAll ==", Parameter.GETALL).list();
+		return ofy().load().type(Standings.class).filter("getAll", Parameter.GETALL).list();
+	}
+	
+	public static void delAllInjury()
+	{
+		ObjectifyService.ofy();
+		Iterable<Key<Injury>> allKeys =
+				ofy().load().type(Injury.class).filter("getAll", Parameter.GETALL).keys();
+		ofy().delete().keys(allKeys).now();
 	}
 }
