@@ -24,6 +24,13 @@
 #live small {
 	color: #000;
 }
+table.table-list-search{
+	width: 100%;	
+}
+#toleft {
+float : right;
+}
+
 </style>
 <title>Jumbotron Template for Bootstrap</title>
 
@@ -62,10 +69,9 @@
 							role="form">
 							<div class="input-group">
 								<!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-								<input class="form-control" id="system-search" name="q"
-									placeholder="Search for" required> <span
-									class="input-group-btn">
-									<button type="submit" class="btn btn-default">
+								<input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+									<span class="input-group-btn">
+									<button type="submit" class="btn btn-info">
 										<i class="glyphicon glyphicon-search"></i>
 									</button>
 								</span>
@@ -109,17 +115,16 @@
 					<table class=" table-list-search">
 						<tbody>
 							<tr>
-								<td><div>
-										<a href="#"><small>Match 1</small></a>
-									</div>
-								</td>
-									<td><button class="btn btn-success"><i class=".glyphicon .glyphicon-align-right"></i></button></td>
+								<td><a href="#"><small>Match 1</small></a></td>
+									<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
 							</tr>
 							<tr>
 								<td><a href="#"><small>Match 2</small></a></td>
+								<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
 							</tr>
 							<tr>
 								<td><a href="#"><small>Match 3</small></a></td>
+								<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
 							</tr>
 						</tbody>
 					</table>
