@@ -30,6 +30,7 @@
 <!-- Bootstrap core CSS -->
 <link href="../../dist/css/bootstrap.css" rel="stylesheet">
 <link href="../../dist/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../../dist/css/select-menu.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -84,7 +85,7 @@
 			<div class="row">
 				<aside>
 					<div class="col-md-2" id="menu">
-						<a href="../index.html"><h2 class="index">Menu</h2></a>
+						<a class="index" href="../index.html"><h2>Menu</h2></a>
 						<table class="table">
 							<tbody>
 								<tr>
@@ -110,7 +111,9 @@
 							<tr>
 								<td><div>
 										<a href="#"><small>Match 1</small></a>
-									</div></td>
+									</div>
+								</td>
+									<td><button class="btn btn-success"><i class=".glyphicon .glyphicon-align-right"></i></button></td>
 							</tr>
 							<tr>
 								<td><a href="#"><small>Match 2</small></a></td>
@@ -129,8 +132,6 @@
 		</div>
 	</div>
 	<!-- /container -->
-
-
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

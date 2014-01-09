@@ -780,12 +780,16 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-
 .container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.container2 {
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .container:before,

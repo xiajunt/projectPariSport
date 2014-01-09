@@ -30,6 +30,7 @@
 <!-- Bootstrap core CSS -->
 <link href="../../dist/css/bootstrap.css" rel="stylesheet">
 <link href="../../dist/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../../dist/css/select-menu.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -52,7 +53,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://fr.wikipedia.org/wiki/Pari_sportif">Paris Sport</a>
+				<a class="navbar-brand"
+					href="http://fr.wikipedia.org/wiki/Pari_sportif">Paris Sport</a>
 			</div>
 			<div class="container2">
 				<div class="row">
@@ -84,17 +86,20 @@
 			<div class="row">
 				<aside>
 					<div class="col-md-2" id="menu">
-						<a href="../index.html"><h2 class="index">Menu</h2></a>
+						<a class="index" href="../index.html"><h2>Menu</h2></a>
 						<table class="table">
 							<tbody>
 								<tr>
-									<td><a href="confEst.jsp"><small>conference Est</small></a></td>
+									<td><a href="confEst.jsp"><small>conference
+												Est</small></a></td>
 								</tr>
 								<tr>
-									<td><a href="confOuest.jsp"><small>conference Ouest</small></a></td>
+									<td><a href="confOuest.jsp"><small>conference
+												Ouest</small></a></td>
 								</tr>
 								<tr>
-									<td><a href="confAtlantic.jsp"><small>conference Atlantic</small></a></td>
+									<td><a href="confAtlantic.jsp"><small>conference
+												Atlantic</small></a></td>
 								</tr>
 								<tr>
 									<td><a href="#"><small>toute les divisions</small></a></td>

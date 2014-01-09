@@ -1,0 +1,17 @@
+#menu td a {
+
+	background: url("../fonts/menu.png") no-repeat 0 top; /* On positionne l'image en haut */
+}
+
+#menu td a:hover {
+	/* On affiche seulement la portion de l'image voulue : le bas */
+	background-position: 0 bottom;
+}
+a:link 
+{ 
+ text-decoration:none; 
+}
+.index:hover h2, .index:focus {
+    background-color: rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+}
