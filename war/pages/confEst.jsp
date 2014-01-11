@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -24,11 +24,13 @@
 #live small {
 	color: #000;
 }
-
-.container {
-	margin-left: 0px;
-	margin-right: 0px;
+table.table-list-search{
+	width: 100%;	
 }
+#toleft {
+float : right;
+}
+
 </style>
 <title>Jumbotron Template for Bootstrap</title>
 
@@ -67,9 +69,8 @@
 							role="form">
 							<div class="input-group">
 								<!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-								<input class="form-control" id="system-search" name="q"
-									placeholder="Search for" required> <span
-									class="input-group-btn">
+								<input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+									<span class="input-group-btn">
 									<button type="submit" class="btn btn-info">
 										<i class="glyphicon glyphicon-search"></i>
 									</button>
@@ -88,58 +89,54 @@
 		<div class="container2">
 			<!-- Example row of columns -->
 			<div class="row">
-				<div class="col-md-2" id="menu">
-					<a class="index" href="index.html"><h2>Menu</h2></a>
-					<table class="table">
-						<tbody>
-							<tr>
-								<td><a href="pages/confEst.jsp"><small>conférence Est</small></a></td>
-							</tr>
-							<tr>
-								<td><a href="pages/confOuest.jsp"><small>conférence Ouest</small></a></td>
-							</tr>
-							<tr>
-								<td><a href="pages/confAtlantic.jsp"><small>conference Atlantic</small></a></td>
-							</tr>
-							<tr>
-								<td><a href="pages/confPacific.jsp"><small>conference Pacific</small></a></td>
-							</tr>
-							<tr>
-								<td><a href="#"><small>toute les divisions</small></a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 				<aside>
-					<div class="col-md-7" id="live">
-						<h2>Match en cours</h2>
-						<table class=" table-list-search">
+					<div class="col-md-2" id="menu">
+						<a class="index" href="../index.html"><h2>Menu</h2></a>
+						<table class="table">
 							<tbody>
 								<tr>
-									<td><div>
-											<a href="#"><small>Match 1</small></a>
-										</div></td>
+									<td><a href="confOuest.jsp"><small>conference Ouest</small></a></td>
 								</tr>
 								<tr>
-									<td><a href="#"><small>Match 2</small></a></td>
+									<td><a href="confAtlantic.jsp"><small>conference Atlantique</small></a></td>
 								</tr>
 								<tr>
-									<td><a href="#"><small>Match 3</small></a></td>
+									<td><a href="confPacific.jsp"><small>conference Pacific</small></a></td>
+								</tr>
+								<tr>
+									<td><a href="#"><small>toute les divisions</small></a></td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</aside>
+				<div class="col-md-7" id="live">
+					<h2>Match en cours</h2>
+					<table class=" table-list-search">
+						<tbody>
+							<tr>
+								<td><a href="#"><small>Match 1</small></a></td>
+									<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
+							</tr>
+							<tr>
+								<td><a href="#"><small>Match 2</small></a></td>
+								<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
+							</tr>
+							<tr>
+								<td><a href="#"><small>Match 3</small></a></td>
+								<td id="toleft"><button class="btn btn-xs btn-success">stats<span class="glyphicon glyphicon-stats"></span></button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="col-md-3">
-					<h2>Calendrier des rencontres</h2>
-
+					<h2>Liste des equipes</h2>
+					<p>Liste des equipes de la conference Est.</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- /container -->
-
-
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
