@@ -23,6 +23,7 @@ public class ProjetParisSportServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		/*initialisation Objectify*/
+		
 		ObjectifyService.ofy();
 		
 		/*Creer notre instance Account et le sauvegarder dans le data store*/
