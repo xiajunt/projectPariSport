@@ -1,6 +1,8 @@
  <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.google.appengine.api.users.*" %>
+<%@ page import="projetPariSport.structObject.Account" %>
+<%@ page import="projetPariSport.tools.DataCenterTool" %>
 
 <% UserService userService = UserServiceFactory.getUserService(); %>
 
@@ -87,9 +89,14 @@
 			<% if (userService.getCurrentUser() == null) { %>
       			<a href="<%=userService.createLoginURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Sign in</a>
 			<% }
-			else { %>
-				<p>Hello <%=userService.getCurrentUser().getNickname()%></p>
-      			<a href="<%=userService.createLogoutURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Log out</a>
+			else { 
+				Account ac = DataCenterTool.getAccount(userService.getCurrentUser().getEmail(), userService.getCurrentUser().getNickname());%>
+				<a href="<%=userService.createLogoutURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Log out</a>
+				<p class="list-group-item">Hello <%=userService.getCurrentUser().getNickname()%>
+				<br />
+				Token : <%=ac.getToken() %>
+				<br />
+				Number of bet : <%=DataCenterTool.getNbrBetting(ac) %></p>
 			<% } %>
           </div>
         </div>
