@@ -129,6 +129,8 @@ public class DataCenterTool {
 		double cot;
 		
 		addDataCenter(bet);
+		if (ac.getToken() < nbrBetToken)
+			return false;
 		for (String gameId : set)
 		{
 			Schedule sched = (Schedule)getDataCenter(Parameter.SCHEDULE, gameId);
@@ -154,8 +156,10 @@ public class DataCenterTool {
 			}
 		}
 		bet.setCotation(totalCot);
+		ac.addToken(-nbrBetToken);
 		addDataCenter(bet);
 		addDataCenter(gameList);
+		addDataCenter(ac);
 		return true;
 	}
 	
