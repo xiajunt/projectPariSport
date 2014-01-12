@@ -27,17 +27,23 @@ public class Betting implements IDataCenterObject {
 	private @Index boolean end;
 	private @Parent Key<Account> parent;
 	private boolean win;
+	private double cotation;
 	
 	public Betting()
 	{
 	}
 	
-	public Betting(Account ac, int nbrBetToken, Key<Account> parent)
+	public Betting(Account ac, int nbrBetToken)
 	{
 		this.nbrBetToken = nbrBetToken;
 		this.playerMail = ac.getMail();
 		this.end = false;
-		this.parent = parent;
+		this.parent = Key.create(Account.class, ac.getMail());
+	}
+	
+	public long getId()
+	{
+		return id;
 	}
 	
 	public int getNbrBetToken()
@@ -68,5 +74,15 @@ public class Betting implements IDataCenterObject {
 	public boolean getWin()
 	{
 		return win;
+	}
+	
+	public void setCotation(double cotation)
+	{
+		this.cotation = cotation;
+	}
+	
+	public double getCotation()
+	{
+		return cotation;
 	}
 }

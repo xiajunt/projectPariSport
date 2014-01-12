@@ -119,14 +119,44 @@ public class DataCenterTool {
 	
 	/*Operation on Batting and Game*/
 	
-	public static boolean putBet(Map<String, String> map)
+	public static boolean putBet(Map<String, String> map, Account ac, int nbrBetToken)
 	{
 		Set<String> set = map.keySet();
+		List<Game> gameList = new ArrayList<Game>();
+		Betting bet = new Betting(ac, nbrBetToken);
+		String teamId;
+		double totalCot = 0;
+		double cot;
 		
-		for (String matchId : set)
+		addDataCenter(bet);
+		for (String gameId : set)
 		{
+			Schedule sched = (Schedule)getDataCenter(Parameter.SCHEDULE, gameId);
+			if (sched == null || sched.getGameScheduled().compareTo(new Date()) < 0)
+			{
+				ofy().delete().entity(bet).now();
+				return false;
+			}
+			teamId = map.get(gameId);
 			
+			if (teamId.compareTo(sched.getGameAwayTeam()) == 0 ||
+				teamId.compareTo(sched.getGameHomeTeam()) == 0)
+			{
+				cot = NbaStatTool.getCotation(teamId);
+				totalCot += cot;
+				Game g = new Game(gameId, teamId, cot, bet);
+				gameList.add(g);
+			}
+			else
+			{
+				ofy().delete().entity(bet).now();
+				return false;
+			}
 		}
+		bet.setCotation(totalCot);
+		addDataCenter(bet);
+		addDataCenter(gameList);
+		return true;
 	}
 	
 	public static List<Betting> getDataCenterBetting(Account ancest)
@@ -159,7 +189,7 @@ public class DataCenterTool {
 	{
 		ObjectifyService.ofy();
 		List<Schedule> past =
-				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).order("gameScheduled").list();
+				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).order("-gameScheduled").list();
 		return past;
 	}
 	

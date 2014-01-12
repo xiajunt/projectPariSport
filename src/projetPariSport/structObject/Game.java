@@ -22,10 +22,10 @@ import com.googlecode.objectify.annotation.Parent;
 @Entity
 @Cache
 public class Game implements IDataCenterObject {
-	private @Id long id;
+	private @Id Long id;
 	private String gameId;
 	private String betTeamId;
-	private int cotation;
+	private double cotation;
 	private @Parent Key<Betting> parent;
 	private @Index boolean end;
 	private boolean win;
@@ -34,13 +34,18 @@ public class Game implements IDataCenterObject {
 	{
 	}
 	
-	public Game(String gameId, String betTeamId, int cotation, Key<Betting> parent)
+	public Game(String gameId, String betTeamId, double cotation, Betting bet)
 	{
 		this.gameId = gameId;
 		this.betTeamId = betTeamId;
 		this.cotation = cotation;
-		this.parent = parent;
+		this.parent = Key.create(Betting.class, bet.getId());
 		this.end = false;
+	}
+	
+	public long getId()
+	{
+		return id;
 	}
 	
 	public String getGameId()
@@ -53,7 +58,7 @@ public class Game implements IDataCenterObject {
 		return betTeamId;
 	}
 	
-	public int getCotation()
+	public double getCotation()
 	{
 		return cotation;
 	}
