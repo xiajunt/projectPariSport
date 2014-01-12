@@ -1,4 +1,9 @@
  <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.google.appengine.api.users.*" %>
+
+<% UserService userService = UserServiceFactory.getUserService(); %>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -72,14 +77,20 @@
         <div class="col-md-3">
           <p class="lead">Game betting</p>
           <div class="list-group text-center">
-          	<!-- Lister la liste des conférences -->
+          	<!-- Lister la liste des confÃ©rences -->
           	<a href="#" class="list-group-item active">NBA</a>
       		<!-- 
       			<a href="#" class="list-group-item active">Printable</a>
             	<a href="#" class="list-group-item">Cupcake Wrappers</a>
             	<a href="#" class="list-group-item">Authentic Dragon Bones</a>
       		-->
-      		<a href="/login" class="list-group-item" ><i class="glyphicon glyphicon-off"></i> Sign in</a>
+			<% if (userService.getCurrentUser() == null) { %>
+      			<a href="<%=userService.createLoginURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Sign in</a>
+			<% }
+			else { %>
+				<p>Hello <%=userService.getCurrentUser().getNickname()%></p>
+      			<a href="<%=userService.createLogoutURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Log out</a>
+			<% } %>
           </div>
         </div>
 

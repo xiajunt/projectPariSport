@@ -1,16 +1,17 @@
 package projetPariSport.servlet;
 import java.io.IOException;
-import java.io.StringWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import projetPariSport.parameter.Parameter;
+import projetPariSport.structObject.Account;
+import projetPariSport.tools.DataCenterTool;
+
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
-import com.google.appengine.labs.repackaged.org.json.JSONException;
-import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
@@ -20,7 +21,11 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		UserService userService = UserServiceFactory.getUserService();
-		JSONObject obj = new JSONObject(userService);
+		if (userService.getCurrentUser() == null)
+			req.getRequestDispatcher(userService.createLoginURL("/"));
+		else
+			req.getRequestDispatcher("/").forward(req, resp);
+		/*JSONObject obj = new JSONObject(userService);
 		StringWriter out = new StringWriter();
 		
 		try {
@@ -31,8 +36,6 @@ public class LoginServlet extends HttpServlet {
 		String jsonText = out.toString();
 		req.getSession().setAttribute("userService",jsonText);
 		System.err.println("Data serialized : "+jsonText);
-		req.getRequestDispatcher("/").forward(req, resp);
+		req.getRequestDispatcher("/").forward(req, resp);*/
 	}
-	
-	
 }

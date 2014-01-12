@@ -1,5 +1,7 @@
 package projetPariSport.structObject;
 
+import java.io.Serializable;
+
 import projetPariSport.parameter.Parameter;
 import projetPariSport.tools.DataCenterTool;
 
@@ -19,9 +21,10 @@ import com.googlecode.objectify.annotation.Index;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Cache
-public class Account implements IDataCenterObject {
+public class Account implements IDataCenterObject, Serializable {
 
 	private @Index String name;
 	private @Id String mail;
