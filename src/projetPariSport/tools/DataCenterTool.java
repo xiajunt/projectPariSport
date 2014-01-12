@@ -275,11 +275,33 @@ public class DataCenterTool {
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).list();
 	}
 	
+	/** 
+	 * getNbrBetting
+	 * Get the number of available bet a player have
+	 * 
+	 * @param       Account of the player
+	 * @return		number of the bet
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static int getNbrBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
 		return getNewBetting(ancest).size();
 	}
+	
+	/** 
+	 * getDataCenterBettingGame
+	 * Get the list of Game of a bet
+	 * 
+	 * @param       Betting of the games
+	 * @return		List of the Game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
@@ -287,11 +309,33 @@ public class DataCenterTool {
 		return ofy().load().type(Game.class).filter("bettingId =", ancest.getId()).list();
 	}
 	
+	/** 
+	 * getGameByGameId
+	 * Get the list of Game by gameId
+	 * 
+	 * @param       Id of the game
+	 * @return		List of Game matching gameId
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Game> getGameByGameId(String gameId)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Game.class).filter("gameId =", gameId).list();
 	}
+	
+	/** 
+	 * getBettingByBettingId
+	 * Get the Betting with his id
+	 * 
+	 * @param       Id of Betting
+	 * @return		Betting matching id 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static Betting getBettingByBettingId(long id)
 	{
@@ -299,6 +343,17 @@ public class DataCenterTool {
 	}
 	
 	/*Operation on Schedule*/
+	
+	/** 
+	 * getPastMatch
+	 * Get the list of past game
+	 * 
+	 * 
+	 * @return		List of Schedule of past game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Schedule> getPastMatch()
 	{
@@ -308,6 +363,17 @@ public class DataCenterTool {
 		return past;
 	}
 	
+	/** 
+	 * getFuturMatch
+	 * Get the list of coming game
+	 * 
+	 * 
+	 * @return		List of Schedule of coming game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Schedule> getFuturMatch()
 	{
 		ObjectifyService.ofy();
@@ -315,6 +381,17 @@ public class DataCenterTool {
 				ofy().load().type(Schedule.class).filter("gameScheduled >", new Date()).order("gameScheduled").list();
 		return futur;
 	}
+	
+	/** 
+	 * getDateMatch
+	 * Get the list of Match on the date day
+	 *
+	 * @param       date in int format (ex: 20140029 for 2014/01/29
+	 * @return		List of Schedule 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Schedule> getDateMatch(int date)
 	{
@@ -326,11 +403,31 @@ public class DataCenterTool {
 	
 	/*Operation on Standing*/
 	
+	/** 
+	 * getStanding
+	 * Get the list of all Standing
+	 * 
+	 * @return		List of all Standing 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Standings> getStanding()
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Standings.class).filter("getAll", Parameter.GETALL).list();
 	}
+	
+	/** 
+	 * getStandingDivisionList
+	 * Get a Set of all NBA division
+	 * 
+	 * @return		Set of division name of NBA 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static Set<String> getStandingDivisionList()
 	{
@@ -343,6 +440,14 @@ public class DataCenterTool {
 	}
 	
 	/*Operation on Injury*/
+	
+	/** 
+	 * delAllInjury
+	 * Delete all Injury on the datastore 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static void delAllInjury()
 	{

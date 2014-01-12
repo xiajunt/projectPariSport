@@ -3,6 +3,12 @@
 <%@ page import="com.google.appengine.api.users.*" %>
 <%@ page import="projetPariSport.structObject.Account" %>
 <%@ page import="projetPariSport.tools.DataCenterTool" %>
+<%@ page import="projetPariSport.structObject.Betting" %>
+<%@ page import="projetPariSport.structObject.Game" %>
+<%@ page import="projetPariSport.structObject.Team" %>
+<%@ page import="projetPariSport.structObject.Schedule" %>
+<%@ page import="projetPariSport.parameter.Parameter" %>
+<%@ page import="java.util.List" %>
 
 <% UserService userService = UserServiceFactory.getUserService(); %>
 
@@ -149,10 +155,22 @@
 				<a href="<%=userService.createLogoutURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Log out</a>
 				<p class="list-group-item">Hello <%=userService.getCurrentUser().getNickname()%>
 				<br />
-				Token : <%=ac.getToken() %>
-				<br />
-				Number of bet : <%=DataCenterTool.getNbrBetting(ac) %></p>
-			<% } %>
+				Token : <%=ac.getToken() %></p>
+				
+				<%List<Betting> listBetting = DataCenterTool.getNewBetting(ac);%>
+				<p class="list-group-item">List of bet :</p>
+				<%for (Betting b : listBetting)
+					{%>
+					<p class="list-group-item">Bet id : <%=b.getId()%><br />Cotation : <%=b.getCotation()%><br />Token : <%=b.getNbrBetToken()%><br /><br />
+					<%List<Game> listGame = DataCenterTool.getDataCenterBettingGame(b);
+					for (Game g : listGame)
+					{Team t = (Team)DataCenterTool.getDataCenter(Parameter.TEAM, g.getBetTeamId());
+					Schedule s = (Schedule)DataCenterTool.getDataCenter(Parameter.SCHEDULE, g.getGameId());%>
+					Game at <%= s.getGameScheduled().toString()%>, I bet on the <%=t.getTeamName()%> <br />
+			<%}%>
+					<br />
+			<%} 
+			} %>
           </div>
           <div id="betSelections" style="visibility:hidden;">
           	<p>
