@@ -25,10 +25,19 @@
 	.thumbnail {
   		padding: 0;
 	}
+	
+	.selectedBet:hover {
+		cursor: pointer;
+	}
 
 	.thumbnail .caption-full {
   		padding: 9px;
   		color: #333;
+	}
+	
+	#betSelections{
+		background-color:#4B4B4B;
+		color: white;
 	}
 	
 	footer {
@@ -38,7 +47,53 @@
 	
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+    <script src="../../dist/js/hashset.js"></script>
+    <script src="../../dist/js/hashtable.js"></script>
+    <script src="../../dist/js/jshashset.js"></script>
+    <script src="../../dist/js/json2.js"></script>
+	<script>
+	var mapBettings = new HashSet();
+	
+	serialize = function(obj, prefix) {
+		  var str = [];
+		  for(var p in obj) {
+		    var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
+		    str.push(typeof v == "object" ?
+		      serialize(v, k) :
+		      encodeURIComponent(k) + "=" + encodeURIComponent(v));
+		  }
+		  return str.join("&");
+	}
 
+	function addBet(gameId,teamIdSelected,teamNameSelected, info){
+		 var obj = document.getElementById("betSelections");
+		 var intId = $("#listBets div").length + 1;
+	     var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+	     var fName = $("<span title='"+info+", Full Time Result'>"+teamNameSelected+"</div> &nbsp;");
+	     var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
+	        removeButton.click(function() {
+	        	mapBettings.remove(gameId);
+	            $(this).parent().remove();
+	            if(mapBettings.isEmpty()){
+	            	obj.style.visibility="hidden";
+	            }
+	        });
+	     	        
+	     if(mapBettings.contains(gameId) ==! true ){
+	    	 obj.style.visibility="visible";
+	    	 mapBettings.add(gameId, teamIdSelected);
+	    	 fieldWrapper.append(fName);
+		     fieldWrapper.append(removeButton);
+		     $("#listBets").append(fieldWrapper);
+	     }			
+	}
+	
+	function sendBet(){
+		if (confirm('Are you sure you confirm your bet ?')) { 
+			alert(mapBettings);
+		}
+	}
+	</script>
   </head>
 
   <body>
@@ -74,17 +129,32 @@
           <div class="list-group text-center">
           	<!-- Lister la liste des conférences -->
           	<a href="#" class="list-group-item active">NBA</a>
-      		<!-- 
-      			<a href="#" class="list-group-item active">Printable</a>
-            	<a href="#" class="list-group-item">Cupcake Wrappers</a>
-            	<a href="#" class="list-group-item">Authentic Dragon Bones</a>
-      		-->
       		<a href="/login" class="list-group-item" ><i class="glyphicon glyphicon-off"></i> Sign in</a>
+          </div>
+          <div id="betSelections" style="visibility:hidden;">
+          	<p>
+          		<label>Selections</label>
+          	</p>
+          	<div id="listBets" >
+          	</div>
+          	<p>
+          		<label>Stake</label>
+          		<input type="text" />
+          	</p>
+          	
+          	<p>
+          		<center>
+          			<button type="button" class="btn btn-warning" onclick="sendBet();">Accept</button>
+          		</center>
+          	</p>
+          	
+          	<br/>
+          	<div class="alert alert-warning">Please log in to place bet</div>
           </div>
         </div>
 
         <div class="col-md-9">
-          <div class="thumbnail" id="wrap">
+          <div class="thumbnail" id="today">
           	<div class="bs-example">
           	  <p>
           	  	<h3>NBA <c:out value="${today}"/></h3>
@@ -100,12 +170,12 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-					<c:forEach var="scheduleToday" items="${listScheduleToday}" >
+					<c:forEach varStatus="status" var="scheduleToday" items="${listScheduleToday}" >
 						<tr>
-							<td></td>
+							<td>${status.count}</td>
 							<td>${scheduleToday.gameScheduled}</td>
-							<td>${scheduleToday.gameHomeTeam}</td>
-							<td>${scheduleToday.gameAwayTeam}</td>
+							<td><div class="selectedBet" onclick="addBet('${scheduleToday.gameId}','${scheduleToday.gameAwayTeam}','${listMapping[scheduleToday.gameAwayTeam]}','${listMapping[scheduleToday.gameAwayTeam]} vs ${listMapping[scheduleToday.gameHomeTeam]}');">${listMapping[scheduleToday.gameAwayTeam]}</div></td>
+							<td><div class="selectedBet" onclick="addBet('${scheduleToday.gameId}','${scheduleToday.gameHomeTeam}','${listMapping[scheduleToday.gameHomeTeam]}','${listMapping[scheduleToday.gameAwayTeam]} vs ${listMapping[scheduleToday.gameHomeTeam]}');">${listMapping[scheduleToday.gameHomeTeam]}</div></td>
 							<td><a href="javascript:alert('ALERT');"><span class="glyphicon glyphicon-stats"></span></a></td>
 						</tr>
 					</c:forEach>
@@ -113,7 +183,8 @@
 		      </table>
 		    </div> 
           </div> 
-          <div class="thumbnail" id="today">
+                     
+          <div class="thumbnail" id="tomorrow">
           	<div class="bs-example">
           	  <p>
           	  	<h3>NBA <c:out value="${tomorrow}"/></h3>
@@ -133,8 +204,8 @@
 						<tr>
 							<td>${status.count}</td>
 							<td>${scheduleTomorrow.gameScheduled}</td>
-							<td>${scheduleTomorrow.gameHomeTeam}</td>
-							<td>${scheduleTomorrow.gameAwayTeam}</td>
+							<td><div class="selectedBet" onclick="addBet('${scheduleTomorrow.gameId}','${scheduleTomorrow.gameAwayTeam}' ,'${listMapping[scheduleTomorrow.gameAwayTeam]}' ,'${listMapping[scheduleTomorrow.gameAwayTeam]} vs ${listMapping[scheduleTomorrow.gameHomeTeam]}');">${listMapping[scheduleTomorrow.gameAwayTeam]}</div></td>
+							<td><div class="selectedBet" onclick="addBet('${scheduleTomorrow.gameId}','${scheduleTomorrow.gameHomeTeam}','${listMapping[scheduleTomorrow.gameHomeTeam]}','${listMapping[scheduleTomorrow.gameAwayTeam]} vs ${listMapping[scheduleTomorrow.gameHomeTeam]}');">${listMapping[scheduleTomorrow.gameHomeTeam]}</div></td>
 							<td><a href="javascript:alert('ALERT');"><span class="glyphicon glyphicon-stats"></span></a></td>
 						</tr>
 					</c:forEach>
@@ -143,7 +214,7 @@
 		    </div> 
           </div> 
       </div>
-
+      
     </div><!-- /.container -->
 
     <div class="container">
