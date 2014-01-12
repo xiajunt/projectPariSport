@@ -1,11 +1,9 @@
 package projetPariSport.structObject;
 
-import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
-import com.googlecode.objectify.annotation.Parent;
 
 
 /**
@@ -26,7 +24,7 @@ public class Game implements IDataCenterObject {
 	private String gameId;
 	private String betTeamId;
 	private double cotation;
-	private @Parent Key<Betting> parent;
+	private @Index long bettingId;
 	private @Index boolean end;
 	private boolean win;
 	
@@ -39,11 +37,11 @@ public class Game implements IDataCenterObject {
 		this.gameId = gameId;
 		this.betTeamId = betTeamId;
 		this.cotation = cotation;
-		this.parent = Key.create(Betting.class, bet.getId());
+		this.bettingId = bet.getId();
 		this.end = false;
 	}
 	
-	public long getId()
+	public Long getId()
 	{
 		return id;
 	}

@@ -168,19 +168,19 @@ public class DataCenterTool {
 	public static List<Betting> getOldBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true).order("id").list();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true) .list();
 	}
 	
 	public static List<Betting> getNewBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).order("id").list();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).list();
 	}
 	
 	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Game.class).ancestor(ancest).list();
+		return ofy().load().type(Game.class).filter("bettingId =", ancest.getId()).list();
 	}
 	
 	/*Operation on Schedule*/
