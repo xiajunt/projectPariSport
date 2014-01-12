@@ -1,5 +1,5 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
- %@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.google.appengine.api.users.*" %>
 <%@ page import="projetPariSport.structObject.Account" %>
 <%@ page import="projetPariSport.tools.DataCenterTool" %>
@@ -134,7 +134,7 @@
         <div class="col-md-3">
           <p class="lead">Game betting</p>
           <div class="list-group text-center">
-          	<!-- Lister la liste des conférences -->
+          	<!-- Lister la liste des confÃ©rences -->
           	<a href="#" class="list-group-item active">NBA</a>
       		<!-- 
       			<a href="#" class="list-group-item active">Printable</a>

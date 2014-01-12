@@ -61,15 +61,48 @@ public class DataCenterTool {
 	
 	/*Operation on datacenter*/
 	
+	/** 
+	 * addDataCenter
+	 * Add the object IDataCenterObject on the datacenter
+	 * 
+	 * @param       the IDataCenterObject to store on the datacenter 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static void addDataCenter(IDataCenterObject obj) {
 		ObjectifyService.ofy();
 		ofy().save().entity(obj).now();
 	}
 	
+	/** 
+	 * addDataCenter
+	 * Add the list of object IDataCenterObject on the datacenter
+	 * 
+	 * @param       the list of IDataCenterObject to store on the datacenter 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static <T extends IDataCenterObject> void addDataCenter(List<T> list) {
 		ObjectifyService.ofy();
 		ofy().save().entities(list).now();
 	}
+	
+	/** 
+	 * getDataCenter
+	 * Get the IDataCenter instance matching the type and id, return null if
+	 * the element is not present on the datacenter
+	 * 
+	 * @param       type of the element
+	 * @param		key of the element
+	 * @return		IDataCenterObject matching the type and id
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static IDataCenterObject getDataCenter(int type, String id) {
 		ObjectifyService.ofy();
@@ -106,6 +139,19 @@ public class DataCenterTool {
 	
 	/*Operation on account*/
 	
+	/** 
+	 * getAccount
+	 * Get the Account if is present on the datastore, else create a new one, store it
+	 * ont the datastore and return it;
+	 * 
+	 * @param       the mail of the account 
+	 * @param		the name of the account
+	 * @return		the Account matching mail and name
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static Account getAccount(String mail, String name)
 	{
 		Account ac = (Account)getDataCenter(Parameter.ACCOUNT, mail);
@@ -118,6 +164,20 @@ public class DataCenterTool {
 	}
 	
 	/*Operation on Batting and Game*/
+	
+	/** 
+	 * putBet
+	 * create a bet on the datastore, if all information are available
+	 * 
+	 * @param       Map with gameId as key and teamId as value
+	 * @param		Account of the player who create the bet
+	 * @param		number of token on this bet
+	 * 
+	 * @return		return true if the bet is available, otherwise false
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     10/01/2104 
+	 */
 	
 	public static boolean putBet(Map<String, String> map, Account ac, int nbrBetToken)
 	{
@@ -164,17 +224,50 @@ public class DataCenterTool {
 		return true;
 	}
 	
+	/** 
+	 * getDataCenterBetting
+	 * Get the list of all Betting about a player
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Betting> getDataCenterBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Betting.class).ancestor(ancest).list();
 	}
 	
+	/** 
+	 * getOldBetting
+	 * Get the list of Betting already end
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Betting> getOldBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true) .list();
 	}
+	
+	/** 
+	 * getNewBetting
+	 * Get the list of Betting haven't done yet
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Betting> getNewBetting(Account ancest)
 	{
