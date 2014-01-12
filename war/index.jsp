@@ -52,7 +52,8 @@
     <script src="../../dist/js/json2.js"></script>
 	<script>
 	var mapBettings = new Object();
-
+	var isLogged = "<%= (userService.getCurrentUser() == null)?false:true %>";
+		
 	function addBet(gameId,teamIdSelected,teamNameSelected, info){
 		 var obj = document.getElementById("betSelections");
 		 var intId = $("#listBets div").length + 1;
@@ -80,9 +81,10 @@
 	
 	function sendBet(){
 		var obj = document.getElementById("stake");
-		
-		if(isNaN($("#stake").val()))
+		if(isLogged == "false")
 		{
+			alert('You must be logged in to place a bet');	
+		}else if(isNaN($("#stake").val()) || $("#stake").val()==""){
 			alert('Only numbers are allowed');
 		}
 		else
@@ -156,9 +158,11 @@
           	<a href="#" class="list-group-item text-center">
           		<button type="button" class="btn btn-warning" onclick="sendBet();">Accept</button>
           	</a>
+          	<% if (userService.getCurrentUser() == null) { %>
 			<a>
 				<div class="alert alert-warning">Please log in to place bet</div>
 			</a>
+			<% }%>
           </div>
         </div>
 
