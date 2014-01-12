@@ -1,10 +1,13 @@
 package projetPariSport.cron;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import projetPariSport.tools.DataCenterTool;
 
 @SuppressWarnings("serial")
 public class Test extends HttpServlet {
@@ -13,7 +16,11 @@ public class Test extends HttpServlet {
 			throws IOException {
     	try
     	{
-    		
+    		Set<String> list = DataCenterTool.getStandingDivisionList();
+    		for (String s : list)
+    		{
+    			System.out.println(s);
+    		}
     	}
     	catch (Exception e)
     	{

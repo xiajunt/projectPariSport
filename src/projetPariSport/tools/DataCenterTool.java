@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import projetPariSport.parameter.Parameter;
@@ -58,6 +59,8 @@ public class DataCenterTool {
 		ObjectifyService.register(TeamPlayer.class);
 	}
 	
+	/*Operation on datacenter*/
+	
 	public static void addDataCenter(IDataCenterObject obj) {
 		ObjectifyService.ofy();
 		ofy().save().entity(obj).now();
@@ -101,6 +104,8 @@ public class DataCenterTool {
 		}
 	}
 	
+	/*Operation on account*/
+	
 	public static Account getAccount(String mail, String name)
 	{
 		Account ac = (Account)getDataCenter(Parameter.ACCOUNT, mail);
@@ -110,6 +115,18 @@ public class DataCenterTool {
 			addDataCenter(ac);
 		}
 		return ac;
+	}
+	
+	/*Operation on Batting and Game*/
+	
+	public static boolean putBet(Map<String, String> map)
+	{
+		Set<String> set = map.keySet();
+		
+		for (String matchId : set)
+		{
+			
+		}
 	}
 	
 	public static List<Betting> getDataCenterBetting(Account ancest)
@@ -130,11 +147,13 @@ public class DataCenterTool {
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).order("id").list();
 	}
 	
-	public static List<Game> getDataCenterBetting(Betting ancest)
+	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Game.class).ancestor(ancest).list();
 	}
+	
+	/*Operation on Schedule*/
 	
 	public static List<Schedule> getPastMatch()
 	{
@@ -160,21 +179,25 @@ public class DataCenterTool {
 		return dateMatch;
 	}
 	
+	/*Operation on Standing*/
+	
 	public static List<Standings> getStanding()
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Standings.class).filter("getAll", Parameter.GETALL).list();
 	}
 	
-	public static List<String> getStandingDivisionList()
+	public static Set<String> getStandingDivisionList()
 	{
 		List<Standings> list = getStanding();
 		Set<String> set = new HashSet<String>();
 		
 		for (Standings s : list)
 			set.add(s.getDivisionName());
-		return new ArrayList<String>(set);
+		return set;
 	}
+	
+	/*Operation on Injury*/
 	
 	public static void delAllInjury()
 	{
