@@ -48,14 +48,14 @@ public class GameSummaryPlayerHandler extends DefaultHandler {
 	}
 		
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
 
-		for(GameSummaryPlayer b : gameSummaryPlayers){
-			System.out.println(b.toString());
-		}
+//		for(GameSummaryPlayer b : gameSummaryPlayers){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<GameSummaryPlayer> getGameSummary()

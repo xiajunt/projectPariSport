@@ -1,6 +1,7 @@
 package projetPariSport.structObject;
 
 import projetPariSport.parameter.Parameter;
+import projetPariSport.tools.DataCenterTool;
 
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
@@ -43,6 +44,7 @@ public class Account implements IDataCenterObject {
 		if ((this.token + token) < 0)
 			return false;
 		this.token += token;
+		DataCenterTool.addDataCenter(this);
 		return true;
 	}
 	

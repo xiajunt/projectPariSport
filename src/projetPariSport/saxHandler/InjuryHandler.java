@@ -51,14 +51,14 @@ public class InjuryHandler extends DefaultHandler {
 	}
 	
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
 
-		for(Injury b : injuries){
-			System.out.println(b.toString());
-		}
+//		for(Injury b : injuries){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<Injury> getInjuries()

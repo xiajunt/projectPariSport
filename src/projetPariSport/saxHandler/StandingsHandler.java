@@ -84,13 +84,13 @@ public class StandingsHandler extends DefaultHandler {
 	}
 	
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
-		for(Standings b : standingsList){
-			System.out.println(b.toString());
-		}
+//		for(Standings b : standingsList){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<Standings> getStandingsList()

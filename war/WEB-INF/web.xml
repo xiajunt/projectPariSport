@@ -33,6 +33,33 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>GameScoreBoxUpdate</servlet-name>
+		<servlet-class>projetPariSport.cron.GameScoreBoxUpdate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GameScoreBoxUpdate</servlet-name>
+		<url-pattern>/cron/gameScoreBoxUpdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GameSummaryUpdate</servlet-name>
+		<servlet-class>projetPariSport.cron.GameSummaryUpdate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GameSummaryUpdate</servlet-name>
+		<url-pattern>/cron/gameSummaryUpdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Test</servlet-name>
+		<servlet-class>projetPariSport.cron.Test</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>LoadIndexServlet</servlet-name>
 		<servlet-class>projetPariSport.servlet.LoadIndexServlet</servlet-class>
 	</servlet>
@@ -40,7 +67,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>LoadIndexServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+			
 	<welcome-file-list>
 		<welcome-file>LoadIndexServlet</welcome-file>
 	</welcome-file-list>

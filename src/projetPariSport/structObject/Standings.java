@@ -17,8 +17,8 @@ import com.googlecode.objectify.annotation.Index;
  * @author Rodier Madiande
  * @date 25/12/2013
  *
- */
 
+ */
 @Entity
 @Cache
 public class Standings extends StructObject implements IDataCenterObject {

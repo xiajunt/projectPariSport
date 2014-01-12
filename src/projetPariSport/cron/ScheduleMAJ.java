@@ -33,8 +33,4 @@ public class ScheduleMAJ extends HttpServlet {
     		e.printStackTrace();
     	}
 	}
-
-	public static void main(String[] args) {
-		NbaDataCenterTool.fillStanding();
-	}
 }

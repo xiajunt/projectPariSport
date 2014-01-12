@@ -2,8 +2,20 @@
 <cronentries>
 	<cron>
 		<url>/cron/everyDayCron</url>
-		<description>Mettre a jour datastore via api</description>
+		<description>Mettre a jour le injury et standing</description>
 		<schedule>every day 05:00</schedule>
+		<timezone>Europe/Paris</timezone>
+	</cron>
+	<cron>
+		<url>/cron/gameScoreBoxUpdate</url>
+		<description>Mettre a jour gameScoreBox</description>
+		<schedule>every day 05:01</schedule>
+		<timezone>Europe/Paris</timezone>
+	</cron>
+	<cron>
+		<url>/cron/gameSummaryUpdate</url>
+		<description>Mettre a jour GameSummary</description>
+		<schedule>every day 05:02</schedule>
 		<timezone>Europe/Paris</timezone>
 	</cron>
 	<cron>

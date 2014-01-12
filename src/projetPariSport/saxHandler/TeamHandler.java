@@ -47,13 +47,13 @@ public class TeamHandler extends DefaultHandler {
 	}
 		
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
-		for(Team b : teams){
-			System.out.println(b.toString());
-		}
+//		for(Team b : teams){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<Team> getTeams()

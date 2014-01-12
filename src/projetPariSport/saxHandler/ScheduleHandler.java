@@ -64,14 +64,14 @@ public class ScheduleHandler extends DefaultHandler {
 	}
 	
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
 
-		for(Schedule b : seasonSchedule){
-			System.out.println(b.toString());
-		}
+//		for(Schedule b : seasonSchedule){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<Schedule> getSeasonSchedule()
