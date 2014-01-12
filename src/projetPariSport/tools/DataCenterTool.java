@@ -61,15 +61,48 @@ public class DataCenterTool {
 	
 	/*Operation on datacenter*/
 	
+	/** 
+	 * addDataCenter
+	 * Add the object IDataCenterObject on the datacenter
+	 * 
+	 * @param       the IDataCenterObject to store on the datacenter 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static void addDataCenter(IDataCenterObject obj) {
 		ObjectifyService.ofy();
 		ofy().save().entity(obj).now();
 	}
 	
+	/** 
+	 * addDataCenter
+	 * Add the list of object IDataCenterObject on the datacenter
+	 * 
+	 * @param       the list of IDataCenterObject to store on the datacenter 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static <T extends IDataCenterObject> void addDataCenter(List<T> list) {
 		ObjectifyService.ofy();
 		ofy().save().entities(list).now();
 	}
+	
+	/** 
+	 * getDataCenter
+	 * Get the IDataCenter instance matching the type and id, return null if
+	 * the element is not present on the datacenter
+	 * 
+	 * @param       type of the element
+	 * @param		key of the element
+	 * @return		IDataCenterObject matching the type and id
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static IDataCenterObject getDataCenter(int type, String id) {
 		ObjectifyService.ofy();
@@ -106,6 +139,19 @@ public class DataCenterTool {
 	
 	/*Operation on account*/
 	
+	/** 
+	 * getAccount
+	 * Get the Account if is present on the datastore, else create a new one, store it
+	 * ont the datastore and return it;
+	 * 
+	 * @param       the mail of the account 
+	 * @param		the name of the account
+	 * @return		the Account matching mail and name
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static Account getAccount(String mail, String name)
 	{
 		Account ac = (Account)getDataCenter(Parameter.ACCOUNT, mail);
@@ -118,6 +164,20 @@ public class DataCenterTool {
 	}
 	
 	/*Operation on Batting and Game*/
+	
+	/** 
+	 * putBet
+	 * create a bet on the datastore, if all information are available
+	 * 
+	 * @param       Map with gameId as key and teamId as value
+	 * @param		Account of the player who create the bet
+	 * @param		number of token on this bet
+	 * 
+	 * @return		return true if the bet is available, otherwise false
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     10/01/2104 
+	 */
 	
 	public static boolean putBet(Map<String, String> map, Account ac, int nbrBetToken)
 	{
@@ -164,11 +224,33 @@ public class DataCenterTool {
 		return true;
 	}
 	
+	/** 
+	 * getDataCenterBetting
+	 * Get the list of all Betting about a player
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Betting> getDataCenterBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Betting.class).ancestor(ancest).list();
 	}
+	
+	/** 
+	 * getOldBetting
+	 * Get the list of Betting already end
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Betting> getOldBetting(Account ancest)
 	{
@@ -176,11 +258,33 @@ public class DataCenterTool {
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true) .list();
 	}
 	
+	/** 
+	 * getNewBetting
+	 * Get the list of Betting haven't done yet
+	 * 
+	 * @param       Account of the player
+	 * @return		List of player Betting 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Betting> getNewBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).list();
 	}
+	
+	/** 
+	 * getNbrBetting
+	 * Get the number of available bet a player have
+	 * 
+	 * @param       Account of the player
+	 * @return		number of the bet
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static int getNbrBetting(Account ancest)
 	{
@@ -188,11 +292,33 @@ public class DataCenterTool {
 		return getNewBetting(ancest).size();
 	}
 	
+	/** 
+	 * getDataCenterBettingGame
+	 * Get the list of Game of a bet
+	 * 
+	 * @param       Betting of the games
+	 * @return		List of the Game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Game.class).filter("bettingId =", ancest.getId()).list();
 	}
+	
+	/** 
+	 * getGameByGameId
+	 * Get the list of Game by gameId
+	 * 
+	 * @param       Id of the game
+	 * @return		List of Game matching gameId
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Game> getGameByGameId(String gameId)
 	{
@@ -200,12 +326,34 @@ public class DataCenterTool {
 		return ofy().load().type(Game.class).filter("gameId =", gameId).list();
 	}
 	
+	/** 
+	 * getBettingByBettingId
+	 * Get the Betting with his id
+	 * 
+	 * @param       Id of Betting
+	 * @return		Betting matching id 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static Betting getBettingByBettingId(long id)
 	{
 		return ofy().load().type(Betting.class).id(id).now();
 	}
 	
 	/*Operation on Schedule*/
+	
+	/** 
+	 * getPastMatch
+	 * Get the list of past game
+	 * 
+	 * 
+	 * @return		List of Schedule of past game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Schedule> getPastMatch()
 	{
@@ -215,6 +363,17 @@ public class DataCenterTool {
 		return past;
 	}
 	
+	/** 
+	 * getFuturMatch
+	 * Get the list of coming game
+	 * 
+	 * 
+	 * @return		List of Schedule of coming game 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Schedule> getFuturMatch()
 	{
 		ObjectifyService.ofy();
@@ -222,6 +381,17 @@ public class DataCenterTool {
 				ofy().load().type(Schedule.class).filter("gameScheduled >", new Date()).order("gameScheduled").list();
 		return futur;
 	}
+	
+	/** 
+	 * getDateMatch
+	 * Get the list of Match on the date day
+	 *
+	 * @param       date in int format (ex: 20140029 for 2014/01/29
+	 * @return		List of Schedule 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static List<Schedule> getDateMatch(int date)
 	{
@@ -233,11 +403,31 @@ public class DataCenterTool {
 	
 	/*Operation on Standing*/
 	
+	/** 
+	 * getStanding
+	 * Get the list of all Standing
+	 * 
+	 * @return		List of all Standing 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
+	
 	public static List<Standings> getStanding()
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Standings.class).filter("getAll", Parameter.GETALL).list();
 	}
+	
+	/** 
+	 * getStandingDivisionList
+	 * Get a Set of all NBA division
+	 * 
+	 * @return		Set of division name of NBA 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static Set<String> getStandingDivisionList()
 	{
@@ -250,6 +440,14 @@ public class DataCenterTool {
 	}
 	
 	/*Operation on Injury*/
+	
+	/** 
+	 * delAllInjury
+	 * Delete all Injury on the datastore 
+	 * 
+	 * @author   XIA Juntie 
+	 * @date     20/12/2013 
+	 */
 	
 	public static void delAllInjury()
 	{
