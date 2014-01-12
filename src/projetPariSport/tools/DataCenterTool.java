@@ -98,6 +98,17 @@ public class DataCenterTool {
 		}
 	}
 	
+	public static Account getAccount(String mail, String name)
+	{
+		Account ac = (Account)getDataCenter(Parameter.ACCOUNT, mail);
+		if (ac == null)
+		{
+			ac = new Account(name, mail);
+			addDataCenter(ac);
+		}
+		return ac;
+	}
+	
 	public static List<Betting> getDataCenterBetting(Account ancest)
 	{
 		ObjectifyService.ofy();

@@ -45,14 +45,14 @@ public class GameScoreBoxHandler extends DefaultHandler {
 	}
 	
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
 
-		for(GameScoreBox b : gameScoreBoxes){
-			System.out.println(b.toString());
-		}
+//		for(GameScoreBox b : gameScoreBoxes){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<GameScoreBox> getGameScoreBoxes(){

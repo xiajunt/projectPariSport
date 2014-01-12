@@ -50,13 +50,13 @@ public class TeamPlayerHandler extends DefaultHandler {
 	}
 		
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
-		for(TeamPlayer b : teamsPlayers){
-			System.out.println(b.toString());
-		}
+//		for(TeamPlayer b : teamsPlayers){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<TeamPlayer> getTeamsPlayers()

@@ -67,13 +67,13 @@ public class LeagueHierarchyHandler extends DefaultHandler {
 	}
 		
 	public void startDocument() throws SAXException{
-		System.out.println("Beginning of parsing:");
+//		System.out.println("Beginning of parsing:");
 	}
 	
 	public void endDocument() throws SAXException{
-		for(LeagueHierarchy b : leagueHierarchies){
-			System.out.println(b.toString());
-		}
+//		for(LeagueHierarchy b : leagueHierarchies){
+//			System.out.println(b.toString());
+//		}
 	}
 	
 	public List<LeagueHierarchy> getLeagueHierarchies()
