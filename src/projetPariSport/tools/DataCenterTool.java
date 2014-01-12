@@ -119,15 +119,49 @@ public class DataCenterTool {
 	
 	/*Operation on Batting and Game*/
 	
-	public static boolean putBet(Map<String, String> map)
+	public static boolean putBet(Map<String, String> map, Account ac, int nbrBetToken)
 	{
 		Set<String> set = map.keySet();
+		List<Game> gameList = new ArrayList<Game>();
+		Betting bet = new Betting(ac, nbrBetToken);
+		String teamId;
+		double totalCot = 0;
+		double cot;
 		
-		for (String matchId : set)
+		addDataCenter(bet);
+		if (ac.getToken() < nbrBetToken)
+			return false;
+		for (String gameId : set)
 		{
+			Schedule sched = (Schedule)getDataCenter(Parameter.SCHEDULE, gameId);
+			if (sched == null || sched.getGameScheduled().compareTo(new Date()) < 0)
+			{
+				ofy().delete().entity(bet).now();
+				return false;
+			}
+			teamId = map.get(gameId);
 			
+			if (teamId.compareTo(sched.getGameAwayTeam()) == 0 ||
+				teamId.compareTo(sched.getGameHomeTeam()) == 0)
+			{
+				cot = NbaStatTool.getCotation(teamId);
+				totalCot += cot;
+				Game g = new Game(gameId, teamId, cot, bet);
+				gameList.add(g);
+			}
+			else
+			{
+				ofy().delete().entity(bet).now();
+				return false;
+			}
 		}
-		return false;
+
+		bet.setCotation(totalCot);
+		ac.addToken(-nbrBetToken);
+		addDataCenter(bet);
+		addDataCenter(gameList);
+		addDataCenter(ac);
+		return true;
 	}
 	
 	public static List<Betting> getDataCenterBetting(Account ancest)
@@ -139,19 +173,30 @@ public class DataCenterTool {
 	public static List<Betting> getOldBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true).order("id").list();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", true) .list();
 	}
 	
 	public static List<Betting> getNewBetting(Account ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).order("id").list();
+		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).list();
 	}
 	
 	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
 		ObjectifyService.ofy();
-		return ofy().load().type(Game.class).ancestor(ancest).list();
+		return ofy().load().type(Game.class).filter("bettingId =", ancest.getId()).list();
+	}
+	
+	public static List<Game> getGameByGameId(String gameId)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Game.class).filter("gameId =", gameId).list();
+	}
+	
+	public static Betting getBettingByBettingId(long id)
+	{
+		return ofy().load().type(Betting.class).id(id).now();
 	}
 	
 	/*Operation on Schedule*/
@@ -160,7 +205,7 @@ public class DataCenterTool {
 	{
 		ObjectifyService.ofy();
 		List<Schedule> past =
-				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).order("gameScheduled").list();
+				ofy().load().type(Schedule.class).filter("gameScheduled <=", new Date()).order("-gameScheduled").list();
 		return past;
 	}
 	

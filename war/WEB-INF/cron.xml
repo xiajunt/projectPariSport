@@ -19,6 +19,12 @@
 		<timezone>Europe/Paris</timezone>
 	</cron>
 	<cron>
+		<url>/cron/bettingCheck</url>
+		<description>Verification du resultat des paris</description>
+		<schedule>every sunday 05:03</schedule>
+		<timezone>Europe/Paris</timezone>
+	</cron>
+	<cron>
 		<url>/cron/scheduleMAJ</url>
 		<description>Mettre a jour le schedule</description>
 		<schedule>every sunday 06:00</schedule>

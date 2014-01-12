@@ -22,22 +22,28 @@ import com.googlecode.objectify.annotation.Parent;
 @Cache
 public class Betting implements IDataCenterObject {
 	private @Id Long id;
-	private int nbrBetToken;
+	private int nbrBetToken;				/*number of token on this bet*/
 	private String playerMail;
-	private @Index boolean end;
+	private @Index boolean end;				/*this bet have end*/
 	private @Parent Key<Account> parent;
-	private boolean win;
+	private boolean win;					/*this bet have win (only available when this bet end*/
+	private double cotation;				/*sum of all game cotation*/
 	
 	public Betting()
 	{
 	}
 	
-	public Betting(Account ac, int nbrBetToken, Key<Account> parent)
+	public Betting(Account ac, int nbrBetToken)
 	{
 		this.nbrBetToken = nbrBetToken;
 		this.playerMail = ac.getMail();
 		this.end = false;
-		this.parent = parent;
+		this.parent = Key.create(Account.class, ac.getMail());
+	}
+	
+	public Long getId()
+	{
+		return id;
 	}
 	
 	public int getNbrBetToken()
@@ -52,7 +58,7 @@ public class Betting implements IDataCenterObject {
 	
 	public void setEnd()
 	{
-		end = false;
+		end = true;
 	}
 	
 	public boolean getEnd()
@@ -68,5 +74,15 @@ public class Betting implements IDataCenterObject {
 	public boolean getWin()
 	{
 		return win;
+	}
+	
+	public void setCotation(double cotation)
+	{
+		this.cotation = cotation;
+	}
+	
+	public double getCotation()
+	{
+		return cotation;
 	}
 }

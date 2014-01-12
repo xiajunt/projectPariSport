@@ -1,11 +1,9 @@
 package projetPariSport.structObject;
 
-import com.googlecode.objectify.Key;
 import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
-import com.googlecode.objectify.annotation.Parent;
 
 
 /**
@@ -22,11 +20,11 @@ import com.googlecode.objectify.annotation.Parent;
 @Entity
 @Cache
 public class Game implements IDataCenterObject {
-	private @Id long id;
-	private String gameId;
+	private @Id Long id;
+	private @Index String gameId;
 	private String betTeamId;
-	private int cotation;
-	private @Parent Key<Betting> parent;
+	private double cotation;
+	private @Index long bettingId;
 	private @Index boolean end;
 	private boolean win;
 	
@@ -34,13 +32,18 @@ public class Game implements IDataCenterObject {
 	{
 	}
 	
-	public Game(String gameId, String betTeamId, int cotation, Key<Betting> parent)
+	public Game(String gameId, String betTeamId, double cotation, Betting bet)
 	{
 		this.gameId = gameId;
 		this.betTeamId = betTeamId;
 		this.cotation = cotation;
-		this.parent = parent;
+		this.bettingId = bet.getId();
 		this.end = false;
+	}
+	
+	public Long getId()
+	{
+		return id;
 	}
 	
 	public String getGameId()
@@ -53,9 +56,14 @@ public class Game implements IDataCenterObject {
 		return betTeamId;
 	}
 	
-	public int getCotation()
+	public double getCotation()
 	{
 		return cotation;
+	}
+	
+	public void setEnd()
+	{
+		end = true;
 	}
 	
 	public boolean getEnd()
@@ -71,5 +79,10 @@ public class Game implements IDataCenterObject {
 	public boolean getWin()
 	{
 		return win;
+	}
+	
+	public long getBettingId()
+	{
+		return bettingId;
 	}
 }
