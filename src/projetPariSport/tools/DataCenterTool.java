@@ -182,6 +182,12 @@ public class DataCenterTool {
 		return ofy().load().type(Betting.class).ancestor(ancest).filter("end", false).list();
 	}
 	
+	public static int getNbrBetting(Account ancest)
+	{
+		ObjectifyService.ofy();
+		return getNewBetting(ancest).size();
+	}
+	
 	public static List<Game> getDataCenterBettingGame(Betting ancest)
 	{
 		ObjectifyService.ofy();

@@ -28,7 +28,6 @@ public class Test extends HttpServlet {
                     Account ac = (Account)DataCenterTool.getDataCenter(Parameter.ACCOUNT, "xiajunt@gmail.com");
                     
 //                    DataCenterTool.putBet(map, ac, 500);
-                    
                     List<Betting> l = DataCenterTool.getNewBetting(ac);
                     for (Betting b : l)
                     {
