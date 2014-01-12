@@ -32,10 +32,19 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/cron/everyDayCron</url-pattern>
 	</servlet-mapping>
 	
-		<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+	<servlet>
+		<servlet-name>LoadIndexServlet</servlet-name>
+		<servlet-class>projetPariSport.servlet.LoadIndexServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoadIndexServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>LoadIndexServlet</welcome-file>
 	</welcome-file-list>
-
+	
 	<filter>
         <filter-name>ObjectifyFilter</filter-name>
         <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
