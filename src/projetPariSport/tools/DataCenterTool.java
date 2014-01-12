@@ -183,6 +183,17 @@ public class DataCenterTool {
 		return ofy().load().type(Game.class).filter("bettingId =", ancest.getId()).list();
 	}
 	
+	public static List<Game> getGameByGameId(String gameId)
+	{
+		ObjectifyService.ofy();
+		return ofy().load().type(Game.class).filter("gameId =", gameId).list();
+	}
+	
+	public static Betting getBettingByBettingId(long id)
+	{
+		return ofy().load().type(Betting.class).id(id).now();
+	}
+	
 	/*Operation on Schedule*/
 	
 	public static List<Schedule> getPastMatch()

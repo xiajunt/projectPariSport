@@ -6,15 +6,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	<servlet>
-		<servlet-name>ProjetParisSport</servlet-name>
-		<servlet-class>projetPariSport.ProjetParisSportServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ProjetParisSport</servlet-name>
-		<url-pattern>/projetparissport</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 		<servlet-name>ScheduleMAJ</servlet-name>
 		<servlet-class>projetPariSport.cron.ScheduleMAJ</servlet-class>
 	</servlet>
@@ -48,6 +39,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>GameSummaryUpdate</servlet-name>
 		<url-pattern>/cron/gameSummaryUpdate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BettingCheck</servlet-name>
+		<servlet-class>projetPariSport.cron.BettingCheck</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BettingCheck</servlet-name>
+		<url-pattern>/cron/bettingCheck</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

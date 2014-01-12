@@ -58,7 +58,7 @@ public class Betting implements IDataCenterObject {
 	
 	public void setEnd()
 	{
-		end = false;
+		end = true;
 	}
 	
 	public boolean getEnd()

@@ -21,7 +21,7 @@ import com.googlecode.objectify.annotation.Index;
 @Cache
 public class Game implements IDataCenterObject {
 	private @Id Long id;
-	private String gameId;
+	private @Index String gameId;
 	private String betTeamId;
 	private double cotation;
 	private @Index long bettingId;
@@ -61,6 +61,11 @@ public class Game implements IDataCenterObject {
 		return cotation;
 	}
 	
+	public void setEnd()
+	{
+		end = true;
+	}
+	
 	public boolean getEnd()
 	{
 		return end;
@@ -74,5 +79,10 @@ public class Game implements IDataCenterObject {
 	public boolean getWin()
 	{
 		return win;
+	}
+	
+	public long getBettingId()
+	{
+		return bettingId;
 	}
 }

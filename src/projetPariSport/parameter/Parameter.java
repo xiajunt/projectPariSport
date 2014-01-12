@@ -32,6 +32,7 @@ public class Parameter {
 	public final static int TEAM = 9;
 	public final static int TEAMCOACH = 10;
 	public final static int TEAMPLAYER = 11;
+	public final static int BETTING = 12;
 	
 	/*api information*/
 	/*zbujgdbc3q6gebpruem8sjyn*/
@@ -123,5 +124,17 @@ public class Parameter {
 		
 		return "http://api.sportsdatallc.org/nba-" + apiVersion + "/league/" + date +
 				"/transfers.xml?api_key=" + apiKey;
+	}
+	
+	public static String getWinnerMsg(double id, int token)
+	{
+		String msg = "Felicitation, vous avez gagne " + token + "token a votre pari (" + id + ").";
+		return msg;
+	}
+	
+	public static String getLoserMsg(double id)
+	{
+		String msg = "Vous avez malheureusement perdu votre pari (" + id + ").";
+		return msg;
 	}
 }
