@@ -2,8 +2,11 @@ package projetPariSport.tools;
 
 import static com.googlecode.objectify.ObjectifyService.ofy;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import projetPariSport.parameter.Parameter;
 import projetPariSport.structObject.Account;
@@ -161,6 +164,16 @@ public class DataCenterTool {
 	{
 		ObjectifyService.ofy();
 		return ofy().load().type(Standings.class).filter("getAll", Parameter.GETALL).list();
+	}
+	
+	public static List<String> getStandingDivisionList()
+	{
+		List<Standings> list = getStanding();
+		Set<String> set = new HashSet<String>();
+		
+		for (Standings s : list)
+			set.add(s.getDivisionName());
+		return new ArrayList<String>(set);
 	}
 	
 	public static void delAllInjury()
