@@ -20,92 +20,18 @@
     <meta name="author" content="">
 
     <title>AAR Gambling!</title>
-    <style>
-    body {
-  		padding-top: 70px
-	}
-
-	.thumbnail img {
-  		width: 100%;
-	}
-
-	.ratings {
-  		color: #d17581;
-  		padding-left: 10px;
-  		padding-right: 10px;
-	}	
-
-	.thumbnail {
-  		padding: 0;
-	}
-	
-	.selectedBet:hover {
-		cursor: pointer;
-	}
-
-	.thumbnail .caption-full {
-  		padding: 9px;
-  		color: #333;
-	}
-	
-	footer {
- 		margin: 50px 0;
-	}
-	</style>
 	
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.css" rel="stylesheet">
-    <script src="../../dist/js/json2.js"></script>
-	<script>
-	var mapBettings = new Object();
-	var isLogged = "<%= (userService.getCurrentUser() == null)?false:true %>";
-		
-	function addBet(gameId,teamIdSelected,teamNameSelected, info){
-		 var obj = document.getElementById("betSelections");
-		 var intId = $("#listBets div").length + 1;
-		 
-	     var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-	     var fName = $("<a href=''#' class='list-group-item'><span title='"+info+"'>"+teamNameSelected+"</span>");
-	     var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
-	        removeButton.click(function() {
-	        	delete mapBettings[gameId];
-	            $(this).parent().remove();
-	            if($.isEmptyObject(mapBettings)){
-	            	obj.style.visibility="hidden";
-	            }
-	        });
-	     var fin = $("</a>");	        
-	     if(mapBettings[gameId] != teamIdSelected ){
-	    	 obj.style.visibility="visible";
-	    	 mapBettings[gameId] = teamIdSelected;
-	    	 fieldWrapper.append(fName);
-	    	 fName.append(removeButton);
-	    	 removeButton.append(fin);
-		     $("#listBets").append(fieldWrapper);
-	     }			
-	}
-	
-	function sendBet(){
-		var obj = document.getElementById("stake");
-		if(isLogged == "false")
-		{
-			alert('You must be logged in to place a bet');	
-		}else if(isNaN($("#stake").val()) || $("#stake").val()==""){
-			alert('Only numbers are allowed');
-		}
-		else
-		{
-			mapBettings["stake"] = $( "#single" ).val();
-			if (confirm('Are you sure you confirm your bet ?')) { 
-				alert(JSON.stringify(mapBettings));
-			}
-		}
-	}
-	</script>
+    <link href="../../dist/css/custom.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.js"></script>
+    <script src="../../dist/js/bootbox.js"></script>
+    <script src="../../dist/js/main.js"></script>
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -152,6 +78,10 @@
 				<br />
 				Token : <%=ac.getToken() %></p>
 				
+				<input type="hidden" id="userServiceEmail" value="<%=userService.getCurrentUser().getEmail()%>" />
+				<input type="hidden" id="userServiceNickName" value="<%= userService.getCurrentUser().getNickname()%>" />
+				<input type="hidden" id="token" value="<%=ac.getToken() %>"/>
+				
 				<%List<Betting> listBetting = DataCenterTool.getNewBetting(ac);%>
 				<p class="list-group-item">List of bet :</p>
 				<%for (Betting b : listBetting)
@@ -174,7 +104,7 @@
 				<input type="text" placeholder="Stake..." id="stake" />
 			</a>
           	<a href="#" class="list-group-item text-center">
-          		<button type="button" class="btn btn-warning" onclick="sendBet();">Accept</button>
+          		<button type="button" class="btn btn-warning" onclick="sendBet();return false;">Accept</button>
           	</a>
           	<% if (userService.getCurrentUser() == null) { %>
 			<a>
@@ -245,7 +175,7 @@
 		    </div> 
           </div> 
       </div>
-      
+     </div> 
     </div><!-- /.container -->
 
     <div class="container">
@@ -260,9 +190,5 @@
       </footer>
 
     </div><!-- /.container -->
-
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.js"></script>
   </body>
 </html>

@@ -91,6 +91,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-class>projetPariSport.servlet.BettingServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
+		
 		<servlet-name>BettingServlet</servlet-name>
 		<url-pattern>/betting</url-pattern>
 	</servlet-mapping>
