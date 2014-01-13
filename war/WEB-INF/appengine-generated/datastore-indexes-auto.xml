@@ -1,8 +1,8 @@
-<!-- Indices written at Mon, 13 Jan 2014 00:24:03 CET -->
+<!-- Indices written at Mon, 13 Jan 2014 13:01:02 CET -->
 
 <datastore-indexes>
 
-    <!-- Used 2 times in query history -->
+    <!-- Used 10 times in query history -->
     <datastore-index kind="Schedule" ancestor="false" source="auto">
         <property name="time" direction="asc"/>
         <property name="gameScheduled" direction="asc"/>

@@ -1,21 +1,18 @@
 package projetPariSport.servlet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
-
 import projetPariSport.structObject.Account;
 import projetPariSport.tools.DataCenterTool;
+
+import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
 
 @SuppressWarnings("serial")
 public class BettingServlet extends HttpServlet {
