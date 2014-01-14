@@ -69,24 +69,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>projetPariSport.servlet.LoginServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/login</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>LogoutServlet</servlet-name>
-		<servlet-class>projetPariSport.servlet.LogoutServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LogoutServlet</servlet-name>
-		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 		<servlet-name>BettingServlet</servlet-name>
 		<servlet-class>projetPariSport.servlet.BettingServlet</servlet-class>
 	</servlet>

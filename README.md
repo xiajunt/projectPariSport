@@ -1,7 +1,21 @@
-Projet d'un site paris sport sur le NBA avec google app engine.
+### projectPariSport is a proof of concept  of a paris sports site NBA created by <a href="https://github.com/xiajunt">Juntie XIA</a>, <a href="https://github.com/lionelseleucus">Lionel SELEUCUS</a>, and <a href="https://github.com/rmadiande">Rodier MADIANDE</a>.It was made for the teach unit 'AAR' for 2nd year master students at Université Pierre et Marie Curie (aka Paris 6), in the Computer Science Master, speciality STL.
 
-_l'API Sport Data LLC est utilise pour recuperer les informations concernant les matchs.
-_Le Data Center de google est utilise pour stocker tous les informations.
-_Les utilisateurs se connectent sur l'application avec leur compte google et ils sont credite de 1000 jetons a leur premier connection.
-_Les utilisateurs peuvent parier sur autant de match qu'ils le veulent tant que leurs jetons le leurs permet. Dans le cas ou l'utilisateur n'aura plus de jeton, il ne pourra parrier seulement que sur un seul match a la fois pour une mise de 1 jeton(cadeau de la maison ==> pas de game over).
-_Le gain d'un parie est calculer selon l'equipe sur lequel le joueur mise, et la cote est calculer selon le pourcentage de victoire de l equipe au moment de l'enregistrement du parie (Possible d'ameliorer dans le futur).
+# Technologies used:
+* Google App Engine, Objectify
+* Java EE, SAXParser
+* JavaScript, jQuery, JSON
+* Bootstrap 3
+* API Sportsdatallc.com
+
+# Functional specifications:
+* Authentication via google email.
+* Credits users 1000 tokens welcome, as it's still a game they are credited him with once again exhausted chips.
+* List of NBA games for the pre-season, regular season and playoffs.
+* Quotations are calculated according to the percentage of victories / defeats teams.
+* Bet on one or more matches in choosing the winner.
+* Ability to view the current paris.
+* Sending mail to the user notifying them they have won or lost.
+
+# Getting Started - Instructions:
+* Download and unpack the <a href="https://github.com/xiajunt/projectPariSport.git">projectPariSport</a>.
+* Deploy in the GAE

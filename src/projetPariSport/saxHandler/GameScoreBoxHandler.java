@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.GameScoreBox;
 
+/**
+ * GameScoreBoxHandler - Determines the logic to parse the data GameScoreBox 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class GameScoreBoxHandler extends DefaultHandler {
 	private List<GameScoreBox> gameScoreBoxes;
 	private GameScoreBox gameScoreBox;
@@ -43,18 +52,7 @@ public class GameScoreBoxHandler extends DefaultHandler {
 			gameScoreBox = null;
 		}
 	}
-	
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-
-//		for(GameScoreBox b : gameScoreBoxes){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+		
 	public List<GameScoreBox> getGameScoreBoxes(){
 		return this.gameScoreBoxes;
 	}

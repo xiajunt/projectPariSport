@@ -1,0 +1,11 @@
+<!-- Indices written at Tue, 14 Jan 2014 07:59:32 CET -->
+
+<datastore-indexes>
+
+    <!-- Used 2 times in query history -->
+    <datastore-index kind="Schedule" ancestor="false" source="auto">
+        <property name="time" direction="asc"/>
+        <property name="gameScheduled" direction="asc"/>
+    </datastore-index>
+
+</datastore-indexes>

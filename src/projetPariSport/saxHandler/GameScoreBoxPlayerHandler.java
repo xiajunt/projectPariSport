@@ -1,6 +1,7 @@
 package projetPariSport.saxHandler;
 
 import java.util.LinkedList;
+
 import java.util.List;
 
 import org.xml.sax.Attributes;
@@ -9,6 +10,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.GameScoreBoxPlayer;
 
+/**
+ * GameScoreBoxPlayerHandler - Determines the logic to parse the data GameScoreBoxPlayer 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class GameScoreBoxPlayerHandler extends DefaultHandler {
 	private  List<GameScoreBoxPlayer> gameScoreBoxPlayers;
 	private String gameId, teamId;
@@ -43,18 +53,7 @@ public class GameScoreBoxPlayerHandler extends DefaultHandler {
 			gameScoreBoxPlayer = null;
 		}
 	}
-	
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-
-//		for(GameScoreBoxPlayer b : gameScoreBoxPlayers){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+		
 	public List<GameScoreBoxPlayer> getGameScoreBoxPlayer()
 	{
 		return gameScoreBoxPlayers;

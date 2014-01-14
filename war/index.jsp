@@ -24,11 +24,6 @@
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.css" rel="stylesheet">
     <link href="../../dist/css/custom.css" rel="stylesheet">
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../../dist/js/bootstrap.js"></script>
-    <script src="../../dist/js/bootbox.js"></script>
-    <script src="../../dist/js/main.js"></script>
   </head>
 
   <body>
@@ -47,7 +42,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about">About</a></li>
+            <li><a href="javascript:viewAbout();return false;">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -61,13 +56,10 @@
         <div class="col-md-3">
           <p class="lead">Game betting</p>
           <div class="list-group text-center">
-          	<!-- Lister la liste des conférences -->
           	<a href="#" class="list-group-item active">NBA</a>
-      		<!-- 
-      			<a href="#" class="list-group-item active">Printable</a>
-            	<a href="#" class="list-group-item">Cupcake Wrappers</a>
-            	<a href="#" class="list-group-item">Authentic Dragon Bones</a>
-      		-->
+			
+			<input type="hidden" id="isLogged" value="<%= (userService.getCurrentUser() == null)?false:true %>" />
+			
 			<% if (userService.getCurrentUser() == null) { %>
       			<a href="<%=userService.createLoginURL("/")%>" class="list-group-item" ><i class="glyphicon glyphicon-off"></i>Sign in</a>
 			<% }
@@ -190,5 +182,11 @@
       </footer>
 
     </div><!-- /.container -->
+    
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../../dist/js/bootstrap.js"></script>
+    <script src="../../dist/js/bootbox.js"></script>
+    <script src="../../dist/js/main.js"></script>
   </body>
 </html>

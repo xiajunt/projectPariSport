@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.Injury;
 
+/**
+ * InjuryHandler - Determines the logic to parse the data Injury 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class InjuryHandler extends DefaultHandler {
 	private List<Injury> injuries;
 	private Injury injury;
@@ -49,18 +58,7 @@ public class InjuryHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-	
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-
-//		for(Injury b : injuries){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+		
 	public List<Injury> getInjuries()
 	{
 		return injuries;

@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.TeamPlayer;
 
+/**
+ * TeamPlayerHandler - Determines the logic to parse the data TeamPlayer 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class TeamPlayerHandler extends DefaultHandler {
 	private List<TeamPlayer> teamsPlayers;
 	private TeamPlayer teamPlayer;
@@ -48,17 +57,7 @@ public class TeamPlayerHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-		
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-//		for(TeamPlayer b : teamsPlayers){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+			
 	public List<TeamPlayer> getTeamsPlayers()
 	{
 		return teamsPlayers;

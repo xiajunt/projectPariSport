@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.LeagueHierarchy;
 
+/**
+ * LeagueHierarchyHandler - Determines the logic to parse the data LeagueHierarchy 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class LeagueHierarchyHandler extends DefaultHandler {
 	private List<LeagueHierarchy> leagueHierarchies;
 	private LeagueHierarchy leagueHierarchy;
@@ -65,17 +74,7 @@ public class LeagueHierarchyHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-		
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-//		for(LeagueHierarchy b : leagueHierarchies){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+			
 	public List<LeagueHierarchy> getLeagueHierarchies()
 	{
 		return leagueHierarchies;

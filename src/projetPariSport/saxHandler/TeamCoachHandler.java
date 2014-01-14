@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.TeamCoach;
 
+/**
+ * TeamCoachHandler - Determines the logic to parse the data TeamCoach 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class TeamCoachHandler extends DefaultHandler {
 	private List<TeamCoach> teamsCoaches;
 	private TeamCoach teamCoach;
@@ -30,7 +39,6 @@ public class TeamCoachHandler extends DefaultHandler {
 		}
 	}
 	
-	
 	public void endElement(String uri, String localName, String qName){
 		if(qName.equals("team")){
 			teamsCoaches.add(teamCoach);
@@ -40,17 +48,7 @@ public class TeamCoachHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-		
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-//		for(TeamCoach b : teamsCoaches){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+			
 	public List<TeamCoach> getTeamsCoaches()
 	{
 		return teamsCoaches;

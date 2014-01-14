@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.GameSummaryPlayer;
 
+/**
+ * GameSummaryPlayerHandler - Determines the logic to parse the data GameSummaryPlayer 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class GameSummaryPlayerHandler extends DefaultHandler {
 	private List<GameSummaryPlayer> gameSummaryPlayers;
 	private GameSummaryPlayer gameSummaryPlayer;
@@ -46,18 +55,7 @@ public class GameSummaryPlayerHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-		
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-
-//		for(GameSummaryPlayer b : gameSummaryPlayers){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+			
 	public List<GameSummaryPlayer> getGameSummary()
 	{
 		return gameSummaryPlayers;

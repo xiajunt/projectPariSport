@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.Standings;
 
+/**
+ * StandingsHandler - Determines the logic to parse the data Standings 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class StandingsHandler extends DefaultHandler {
 	private List<Standings> standingsList;
 	private Standings standings;
@@ -81,16 +90,6 @@ public class StandingsHandler extends DefaultHandler {
 		else{
 			/*DO NOTHIN*/
 		}
-	}
-	
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-//		for(Standings b : standingsList){
-//			System.out.println(b.toString());
-//		}
 	}
 	
 	public List<Standings> getStandingsList()

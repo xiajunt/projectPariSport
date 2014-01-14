@@ -9,6 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import projetPariSport.structObject.Schedule;
 
+/**
+ * ScheduleHandler - Determines the logic to parse the data Schedule 
+ *  
+ * @version 1.0
+ *
+ * @author Rodier Madiande
+ * @date 25/12/2013
+ *
+ */
 public class ScheduleHandler extends DefaultHandler {
 	private List<Schedule> seasonSchedule;
 	private Schedule schedule;
@@ -62,18 +71,7 @@ public class ScheduleHandler extends DefaultHandler {
 			/*DO NOTHIN*/
 		}
 	}
-	
-	public void startDocument() throws SAXException{
-//		System.out.println("Beginning of parsing:");
-	}
-	
-	public void endDocument() throws SAXException{
-
-//		for(Schedule b : seasonSchedule){
-//			System.out.println(b.toString());
-//		}
-	}
-	
+		
 	public List<Schedule> getSeasonSchedule()
 	{
 		return seasonSchedule;

@@ -1,27 +1,50 @@
 	var mapBettings = new Object();
-	var isLogged = "<%= (userService.getCurrentUser() == null)?false:true %>";
+	var isLogged = $( "#isLogged" ).val();
+	
+	function viewAbout(){
+		var messageText = '<p>projectPariSport is a proof of concept  of a paris sports site NBA created by <a href="https://github.com/xiajunt">Juntie XIA</a>, <a href="https://github.com/lionelseleucus">Lionel SELEUCUS</a>, and <a href="https://github.com/rmadiande">Rodier MADIANDE</a>.It was made for the teach unit "AAR" for 2nd year master students at Université Pierre et Marie Curie (aka Paris 6), in the Computer Science Master, speciality STL.</p>';
+		messageText += '<br/> <br/>';
+		messageText += '<p>';
+		messageText += "# Functional specifications:<br/>"+
+						"* Authentication via google email.<br/>"+
+						"* Credits users 1000 tokens welcome, as it's still a game they are credited him with once again exhausted chips.<br/>"+
+						"* List of NBA games for the pre-season, regular season and playoffs.<br/>"+
+						"* Quotations are calculated according to the percentage of victories / defeats teams.<br/>"+
+						"* Bet on one or more matches in choosing the winner.<br/>"+
+						"* Ability to view the current paris.<br/>"+
+						"* Sending mail to the user notifying them they have won or lost.<br/>";
+		bootbox.dialog({
+			  message: messageText,
+			  title: "About",
+			  buttons: {
+			    danger: {
+			      label: "Ok",
+			      className: "btn-info",
+			      callback: function() {
+			        //Example.show("uh oh, look out!");
+			      }
+			    }
+			  }
+			});
+	}
 		
 	function addBet(gameId,teamIdSelected,teamNameSelected, info){
 		 var obj = document.getElementById("betSelections");
 		 var intId = $("#listBets div").length + 1;
 		 
 	     var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
-	     var fName = $("<a href=''#' class='list-group-item'><span title='"+info+"'>"+teamNameSelected+"</span>");
-	     var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
-	        removeButton.click(function() {
+	     var fName = $("<a href=''#' class='list-group-item'><span title='"+info+"'>"+teamNameSelected+"</span></a>");
+	     fName.click(function() {
 	        	delete mapBettings[gameId];
 	            $(this).parent().remove();
 	            if($.isEmptyObject(mapBettings)){
 	            	obj.style.visibility="hidden";
 	            }
 	        });
-	     var fin = $("</a>");	        
 	     if(mapBettings[gameId] != teamIdSelected ){
 	    	 obj.style.visibility="visible";
 	    	 mapBettings[gameId] = teamIdSelected;
 	    	 fieldWrapper.append(fName);
-	    	 fName.append(removeButton);
-	    	 removeButton.append(fin);
 		     $("#listBets").append(fieldWrapper);
 	     }			
 	}
