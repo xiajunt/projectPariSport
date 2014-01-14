@@ -43,7 +43,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a href="javascript:viewAbout();return false;">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="javascript:return false;">Contact</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
