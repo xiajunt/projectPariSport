@@ -1,4 +1,4 @@
-### projectPariSport is a proof of concept  of a paris sports site NBA created by <a href="https://github.com/xiajunt">Juntie XIA</a>, <a href="https://github.com/lionelseleucus">Lionel SELEUCUS</a>, and <a href="https://github.com/rmadiande">Rodier MADIANDE</a>.It was made for the teach unit 'AAR' for 2nd year master students at Université Pierre et Marie Curie (aka Paris 6), in the Computer Science Master, speciality STL.
+projectPariSport is a proof of concept  of a paris sports site NBA created by <a href="https://github.com/xiajunt">Juntie XIA</a>, <a href="https://github.com/lionelseleucus">Lionel SELEUCUS</a>, and <a href="https://github.com/rmadiande">Rodier MADIANDE</a>.It was made for the teach unit 'AAR' for 2nd year master students at Université Pierre et Marie Curie (aka Paris 6), in the Computer Science Master, speciality STL.
 
 # Technologies used:
 * Google App Engine, Objectify

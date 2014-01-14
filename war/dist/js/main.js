@@ -27,7 +27,6 @@
 			  }
 			});
 	}
-	var isLogged = "<%= (userService.getCurrentUser() == null)?false:true %>";
 	
 	function noImplementedYet(){
 		bootbox.dialog({
@@ -42,8 +41,7 @@
 			      }
 			    }
 			  }
-			});
-		
+		});
 	}
 		
 	function addBet(gameId,teamIdSelected,teamNameSelected, info){
@@ -83,7 +81,7 @@
 				      }
 				    }
 				  }
-				});
+			});
 			
 		}else if(isNaN($("#stake").val()) || $("#stake").val()==""){
 			bootbox.dialog({
@@ -98,7 +96,7 @@
 				      }
 				    }
 				  }
-				});
+			});
 			
 		}
 		else
@@ -116,7 +114,7 @@
 					      }
 					    }
 					  }
-					});
+				});
 			}else{
 				bootbox.confirm("Are you sure you confirm your bet ?", function(result) {
 					 $.ajax({ 
