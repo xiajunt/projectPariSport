@@ -27,6 +27,24 @@
 			  }
 			});
 	}
+	var isLogged = "<%= (userService.getCurrentUser() == null)?false:true %>";
+	
+	function noImplementedYet(){
+		bootbox.dialog({
+			  message: "Not implemented yet",
+			  title: "Warning",
+			  buttons: {
+			    danger: {
+			      label: "Ok",
+			      className: "btn-warning",
+			      callback: function() {
+			        //Example.show("uh oh, look out!");
+			      }
+			    }
+			  }
+			});
+		
+	}
 		
 	function addBet(gameId,teamIdSelected,teamNameSelected, info){
 		 var obj = document.getElementById("betSelections");

@@ -129,7 +129,7 @@
 							<td>${scheduleToday.gameScheduled}</td>
 							<td><div class="selectedBet" onclick="addBet('${scheduleToday.gameId}','${scheduleToday.gameAwayTeam}','${listMapping[scheduleToday.gameAwayTeam]}','${listMapping[scheduleToday.gameAwayTeam]} vs ${listMapping[scheduleToday.gameHomeTeam]}');">${listMapping[scheduleToday.gameAwayTeam]}</div></td>
 							<td><div class="selectedBet" onclick="addBet('${scheduleToday.gameId}','${scheduleToday.gameHomeTeam}','${listMapping[scheduleToday.gameHomeTeam]}','${listMapping[scheduleToday.gameAwayTeam]} vs ${listMapping[scheduleToday.gameHomeTeam]}');">${listMapping[scheduleToday.gameHomeTeam]}</div></td>
-							<td><a href="javascript:alert('ALERT');"><span class="glyphicon glyphicon-stats"></span></a></td>
+							<td><a href="javascript:noImplementedYet();"><span class="glyphicon glyphicon-stats"></span></a></td>
 						</tr>
 					</c:forEach>
 		        </tbody>
@@ -159,7 +159,7 @@
 							<td>${scheduleTomorrow.gameScheduled}</td>
 							<td><div class="selectedBet" onclick="addBet('${scheduleTomorrow.gameId}','${scheduleTomorrow.gameAwayTeam}' ,'${listMapping[scheduleTomorrow.gameAwayTeam]}' ,'${listMapping[scheduleTomorrow.gameAwayTeam]} vs ${listMapping[scheduleTomorrow.gameHomeTeam]}');">${listMapping[scheduleTomorrow.gameAwayTeam]}</div></td>
 							<td><div class="selectedBet" onclick="addBet('${scheduleTomorrow.gameId}','${scheduleTomorrow.gameHomeTeam}','${listMapping[scheduleTomorrow.gameHomeTeam]}','${listMapping[scheduleTomorrow.gameAwayTeam]} vs ${listMapping[scheduleTomorrow.gameHomeTeam]}');">${listMapping[scheduleTomorrow.gameHomeTeam]}</div></td>
-							<td><a href="javascript:alert('ALERT');"><span class="glyphicon glyphicon-stats"></span></a></td>
+							<td><a href="javascript:noImplementedYet();"><span class="glyphicon glyphicon-stats"></span></a></td>
 						</tr>
 					</c:forEach>
 		        </tbody>
